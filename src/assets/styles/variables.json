@@ -1,6 +1,6 @@
 {
-  "turquoise": "#00bfa5",
-  "teal": "#eeebdf",
+  "main": "#00bfa5",
+  "secondary": "#009688",
   "text-color": "#455a64",
   "dark-grey": "#373e42",
   "fullscreen": "1800px",

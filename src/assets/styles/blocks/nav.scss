@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.nav__list {
+  display: flex;
+  width: 100%;
+}
+
+.nav__item {
+  display: flex;
+  text-align: center;
+  background-color: $main;
+  padding: 14px 32px;
+  border-right: 2px solid rgba(white, .5);
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
+
+.nav__link {
+  color: #ffffff;
+  text-decoration: none;
+}

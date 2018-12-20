@@ -2,9 +2,11 @@ extends ../auth.layout.pug
 
 block profile
   article.profile
-    .profile-img__wrapper
-      .profile__img
-    span.profile__name Корытов Артем
-    span.profile__spec  Личный сайт веб разработчика
-    include ../common/index/socials
-    include ../common/nav
+    .profile__top
+      .profile-img__wrapper
+        .profile__img
+      span.profile__name Корытов Артем
+      span.profile__spec  Личный сайт веб разработчика
+      include ../common/index/socials
+    .profile__bot
+      include ../common/nav

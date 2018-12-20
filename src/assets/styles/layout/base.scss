@@ -1,3 +1,16 @@
+html {
+  font-size: 16px;
+  user-select: none;
+
+  //@include tablets {
+  //  font-size: 14px;
+  //}
+  //
+  //@include phones {
+  //  font-size: 13px;
+  //}
+}
+
 body, html {
   height: 100%;
 }

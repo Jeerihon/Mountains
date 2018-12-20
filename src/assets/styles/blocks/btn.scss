@@ -1,0 +1,15 @@
+.btn__auth {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 0 28px;
+  font-family: 'Roboto-Medium';
+  color: #ffffff;
+  line-height: 45px;
+  transition: all .3s;
+
+  &:hover {
+    background-color: #fff;
+    color: $main;
+  }
+}

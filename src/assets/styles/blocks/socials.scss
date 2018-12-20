@@ -1,7 +1,42 @@
 .socials__list {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.social__ing {
-  fill: #00bfa5;
+.socials__item {
+  height: 100%;
+  padding: 0 15px;
 }
+
+.socials__link {
+  height: 100%;
+  width: 100%;
+}
+
+.social__img {
+  cursor: pointer;
+  fill: $main;
+  opacity: .5;
+  transition: all .3s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &--vk {
+    width: 31px;
+    height: 17px;
+  }
+
+  &--github {
+    width: 26px;
+    height: 22px;
+  }
+
+  &--in {
+    width: 24px;
+    height: 22px;
+  }
+}
+
