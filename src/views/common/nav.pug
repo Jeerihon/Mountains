@@ -1,0 +1,10 @@
+//navigation bar
+-var links = ['Мои работы', 'Обо мне', 'Блог']
+
+nav.nav__wrap
+  ul.nav
+    each link in links
+      - var linkName = link
+
+      li.socials__item
+        a.socials__link(href="#") #{linkName}

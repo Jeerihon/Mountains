@@ -1,6 +1,10 @@
 extends ../auth.layout.pug
 
-block content
-  .hello-world
-    +icon('portfolio_header', 'hello-world__block')
-    .inlined-svg
+block profile
+  article.profile
+    .profile-img__wrapper
+      .profile__img
+    span.profile__name Корытов Артем
+    span.profile__spec  Личный сайт веб разработчика
+    include ../common/index/socials
+    include ../common/nav

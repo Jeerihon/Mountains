@@ -1,9 +1,10 @@
 {
-  "white": "#efeee9",
-  "beige": "#eeebdf",
-  "green": "#16c2aa",
+  "turquoise": "#00bfa5",
+  "teal": "#eeebdf",
   "text-color": "#455a64",
-  "grey": "#373e42",
-  "light-grey": "#dfdcd5",
-  "test" : "#000"
+  "dark-grey": "#373e42",
+  "fullscreen": "1800px",
+  "desktop": "1200px",
+  "tablets": "768px",
+  "phones": "320px"
 }
