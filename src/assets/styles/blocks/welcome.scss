@@ -15,8 +15,6 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  //padding-top: calc(33 * 100 / 1200)%;
-  //padding-right: calc(100 * 100 / 1200)%;
 }
 
 .welcome__content {
@@ -24,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(/assets/images/bg-index.png) center center / cover no-repeat;
+  background: url(./assets/images/bg-index.png) center center / cover no-repeat;
   height: 100%;
   width: 100%;
 }
@@ -32,16 +30,4 @@
 .welcome__bot {
   position: absolute;
   bottom: 15%;
-}
-
-.welcome .nav__item {
-
-  //&:first-child {
-  //  border-radius: 0 0 0 4px;
-  //}
-  //
-  //
-  //&:last-child {
-  //  border-radius: 0 0 4px 0;
-  //}
 }
