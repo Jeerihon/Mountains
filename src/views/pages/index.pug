@@ -1,12 +1,36 @@
 extends ../auth.layout.pug
 
 block profile
-  article.profile
-    .profile__top
-      .profile-img__wrapper
-        .profile__img
-      span.profile__name Корытов Артем
-      span.profile__spec  Личный сайт веб разработчика
-      include ../common/index/socials
-    .profile__bot
-      include ../common/nav
+  article.profile-block
+    .profile-block__top
+      .user
+        .user-img__wrapper
+          img.user__img(src='/assets/images/avatar.jpg')
+        span.user__name Корытов Артем
+        span.user__spec  Личный сайт веб разработчика
+
+        ul.socials__list.profile__socials
+          -
+            var socials = [
+              { name: 'vk', href: 'https://vk.com/mrjeerihon'},
+              { name: 'github', href: 'https://github.com/Jeerihon'},
+              { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+            ]
+
+          each item in socials
+            li.socials__item
+              a(href=`${item.href}`).socials__link
+                +icon(`${item.name}`, 'social__img')
+    .profile-block__bot
+      -
+        var links = [
+          { name: 'Мои работы', href: 'works'},
+          { name: 'Обо мне', href: 'about'},
+          { name: 'Блог', href: 'blog'}
+        ]
+
+      nav.nav
+        ul.nav__list
+          each link in links
+            li.nav__item
+              a.nav__link(href=`${link.href}.html`) #{link.name}

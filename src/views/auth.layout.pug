@@ -1,7 +1,7 @@
 include ./common/_mixins
 
 doctype html
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -9,13 +9,17 @@ html(lang="en")
     title Portfolio | welcome page
     link(rel="stylesheet", href="main.min.css")
   body
-    .wrapper.welcome
-      main.welcome__content
+    .wrapper
+      .welcome__container
         .welcome__top
           button.btn__auth
             span Авторизоваться
-        block profile
-        p.welcome__copyright © Корытов Артем | создано с любовью в LoftSchool | 2018
+
+        main.welcome__content
+          block profile
+
+        .welcome__bot
+          p.copyright.welcome__copyright © Корытов Артем | создано с любовью в LoftSchool | 2018
 
     
 
