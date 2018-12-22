@@ -22,8 +22,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 23px;
-  transition: all .3s;
   cursor: pointer;
+  line-height: 25px;
+  transition: all .3s;
 }
 
 .contacts__link {
@@ -55,7 +56,7 @@
     display: block;
     bottom: 0;
     width: 0;
-    height: 1px;
+    height: 2px;
     opacity: .8;
     background-color: $text-color;
     transition: all .3s;
