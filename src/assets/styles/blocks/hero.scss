@@ -39,5 +39,5 @@
 .hero__arrow-down {
   position: absolute;
   bottom: calc(100 * 100 / 1200)%;
-  cursor: pointer;
+  z-index: 100;
 }
