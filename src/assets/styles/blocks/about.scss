@@ -11,6 +11,15 @@
   width: 50%;
   background-color: $bg-color;
   padding: 20px 0;
+
+  &--right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--bg-dark {
+    background-color: $bg-color--dark;
+  }
 }
 
 .about__content {
@@ -21,36 +30,29 @@
   padding: 0 20px;
 }
 
-.about__col--right {
-  display: flex;
-  flex-direction: column;
-}
-
-.about__col--bg-dark {
-  background-color: $bg-color--dark;
-}
 .about__triangle {
   position: absolute;
+  display: flex;
   bottom: 100%;
   width: 100%;
-}
 
-.about__triangle--left {
-  left: 0;
-}
+  &--left {
+    left: 0;
+  }
 
-.about__triangle--right {
-  //right: 0;
+  &--right {
+    right: 0;
+  }
 }
 
 .about__triangle-pic {
   height: 100%;
+  width: 100%;
   fill: $bg-color;
-}
 
-
-.about__triangle-pic--dark {
-  fill: $bg-color--dark;
+  &--dark {
+    fill: $bg-color--dark;
+  }
 }
 
 .about__title {

@@ -33,5 +33,5 @@ block profile
       nav.nav
         ul.nav__list
           each link in links
-            li.nav__item
-              a.nav__link(href=`${link.href}.html`) #{link.name}
+            li.nav__item.nav__item--profile
+              a.nav__link.nav__link--profile(href=`${link.href}.html`) #{link.name}

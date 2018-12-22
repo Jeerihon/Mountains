@@ -5,15 +5,15 @@
   font-family: 'BERNIERRegular-Regular';
   font-size: calc(63 / 16)rem;
   color: $dark-grey;
+    text-align: center;
   line-height: .75;
 
   &::before,
   &::after {
     content: '';
     display: block;
-    width: calc(22 / 16)rem;
-    height: calc(5 / 16)rem;
-    //margin-top: 7%;
+    width: 22px;
+    height: 5px;
     background-color: $dark-grey;
     opacity: .2;
   }
@@ -25,10 +25,20 @@
   &::after {
     margin-left: calc(20 / 16)rem;
   }
-}
 
-.title--small {
-  font-size: calc(35 / 16)rem;
+  &--small {
+    font-size: calc(35 / 16)rem;
+  }
+
+  &--multiline {
+    line-height: 41px;
+    align-items: initial;
+
+    &::before,
+    &::after {
+      margin-top: 5%;
+    }
+  }
 }
 
 .title-bg {
@@ -46,15 +56,4 @@
   width: 100%;
   fill: $dark-grey;
   opacity: .07;
-}
-
-.title--multiline {
-  text-align: center;
-  line-height: 41px;
-  align-items: initial;
-
-  &::before,
-  &::after {
-    margin-top: 6%;
-  }
 }

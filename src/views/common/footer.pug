@@ -1,2 +1,40 @@
 footer.footer
-  h2 Copyright &copy;
+  .footer__row
+    .footer__col.footer__col--left
+      .footer__nav
+        -
+          var links = [
+            { name: 'Мои работы', href: 'works'},
+            { name: 'Обо мне', href: 'about'},
+            { name: 'Блог', href: 'blog'},
+            { name: 'Авторизация', href: 'index'}
+          ]
+        nav.nav
+          ul.nav__list
+            each link in links
+              li.nav__item
+                a.nav__link.nav__link--hover(href=`${link.href}.html`) #{link.name}
+
+    .footer__col.footer__col--right
+      .footer__socials
+        ul.socials__list
+          -
+            var socials = [
+            { name: 'vk', href: 'https://vk.com/mrjeerihon'},
+            { name: 'github', href: 'https://github.com/Jeerihon'},
+            { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+            ]
+
+          each item in socials
+            li.socials__item
+              a(href=`${item.href}`).socials__link.socials__link--footer
+                +icon(`${item.name}`, 'social__img--footer social__img')
+  .footer__row
+    .footer__col.footer__col--left
+      p.footer__text
+        | Я веб-разработчик из Иркутска, и этот сайт я сделал в рамках
+        | обучения в Школе онлайн образования LoftSchool.
+
+    .footer__col.footer__col--right
+      .footer__copyright
+        p.copyright.footer__text © Корытов Артем | создано с любовью в LoftSchool | 2018

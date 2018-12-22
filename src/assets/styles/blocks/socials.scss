@@ -24,23 +24,52 @@
     opacity: 1;
   }
 
-  &--vk {
+  &--vk_round,
+  &--github_round,
+  &--in_round, {
     width: 31px;
-    height: 17px;
-  }
-
-  &--github {
-    width: 26px;
     height: 22px;
   }
 
-  &--in {
-    width: 24px;
-    height: 22px;
+  &--footer {
+    width: 20px;
+    height: 16px;
+
   }
 }
 
 .social__img--fill-main {
   fill: $main;
+}
+
+.socials__link--footer {
+  position: relative;
+  display: flex;
+  transition: all .3s;
+
+  &:hover {
+    .social__img {
+      fill: rgba($dark-grey, 1);
+    }
+  }
+
+  &:hover:after {
+    background-color: white;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid white;
+    z-index: -10;
+    transition: all .3s;
+
+  }
 }
 
