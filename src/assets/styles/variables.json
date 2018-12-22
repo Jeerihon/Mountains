@@ -1,6 +1,8 @@
 {
   "main": "#00bfa5",
   "secondary": "#009688",
+  "bg-color": "#efeee9",
+  "bg-color--dark": "#eeebdf",
   "text-color": "#455a64",
   "dark-grey": "#373e42",
   "fullscreen": "1800px",

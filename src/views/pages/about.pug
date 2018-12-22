@@ -3,14 +3,61 @@ extends ../main.layout.pug
 block variables
   - var title = 'Обо мне'
 
-block scripts
-  script(src='about.bundle.js')
-
 block content
 
-  section.hero
-    .hero__socials
+  include ../common/hero.pug
 
-    .hero__menu
-    .hero__content
-    .hero__arrow-down
+  section.about__container
+
+    .about__col.about__col--left
+      .about__triangle.about__triangle--left
+        svg(viewBox="0 0 1200 300").about__triangle-pic
+          polygon(points='0,0 0,300 1200,300 1200,280')
+      .about__content
+        .about__title
+          .title-bg
+            +icon('about_header', 'title__pic')
+          h1.title Обо мне
+        .about__userblock
+          article.userblock
+            .userblock__wrap
+              +image('avatar.jpg', 'avatar', 'userblock__img')
+            h2.userblock__title.title.title--small Кто я
+            p.userblock__text
+              | Я веб разработчик из Иркутска. Мне 23 года.
+              | Я занимаюсь разработкой современных сайтов и приложений.
+              | Мне нравится делать интересные и современные проекты.
+            p.userblock__text
+              | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+              | Чуть позже я освежу в нём свой контент.
+              | А пока посмотрите,как тут всё классно и красиво!
+
+    .about__col.about__col--right.about__col--bg-dark
+      .about__triangle.about__triangle--right
+        svg(viewBox="0 0 1200 300").about__triangle-pic.about__triangle-pic--dark
+          polygon(points='1200,50 1200,300 0,300 0,280')
+      .skills
+        h2.skills__title.title--multiline.title.title--small Чем я могу быть полезен
+        p.skills__desc
+          | Больше всего меня привлекет Frontend разработка,
+          | но я также знаком и могу решать не сложные задачи на Backend.
+          | Но давайте по порядку.
+        ul.skills__list
+          -
+            var skills = [
+              { name: 'Frontend', tech: ['HTML5', 'CSS3', 'JavaScript & jQuery']},
+              { name: 'Backend', tech: ['PHP', 'mySQL', 'Node.js & npm', 'Mongo.db']},
+              { name: 'WorkFlow', tech: ['Git', 'Gulp', 'Webpack']}
+            ]
+
+          each skill in skills
+            li.skills__item
+              h3.skills__name #{skill.name}
+              ul.skills__block
+                each tech in skill.tech
+                  li.tech__item #{tech}
+
+
+
+block scripts
+  script(src='about.bundle.js')

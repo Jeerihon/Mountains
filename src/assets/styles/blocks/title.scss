@@ -1,0 +1,60 @@
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'BERNIERRegular-Regular';
+  font-size: calc(63 / 16)rem;
+  color: $dark-grey;
+  line-height: .75;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: calc(22 / 16)rem;
+    height: calc(5 / 16)rem;
+    //margin-top: 7%;
+    background-color: $dark-grey;
+    opacity: .2;
+  }
+
+  &::before {
+    margin-right: calc(20 / 16)rem;
+  }
+
+  &::after {
+    margin-left: calc(20 / 16)rem;
+  }
+}
+
+.title--small {
+  font-size: calc(35 / 16)rem;
+}
+
+.title-bg {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(125 * 100 / 1200)%;
+  transform: translateY(-36%);
+}
+
+.title__pic {
+  width: 100%;
+  fill: $dark-grey;
+  opacity: .07;
+}
+
+.title--multiline {
+  text-align: center;
+  line-height: 41px;
+  align-items: initial;
+
+  &::before,
+  &::after {
+    margin-top: 6%;
+  }
+}

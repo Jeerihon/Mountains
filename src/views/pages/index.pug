@@ -3,11 +3,11 @@ extends ../auth.layout.pug
 block profile
   article.profile-block
     .profile-block__top
-      .user
+      .user.user__textcolor--dark
         .user-img__wrapper
           +image('avatar.jpg', 'avatar pic', 'user__img')
         span.user__name Корытов Артем
-        span.user__spec  Личный сайт веб разработчика
+        span.user__spec.user__spec--ff-regular  Личный сайт веб разработчика
 
         ul.socials__list.profile__socials
           -
@@ -20,7 +20,8 @@ block profile
           each item in socials
             li.socials__item
               a(href=`${item.href}`).socials__link
-                +icon(`${item.name}`, 'social__img')
+                +icon(`${item.name}`, 'social__img--fill-main social__img')
+
     .profile-block__bot
       -
         var links = [

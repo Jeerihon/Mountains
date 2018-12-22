@@ -1,0 +1,12 @@
+.arrow-down__pic {
+  height: 16px;
+  width: 26px;
+  fill: white;
+  cursor: pointer;
+  opacity: .5;
+  transition: all .3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

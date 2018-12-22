@@ -1,5 +1,69 @@
-.hero {
+.about__container {
   position: relative;
+  display: flex;
   height: 100vh;
-  background: #000;
+}
+
+.about__col {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 50%;
+  background-color: $bg-color;
+  padding: 20px 0;
+}
+
+.about__content {
+  display: flex;
+}
+
+.about__title {
+  padding: 0 20px;
+}
+
+.about__col--right {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__col--bg-dark {
+  background-color: $bg-color--dark;
+}
+.about__triangle {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+}
+
+.about__triangle--left {
+  left: 0;
+}
+
+.about__triangle--right {
+  //right: 0;
+}
+
+.about__triangle-pic {
+  height: 100%;
+  fill: $bg-color;
+}
+
+
+.about__triangle-pic--dark {
+  fill: $bg-color--dark;
+}
+
+.about__title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.about__userblock {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 0 20px;
 }

@@ -1,0 +1,29 @@
+// hero section
+
+section.hero__container
+  .hero__socials
+    ul.socials__list
+      -
+        var socials = [
+          { name: 'vk', href: 'https://vk.com/mrjeerihon'},
+          { name: 'github', href: 'https://github.com/Jeerihon'},
+          { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+        ]
+
+      each item in socials
+        li.socials__item
+          a(href=`${item.href}`).socials__link
+            +icon(`${item.name}`, 'social__img')
+  .hero__menu
+    .burger-btn
+      .burger-btn__elem
+  .hero__title
+    +icon('portfolio_header', 'hero__pic')
+  .hero__content
+    .user
+      .user-img__wrapper
+        +image('avatar.jpg', 'avatar pic', 'user__img')
+      span.user__name Корытов Артем
+      span.user__spec  Личный сайт веб разработчика
+  .hero__arrow-down
+    +icon('arrow_down', 'arrow-down__pic' )

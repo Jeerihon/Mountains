@@ -3,7 +3,7 @@
 
 //bernier
 @font-face {
-  font-family: 'BERNIER Distressed';
+  font-family: 'BERNIERDistressed-Regular';
   src: url('./assets/fonts/bernier/BERNIERDistressed-Regular.eot');
   src: url('./assets/fonts/bernier/BERNIERDistressed-Regular.eot?#iefix') format('embedded-opentype'),
   url('./assets/fonts/bernier/BERNIERDistressed-Regular.woff2') format('woff2'),
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'BERNIER Shade';
+  font-family: 'BERNIERShade-Regular';
   src: url('./assets/fonts/bernier/BERNIERShade-Regular.eot');
   src: url('./assets/fonts/bernier/BERNIERShade-Regular.eot?#iefix') format('embedded-opentype'),
   url('./assets/fonts/bernier/BERNIERShade-Regular.woff2') format('woff2'),
@@ -27,7 +27,7 @@
 }
 
 @font-face {
-  font-family: 'BERNIER';
+  font-family: 'BERNIERRegular-Regular';
   src: url('./assets/fonts/bernier/BERNIERRegular-Regular.eot');
   src: url('./assets/fonts/bernier/BERNIERRegular-Regular.eot?#iefix') format('embedded-opentype'),
   url('./assets/fonts/bernier/BERNIERRegular-Regular.woff2') format('woff2'),
@@ -125,13 +125,13 @@
 }
 
 @font-face {
-  font-family: 'Roboto-Regularfontawesome/';
-  src: url('./assets/fonts/roboto/Roboto-Regular.eot');
-  src: url('./assets/fonts/roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
-  url('./assets/fonts/roboto/Roboto-Regular.woff2') format('woff2'),
-  url('./assets/fonts/roboto/Roboto-Regular.woff') format('woff'),
-  url('./assets/fonts/roboto/Roboto-Regular.ttf') format('truetype'),
-  url('./assets/fonts/roboto/Roboto-Regular.svg#Roboto-Regular') format('svg');
+  font-family: 'Roboto-Regular';
+  src: url('/assets/fonts/roboto/Roboto-Regular.eot');
+  src: url('/assets/fonts/roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/roboto/Roboto-Regular.woff2') format('woff2'),
+  url('/assets/fonts/roboto/Roboto-Regular.woff') format('woff'),
+  url('/assets/fonts/roboto/Roboto-Regular.ttf') format('truetype'),
+  url('/assets/fonts/roboto/Roboto-Regular.svg#Roboto-Regular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -139,12 +139,12 @@
 //fontawesome
 @font-face {
   font-family: 'FontAwesome';
-  src: url('./assets/fonts/fontawesome/FontAwesome.eot');
-  src: url('./assets/fonts/fontawesome/FontAwesome.eot?#iefix') format('embedded-opentype'),
-  url('s./assets/fonts/fontawesome/FontAwesome.woff2') format('woff2'),
-  url('s./assets/fonts/fontawesome/FontAwesome.woff') format('woff'),
-  url('s./assets/fonts/fontawesome/FontAwesome.ttf') format('truetype'),
-  url('s./assets/fonts/fontawesome/FontAwesome.svg#FontAwesome') format('svg');
+  src: url('/assets/fonts/fontawesome/FontAwesome.eot');
+  src: url('/assets/fonts/fontawesome/FontAwesome.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/fontawesome/FontAwesome.woff2') format('woff2'),
+  url('/assets/fonts/fontawesome/FontAwesome.woff') format('woff'),
+  url('/assets/fonts/fontawesome/FontAwesome.ttf') format('truetype'),
+  url('/assets/fonts/fontawesome/FontAwesome.svg#FontAwesome') format('svg');
   font-weight: normal;
   font-style: normal;
 }

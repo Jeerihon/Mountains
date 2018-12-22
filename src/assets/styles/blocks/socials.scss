@@ -16,7 +16,7 @@
 
 .social__img {
   cursor: pointer;
-  fill: $main;
+  fill: white;
   opacity: .5;
   transition: all .3s;
 
@@ -38,5 +38,9 @@
     width: 24px;
     height: 22px;
   }
+}
+
+.social__img--fill-main {
+  fill: $main;
 }
 
