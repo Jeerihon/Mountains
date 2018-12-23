@@ -1,0 +1,31 @@
+.reviews__top {
+  height: 100vh;
+}
+
+.reviews__bot {
+  display: flex;
+  height: 100vh;
+  background: url(./assets/images/bg/bg-review.png) center center / cover no-repeat;
+}
+
+.reviews__title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20.8333333333%;
+  margin: calc(68 / 16)rem 0;
+
+  .title-bg {
+    height: 100%;
+    transform: translateY(-24%);
+  }
+
+  .title__pic {
+    height: 120%;
+  }
+}
+
+.reviews__title-text {
+  padding: 0 10px;
+}

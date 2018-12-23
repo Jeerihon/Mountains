@@ -1,0 +1,46 @@
+.titles__list {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.titles__item {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: calc(42 / 16)rem;
+  margin-bottom: calc(24 / 16)rem;
+  padding-right: calc(17 / 16)rem;
+  cursor: pointer;
+  transition:all .3s;
+
+  &--active {
+    color: $main;
+  }
+
+  &--active {
+    font-family: 'Roboto-Bold';
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: calc(3 / 16)rem;
+    height: 0;
+    background-color: $main;
+    transition: all .3s;
+  }
+}
+
+.titles__item:hover::after,
+.titles__item--active::after {
+      height: calc(42 / 16)rem;
+}
+
+.titles__text {
+  height: auto;
+}

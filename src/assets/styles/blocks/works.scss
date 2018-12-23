@@ -1,0 +1,25 @@
+.works {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $bg-color--light;
+  //background: url(./assets/images/bg.png) center center / cover no-repeat;
+}
+
+.works__content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.works__title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: calc(57 / 16)rem 0
+            calc(62 / 16)rem 0;
+}
+
+
+

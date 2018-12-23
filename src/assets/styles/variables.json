@@ -3,6 +3,7 @@
   "secondary": "#009688",
   "bg-color": "#efeee9",
   "bg-color--dark": "#eeebdf",
+  "bg-color--light": "#faf8f0",
   "text-color": "#455a64",
   "beige": "#dfdcd5",
   "dark-grey": "#373e42",

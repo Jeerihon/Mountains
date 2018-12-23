@@ -1,13 +1,17 @@
+//footer
+
+block variables
+
 footer.footer
   .footer__row
     .footer__col.footer__col--left
       .footer__nav
         -
           var links = [
-            { name: 'Мои работы', href: 'works'},
-            { name: 'Обо мне', href: 'about'},
-            { name: 'Блог', href: 'blog'},
-            { name: 'Авторизация', href: 'index'}
+          { name: 'Мои работы', href: 'works'},
+          { name: 'Обо мне', href: 'about'},
+          { name: 'Блог', href: 'blog'},
+          { name: 'Авторизация', href: 'index'}
           ]
         nav.nav
           ul.nav__list
@@ -24,7 +28,6 @@ footer.footer
             { name: 'github', href: 'https://github.com/Jeerihon'},
             { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
             ]
-
           each item in socials
             li.socials__item
               a(href=`${item.href}`).socials__link.socials__link--footer

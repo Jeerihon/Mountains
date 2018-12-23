@@ -1,0 +1,106 @@
+
+.slider__wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slider__col {
+  width: 50%;
+
+
+  &--left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0efe9;
+  }
+
+  &--right {
+    display: flex;
+    flex-direction: column;
+    background-color: #efebe0;
+  }
+}
+
+.slider__main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+  padding: 12.6% 15.7% 8.2% 13%;
+}
+
+.slider__list {
+  display: flex;
+  width: 100%;
+  height: 30%;
+}
+
+
+
+.slider__btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  padding: 0 5%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $dark-grey;
+    opacity: .5;
+    transition: all .3s;
+  }
+}
+
+.slider__btn:hover::after {
+  opacity: .3;
+}
+
+.slider__btn-pic {
+  position: absolute;
+  fill: white;
+  width: 43px;
+  height: 27px;
+  z-index: 999999;
+}
+
+.slider__btn:hover{
+  .slider__btn-pic {
+    animation: .7s ease-in-out 0s normal none infinite running;
+
+    &--portf_arrow_up {
+      animation-name: bounce-up;
+    }
+
+    &--portf_arrow_down {
+      animation-name: bounce-down;
+    }
+  }
+}
+
+@keyframes bounce-up {
+    0% {transform: translateY(0)}
+    50% {transform: translateY(-50%)}
+    100% {transform: translateY(0)}
+}
+@keyframes bounce-down {
+    0% {transform: translateY(0)}
+    50% {transform: translateY(50%)}
+    100% {transform: translateY(0)}
+}
+
+.slide__img {
+  max-width: 100%;
+}
+

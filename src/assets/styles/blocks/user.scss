@@ -21,16 +21,17 @@
   transform: scale(1.4); //заменить фото и удалить
 }
 
-.user__name {
+.user__title {
   font-family: 'Roboto-Medium';
   font-size: calc(28 / 16)rem;
   margin-bottom: 9px;
 }
 
-.user__spec {
+.user__desc {
   font-family: 'Roboto-Light';
   font-size: 1rem;
   opacity: .8;
+  margin-top: 14px;
 }
 .user__spec--ff-regular {
   font-family: 'Roboto-Regular';

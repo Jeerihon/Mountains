@@ -1,12 +1,13 @@
 extends ../auth.layout.pug
 
-block profile
+
+block content
   article.profile-block
     .profile-block__top
       .user.user__textcolor--dark
         .user-img__wrapper
           +image('avatar.jpg', 'avatar pic', 'user__img')
-        span.user__name Корытов Артем
+        span.user__title Корытов Артем
         span.user__spec.user__spec--ff-regular  Личный сайт веб разработчика
 
         ul.socials__list.profile__socials

@@ -1,0 +1,57 @@
+extends ../main.layout.pug
+
+block variables
+  - var title = 'Мои работы'
+
+block content
+  include ../common/hero.pug
+
+  section.works
+    .works__container
+      .triangle__container
+          .works__triangle.triangle.triangle--left
+            svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--works
+              polygon(points='0,0 0,300 1200,300 1200,280')
+          .triangle.triangle--right
+            svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--works
+              polygon(points='1200,50 1200,300 0,300 0,280')
+      .works__content
+        .works__title
+          .title-bg
+            +icon('works_header', 'title__pic')
+          h1.title Обо мне
+        .slider__wrapper
+          .slider__col.slider__col--left
+            .slider__info.tools
+              h3.title.title--small.tools__title Сайт бургерной
+              .tools__list
+                span.tools__name HTML, CSS, javascript
+              a.tools__btn
+                +icon('link', 'tools__btn-pic')
+                span.tools__btn-text Посмотреть сайт
+
+          .slider__col.slider__col--right
+            .slider__main
+              +image('works/burgers.jpg', 'burgers', 'slide__img slide__burger')
+            ul.slider__list
+              li.slider__btn.slider__btn--prev
+                +image('works/coworking.png', 'burgers', 'slide__img slide__btn-img')
+                +icon('portf_arrow_down', 'slider__btn-pic')
+              li.slider__btn.slider__btn--next
+                +image('works/portfolio.jpg', 'burgers', 'slide__img slide__btn-img')
+                +icon('portf_arrow_up', 'slider__btn-pic')
+  section.reviews
+    .reviews__container
+      .reviews__top
+        .reviews__title
+          .title-bg
+            +icon('about_header', 'title__pic')
+          h2.title.reviews__title-text Что обо мне говорят
+        .reviews__top-col
+        .reviews__top-col
+      .reviews__bot
+
+
+
+block scripts
+  script(src='works.bundle.js')

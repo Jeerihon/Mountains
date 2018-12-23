@@ -4,3 +4,10 @@ mixin icon(iconName, iconClass)
 
 mixin image(imagePath, imageAlt, imageClass)
   img(src=`./assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`)
+
+mixin user(titleText, titleCLass, desc, descClass)
+  .user
+    .user-img__wrapper
+      +image('avatar.jpg', 'avatar pic', 'user__img')
+    span(class=`${titleCLass}`) #{titleText}
+    span(class=`${descClass}`)  #{desc}

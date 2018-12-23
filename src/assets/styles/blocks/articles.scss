@@ -1,0 +1,27 @@
+.articles__item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: calc(5 / 16)rem solid rgba($dark-grey, .07);
+  padding-bottom: calc(70 / 16)rem;
+  margin-bottom: calc(63 / 16)rem;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.articles__title {
+  font-family: 'BERNIERRegular-Regular';
+  font-size: calc(35 / 16)rem;
+  margin-bottom: 10px;
+}
+
+.articles__date {
+  color: rgba($main, .7);
+  margin-bottom: calc(20 / 16)rem;
+}
+
+.article__text-block {
+  margin-bottom: calc(20 / 16)rem;
+}

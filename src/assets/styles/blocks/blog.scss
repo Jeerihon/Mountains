@@ -1,0 +1,37 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $bg-color;
+}
+
+.blog__container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: calc(50 * 100 / 1800)%
+           calc(400 * 100 / 1800)%
+           calc(213 * 100 / 1800)%
+           calc(120 * 100 / 1800)%
+          ;
+}
+
+.block__triangle {
+  display: flex;
+
+  .triangle {
+    width: 50%;
+  }
+}
+
+.blog__titles {
+  width: 30%;
+  height: 100%;
+  padding-top: 7px;
+  padding-right: calc(100 * 100 / 1800)% ;
+}
+
+.blog__articles {
+  width: 70%;
+  height: 100%;
+}

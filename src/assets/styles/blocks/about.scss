@@ -1,13 +1,12 @@
 .about__container {
   position: relative;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .about__col {
   position: relative;
   display: flex;
-  height: 100%;
   width: 50%;
   background-color: $bg-color;
   padding: 20px 0;
@@ -28,31 +27,6 @@
 
 .about__title {
   padding: 0 20px;
-}
-
-.about__triangle {
-  position: absolute;
-  display: flex;
-  bottom: 100%;
-  width: 100%;
-
-  &--left {
-    left: 0;
-  }
-
-  &--right {
-    right: 0;
-  }
-}
-
-.about__triangle-pic {
-  height: 100%;
-  width: 100%;
-  fill: $bg-color;
-
-  &--dark {
-    fill: $bg-color--dark;
-  }
 }
 
 .about__title {
