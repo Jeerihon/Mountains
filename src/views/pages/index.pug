@@ -2,37 +2,43 @@ extends ../auth.layout.pug
 
 
 block content
-  article.profile-block
-    .profile-block__top
-      .user.user__textcolor--dark
-        .user-img__wrapper
-          +image('avatar.jpg', 'avatar pic', 'user__img')
-        span.user__title Корытов Артем
-        span.user__spec.user__spec--ff-regular  Личный сайт веб разработчика
+  figure.side.side--front
+    article.profile-block
+      .profile-block__top
+        .user.user__textcolor--dark
+          .user-img__wrapper
+            +image('avatars/avatar.jpg', 'avatar pic', 'user__img')
+          span.user__title Корытов Артем
+          span.user__spec.user__spec--ff-regular  Личный сайт веб разработчика
 
-        ul.socials__list.profile__socials
-          -
-            var socials = [
-              { name: 'vk', href: 'https://vk.com/mrjeerihon'},
-              { name: 'github', href: 'https://github.com/Jeerihon'},
-              { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
-            ]
+          ul.socials__list.profile__socials
+            -
+              var socials = [
+                { name: 'vk', href: 'https://vk.com/mrjeerihon'},
+                { name: 'github', href: 'https://github.com/Jeerihon'},
+                { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+              ]
 
-          each item in socials
-            li.socials__item
-              a(href=`${item.href}`).socials__link
-                +icon(`${item.name}`, 'social__img--fill-main social__img')
+            each item in socials
+              li.socials__item
+                a(href=`${item.href}`).socials__link
+                  +icon(`${item.name}`, 'social__img--fill-main social__img')
 
-    .profile-block__bot
-      -
-        var links = [
-          { name: 'Мои работы', href: 'works'},
-          { name: 'Обо мне', href: 'about'},
-          { name: 'Блог', href: 'blog'}
-        ]
+      .profile-block__bot
+        -
+          var links = [
+            { name: 'Мои работы', href: 'works'},
+            { name: 'Обо мне', href: 'about'},
+            { name: 'Блог', href: 'blog'}
+          ]
 
-      nav.nav
-        ul.nav__list
-          each link in links
-            li.nav__item.nav__item--profile
-              a.nav__link.nav__link--profile(href=`${link.href}.html`) #{link.name}
+        nav.nav
+          ul.nav__list
+            each link in links
+              li.nav__item.nav__item--profile
+                a.nav__link.nav__link--profile(href=`${link.href}.html`) #{link.name}
+
+  figure.side.side--back
+    article.auth
+      .auth__block
+

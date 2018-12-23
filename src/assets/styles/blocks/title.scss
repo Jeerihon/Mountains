@@ -6,7 +6,6 @@
   font-size: calc(63 / 16)rem;
   color: $dark-grey;
   text-align: center;
-  line-height: .75;
 
   &::before,
   &::after {
@@ -31,7 +30,6 @@
   }
 
   &--multiline {
-    line-height: 41px;
     align-items: initial;
 
     &::before,
@@ -57,7 +55,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  transform: translateY(-36%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title__pic {

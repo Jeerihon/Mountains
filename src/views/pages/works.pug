@@ -42,14 +42,47 @@ block content
                 +icon('portf_arrow_up', 'slider__btn-pic')
   section.reviews
     .reviews__container
+      .reviews__title
+        .title-bg
+          +icon('about_header', 'title__pic')
+        h2.title.reviews__title-text Что обо мне говорят
       .reviews__top
-        .reviews__title
-          .title-bg
-            +icon('about_header', 'title__pic')
-          h2.title.reviews__title-text Что обо мне говорят
-        .reviews__top-col
-        .reviews__top-col
+        .reviews__top-col.reviews__top-col--left
+          .reviews__item.comment
+            span.comment__quotes
+            p.comment__text
+              |Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
+              | 4 месяца только самых тяжелых испытаний и бессонных ночей!
+            .comment__user
+              .comment__img-wrap
+                +image('avatars/dmitriy.png', 'avatar', 'comment__img')
+              .comment__user-desc
+                span.comment__name Ковальчук Дмитрий
+                span.comment__spec основатель Loftschool
+        .reviews__top-col.reviews__top-col--right
+          .reviews__item.comment
+            span.comment__quotes
+            p.comment__text
+              | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
+              | 4 месяца только самых тяжелых испытаний и бессонных ночей!
+            .comment__user
+              .comment__img-wrap
+                +image('avatars/vladimir.png', 'avatar', 'comment__img')
+              .comment__user-desc
+                span.comment__name Сабанцев Владимир
+                span.comment__spec преподаватель
       .reviews__bot
+        .callback
+          form(method='post' autocomplete id="callback").callback__form
+            h3.collback__title.title.title--small Связаться со мной
+            .callback__form-items
+              input(type='text' placeholder='Имя' tabindex='1').callback__input.callback__name
+              input(type='text' placeholder='Email' tabindex='2').callback__input.callback__email
+              textarea( placeholder='Ваше сообщение' tabindex='3').callback__input.callback__text
+            .callback__buttons
+              button(type='submit').callback__btn Отправить
+              button(type='reset').callback__btn  Очистить
+
 
 
 

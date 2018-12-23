@@ -1,7 +1,7 @@
 .about__container {
   position: relative;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .about__col {
@@ -9,7 +9,7 @@
   display: flex;
   width: 50%;
   background-color: $bg-color;
-  padding: 20px 0;
+  padding: 20px;
 
   &--right {
     display: flex;
@@ -26,20 +26,21 @@
 }
 
 .about__title {
-  padding: 0 20px;
-}
-
-.about__title {
   position: relative;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: flex-start;
-  width: 50%;
+  //width: 50%;
+  height: 10%;
+
+  .title-bg {
+    top: 35%;
+  }
 }
 
 .about__userblock {
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding: 0 20px;
+  padding-left: 20px;
 }
