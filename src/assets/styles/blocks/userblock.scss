@@ -2,12 +2,12 @@
 }
 
 .userblock__wrap {
-
+  margin-bottom: calc(40 * 100 / 1200)%;
+  padding: 0 40px;
 }
 
 .userblock__img {
   max-width: 100%;
-  margin-bottom: calc(40 / 16)rem;
 }
 
 .userblock__title {

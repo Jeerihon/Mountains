@@ -2,43 +2,78 @@ extends ../auth.layout.pug
 
 
 block content
-  figure.side.side--front
-    article.profile-block
-      .profile-block__top
-        .user.user__textcolor--dark
-          .user-img__wrapper
-            +image('avatars/avatar.jpg', 'avatar pic', 'user__img')
-          span.user__title Корытов Артем
-          span.user__spec.user__spec--ff-regular  Личный сайт веб разработчика
+  .side__container
+    .side__inner
+      figure.side.side--front
+        article.profile-block
+          .profile-block__top
+            .user.user__textcolor--dark
+              .user-img__wrapper
+                +image('avatars/avatar.jpg', 'avatar pic', 'user__img')
+              span.user__title Корытов Артем
+              span.user__spec.user__spec--ff-regular  Личный сайт веб разработчика
 
-          ul.socials__list.profile__socials
+              ul.socials__list.profile__socials
+                -
+                  var socials = [
+                    { name: 'vk', href: 'https://vk.com/mrjeerihon'},
+                    { name: 'github', href: 'https://github.com/Jeerihon'},
+                    { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+                  ]
+
+                each item in socials
+                  li.socials__item
+                    a(href=`${item.href}`).socials__link
+                      +icon(`${item.name}`, 'social__img--fill-main social__img')
+
+          .profile-block__bot
             -
-              var socials = [
-                { name: 'vk', href: 'https://vk.com/mrjeerihon'},
-                { name: 'github', href: 'https://github.com/Jeerihon'},
-                { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+              var links = [
+                { name: 'Мои работы', href: 'works'},
+                { name: 'Обо мне', href: 'about'},
+                { name: 'Блог', href: 'blog'}
               ]
 
-            each item in socials
-              li.socials__item
-                a(href=`${item.href}`).socials__link
-                  +icon(`${item.name}`, 'social__img--fill-main social__img')
+            nav.nav
+              ul.nav__list
+                each link in links
+                  li.nav__item.nav__item--profile
+                    a.nav__link.nav__link--profile(href=`${link.href}.html`) #{link.name}
 
-      .profile-block__bot
-        -
-          var links = [
-            { name: 'Мои работы', href: 'works'},
-            { name: 'Обо мне', href: 'about'},
-            { name: 'Блог', href: 'blog'}
-          ]
+      figure.side.side--back
+        article.auth
+          .auth__block
+            form(method='post' autocomplete id="callback").auth__form
+              h3.collback__title.title.title--small Связаться со мной
+              .auth__form-items
+                .auth__row
+                  span.auth__row-icon-wrap
+                    +icon('login', 'auth__row-icon')
+                  input(type='text' placeholder='Логин' tabindex='1').auth__input.auth__login
+                .auth__row
+                  span.auth__row-icon-wrap
+                    +icon('password', 'auth__row-icon')
+                  input(type='text' placeholder='Пароль' tabindex='2').auth__input.auth__password
+                .auth-cap
+                  .auth-cap__question
+                    label.auth-cap__block
+                      input(type='checkbox').auth-cap__btn-stock
+                      span.auth-cap__btn-custom.auth-cap__btn-custom--check
+                        +icon('check', 'auth-cap__btn-img')
+                      span.auth-cap__item-text Я человек
+                  .auth-cap__question
+                    span.cap__question-text Вы точно не робот?
+                    .auth-cap__block-wrap
+                      label.auth-cap__block.auth-cap__block--radio
+                        input(type='radio' name='isRobot').auth-cap__btn-stock
+                        span.auth-cap__btn-custom.auth-cap__btn-custom--radio
+                        span.auth-cap__item-text.auth-cap__item-text Да
+                      label.auth-cap__block.auth-cap__block--radio
+                        input(type='radio' name='isRobot').auth-cap__btn-stock
+                        span.auth-cap__btn-custom.auth-cap__btn-custom--radio
+                        span.auth-cap__item-text Не уверен
 
-        nav.nav
-          ul.nav__list
-            each link in links
-              li.nav__item.nav__item--profile
-                a.nav__link.nav__link--profile(href=`${link.href}.html`) #{link.name}
-
-  figure.side.side--back
-    article.auth
-      .auth__block
+              .auth__buttons
+                a.auth__btn На главную
+                button(type='submit').auth__btn  Войти
 

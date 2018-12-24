@@ -6,19 +6,23 @@
   width: auto;
   justify-content: space-between;
   border-radius: 5px;
-  background-color: #fff;
-  opacity: .85;
 }
 
 .profile-block__top {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   padding: 40px 66px;
+  background-color: rgba(white, .85);
 }
 
 .profile-block__bot {
   width: 100%;
+  background-color: rgba($main, .5);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .profile__socials {

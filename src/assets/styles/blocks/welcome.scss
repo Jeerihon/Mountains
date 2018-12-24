@@ -15,9 +15,11 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  z-index: 100;
 }
 
 .welcome__content {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
