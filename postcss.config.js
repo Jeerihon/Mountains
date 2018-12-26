@@ -23,6 +23,15 @@ module.exports = {
       path: "./src/assets/images/icons"
     }),
     require("postcss-svgo"),
-    require("cssnano")()
+    require("cssnano")(),
+    require("postcss-pxtorem")({
+        rootValue: 16,
+        unitPrecision: 5,
+        propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+        selectorBlackList: [],
+        replace: true,
+        mediaQuery: false,
+        minPixelValue: 0
+    })
   ]
 };
