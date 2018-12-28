@@ -6,32 +6,21 @@
 }
 
 .blog__container {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  padding: calc(50 * 100 / 1800)%
-           calc(400 * 100 / 1800)%
-           calc(213 * 100 / 1800)%
-           calc(120 * 100 / 1800)%
-          ;
+  display: grid;
+  grid-template:
+    'hero' 100vh
+    'blog' minmax(100vh, auto)
+  / 1fr;
 }
 
-.block__triangle {
+.block__content {
+  grid-area: blog;
+}
+
+.blog__triangle {
   display: flex;
 
   .triangle {
     width: 50%;
   }
-}
-
-.blog__titles {
-  width: 30%;
-  height: 100%;
-  padding-top: 7px;
-  padding-right: calc(100 * 100 / 1800)% ;
-}
-
-.blog__articles {
-  width: 70%;
-  height: 100%;
 }

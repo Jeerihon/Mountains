@@ -6,6 +6,14 @@
   width: auto;
   justify-content: space-between;
   border-radius: 5px;
+
+  @include phones {
+    width: 98%;
+
+    .user__spec {
+      width: 110%;
+    }
+  }
 }
 
 .profile-block__top {
@@ -14,7 +22,7 @@
   width: 100%;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  padding: 40px 66px;
+  padding: 40px 55px;
   background-color: rgba(white, .85);
 }
 

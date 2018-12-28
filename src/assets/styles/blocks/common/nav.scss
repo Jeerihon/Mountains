@@ -35,6 +35,11 @@
     .nav__link {
       margin-right: 0;
       padding: 14px 31px;
+
+
+      @include phones {
+        padding: 14px 23px;
+      }
     }
   }
 }
@@ -51,4 +56,13 @@
     color: $main;
   }
 
+  @include phones {
+    margin-right: 7px;
+  }
+}
+
+.nav__item:last-child {
+  .nav__link {
+    margin-right: 0;
+  }
 }

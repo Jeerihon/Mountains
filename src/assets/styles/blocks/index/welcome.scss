@@ -3,7 +3,7 @@
 .welcome__container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: max-content 1fr .5fr;
+  grid-template-rows: max-content .75fr .25fr;
   height: 100vh;
   grid-template-areas:
   "welcome-t"
@@ -26,13 +26,6 @@
 
 .welcome__content {
   grid-area: welcome-c;
-  //position: relative;
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: center;
-  //align-items: center;
-  //height: 100%;
-  //width: 100%;
 }
 
 .welcome__bot {
@@ -44,4 +37,16 @@
   height: 100%;
   justify-content: center;
   align-items: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 20px;
+
+  @include phones {
+    flex-direction: column;
+
+    .copyright__name {
+      padding-bottom: 5px;
+    }
+  }
 }

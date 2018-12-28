@@ -1,14 +1,18 @@
 .callback {
   display: flex;
   flex-direction: column;
-  background-color: rgba($beige, .5);
   border-radius: 5px;
   padding-top: 20px;
   width: 380px;
+
+  @include phones {
+    width: 300px;
+    margin-top: 20px;
+  }
 }
 
-.collback__title {
-  margin-bottom: calc(30 / 16)rem;
+.callback__title {
+  margin-bottom: 30px;
 }
 
 .callback__form {
@@ -25,11 +29,11 @@
 .callback__input {
   transition: all .3s;
   display: flex;
-  height: calc(45 / 16)rem;
+  height: 45px;
   border: 2px solid transparent;
   border-radius: 5px;
   outline: none;
-  padding: 0 calc(20 / 16)rem;
+  padding: 0 20px;
   margin-bottom: 20px;
   color: $dark-grey;
 
@@ -42,7 +46,7 @@
   }
 }
 .callback__text {
-  padding-top: calc(15 / 16)rem;
+  padding-top: 15px;
   height: 140px;
   resize: none;
 }
@@ -53,7 +57,7 @@
 }
 
 .callback__btn {
-  background-color: $main;
+  background-color: rgba($main, .3);
   font-family: 'Roboto-Medium';
   color: white;
   width: 100%;
@@ -71,6 +75,6 @@
   }
 
   &:hover {
-    background-color: $secondary;
+    background-color: rgba($main, 1)
   }
 }

@@ -1,7 +1,4 @@
 
-
-
-
 .userblock__container {
   display: grid;
   grid-gap: 20px;
@@ -12,12 +9,10 @@
 
 .userblock {
   grid-area: main;
-  //padding-top: 20px;
 }
 
 .userblock__img-wrap {
   margin-bottom: calc(40 * 100 / 1200)%;
-  //padding: 0 40px;
 }
 
 .userblock__img {

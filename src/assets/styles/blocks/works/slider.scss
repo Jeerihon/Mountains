@@ -9,20 +9,33 @@
 .slider__wrapper {
   display: grid;
   grid-template:
-  "info info main main" 1fr
-  "info info main main" 1fr
-  "info info main main" 1fr
-  "info info btn-prev btn-next" 1fr
+          "info info display display" 70%
+          "info info btn-prev btn-next" 30%
   / 1fr 1fr 1fr 1fr;
   height: 100%;
   background-color: #efebe0;
+
+  @include tablets {
+    grid-template:
+            'display display' 54%
+            'info info' 27%
+            'btn-prev btn-next' 19%
+    / 1fr 1fr;
+    height: 100vh;
+  }
+  @include phones {
+    grid-template:
+            'display display' 46%
+            'info info' min-content
+            'btn-prev btn-next' 16%
+    / 50% 50%;
+  }
 }
 
 .slider__info {
   grid-area: info;
-  justify-content: center;
-  align-items: center;
   background-color: #f0efe9;
+  justify-content: end;
 }
 
 .slider__title {
@@ -31,17 +44,17 @@
   flex-direction: column;
   justify-content: flex-start;
   margin: 57px 62px;
+
+  @include phones {
+    margin: 20px 0 30px 0;
+  }
 }
 
-.slider__content {
-}
-
-.slider__main {
-  grid-area: main;
+.slider__display {
+  grid-area: display;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10%;
 }
 
 .slide__img {
@@ -59,6 +72,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 
   &--prev {
     grid-area: btn-prev;
@@ -77,7 +91,7 @@
     bottom: 0;
     left: 0;
     background-color: $dark-grey;
-    opacity: .5;
+    opacity: .3;
     transition: all .3s;
   }
 }

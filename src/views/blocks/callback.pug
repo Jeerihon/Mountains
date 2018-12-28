@@ -1,0 +1,10 @@
+.callback
+  form(method='post' autocomplete id="callback").callback__form
+    h3.callback__title.title.title--small Связаться со мной
+    .callback__form-items
+      input(type='text' placeholder='Имя' tabindex='1').callback__input.callback__name
+      input(type='text' placeholder='Email' tabindex='2').callback__input.callback__email
+      textarea( placeholder='Ваше сообщение' tabindex='3').callback__input.callback__text
+    .callback__buttons
+      button(type='submit').callback__btn Отправить
+      button(type='reset').callback__btn  Очистить

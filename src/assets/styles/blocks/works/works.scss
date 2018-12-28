@@ -1,10 +1,10 @@
 .works__container {
   display: grid;
   grid-template:
-          'hero' 100vh
-          'works' 100vh
-          'reviews' auto
-    / 1fr;
+     'hero' 100vh
+     'works' minmax(100vh, auto)
+     'reviews' auto
+    / 100vw;
   height: 100%;
 }
 

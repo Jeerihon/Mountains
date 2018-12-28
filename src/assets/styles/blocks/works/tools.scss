@@ -6,10 +6,25 @@
   margin: auto;
   width: 50%;
   height: 100%;
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .tools__title {
   margin-bottom: 37px;
+
+  @include tablets {
+    width: 200%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+
+  @include phones {
+    width: 95%;
+  }
 }
 
 .tools__list {
@@ -20,7 +35,12 @@
   line-height: 50px;
   border-top: 2px solid rgba($secondary, .3);
   border-bottom: 2px solid rgba($secondary, .3);
-  margin-bottom: calc(39 / 16)rem;
+  margin-bottom: 39px;
+
+
+  @include tablets {
+    margin-bottom: 20px;
+  }
 }
 
 .tools__btn {
@@ -36,6 +56,10 @@
 
   &:hover {
     background-color: $secondary;
+  }
+
+  @include phones {
+    margin-bottom: 20px;
   }
 }
 

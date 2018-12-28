@@ -3,7 +3,10 @@ section.reviews
     .reviews__title
       .title-bg
         +icon('about_header', 'title__pic')
-      h2.title.reviews__title-text Что обо мне говорят
+      h2.title.reviews__title-text
+        | Что обо мне
+        br
+        | говорят
     .reviews__item.reviews__item--left
       .comment
         span.comment__quotes
@@ -29,14 +32,7 @@ section.reviews
             span.comment__name Сабанцев Владимир
             span.comment__spec преподаватель
     .reviews__bot
-      .callback
-        form(method='post' autocomplete id="callback").callback__form
-          h3.collback__title.title.title--small Связаться со мной
-          .callback__form-items
-            input(type='text' placeholder='Имя' tabindex='1').callback__input.callback__name
-            input(type='text' placeholder='Email' tabindex='2').callback__input.callback__email
-            textarea( placeholder='Ваше сообщение' tabindex='3').callback__input.callback__text
-          .callback__buttons
-            button(type='submit').callback__btn Отправить
-            button(type='reset').callback__btn  Очистить
+      include ./callback.pug
+      .reviews__arrow-container.arrow__container
+        +icon('portf_arrow_up', 'arrow__up')
 

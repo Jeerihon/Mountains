@@ -15,12 +15,19 @@
 .side {
   width: 100%;
   position: absolute;
+  display: flex;
+  justify-content: center;
   backface-visibility: hidden;
   margin: 0;
   transition: all 1s;
 
   &--front {
     width: auto;
+  }
+  &--back {
+    @include phones {
+      width: 300px;
+    }
   }
 
 }
