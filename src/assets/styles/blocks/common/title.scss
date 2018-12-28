@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   font-family: 'BERNIERRegular-Regular';
   font-size: 63px;
   color: $dark-grey;
@@ -18,15 +19,15 @@
   }
 
   &::before {
-    margin-right: calc(20 / 16)rem;
+    margin-right: 4% ;
   }
 
   &::after {
-    margin-left: calc(20 / 16)rem;
+    margin-left: 4%;
   }
 
   &--small {
-    font-size: calc(35 / 16)rem;
+    font-size: 35px;
   }
 
   &--multiline {
@@ -34,7 +35,7 @@
 
     &::before,
     &::after {
-      margin-top: 5%;
+      margin-top: 3%;
     }
   }
 

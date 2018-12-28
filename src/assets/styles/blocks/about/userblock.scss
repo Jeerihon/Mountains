@@ -1,8 +1,23 @@
 
 
-.userblock__wrap {
+
+
+.userblock__container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template:
+          "title main" 1fr
+          / 1fr 1fr;
+}
+
+.userblock {
+  grid-area: main;
+  //padding-top: 20px;
+}
+
+.userblock__img-wrap {
   margin-bottom: calc(40 * 100 / 1200)%;
-  padding: 0 40px;
+  //padding: 0 40px;
 }
 
 .userblock__img {
@@ -10,11 +25,19 @@
 }
 
 .userblock__title {
-  margin-bottom: 40px;
+  grid-area: title;
+  position: relative;
+
+  .title-bg {
+    top: 3%;
+  }
+}
+
+.userblock__subtitle {
+  margin-bottom: calc(40 * 100 / 1200)%;
 }
 
 .userblock__text {
-  width: 100%;
-  height: 100%;
   margin-bottom: 20px;
+  width: 95%;
 }

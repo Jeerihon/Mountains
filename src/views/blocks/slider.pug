@@ -1,0 +1,23 @@
+section.slider
+  .slider__title
+    .title-bg
+      +icon('works_header', 'title__pic')
+    h1.title Мои работы
+  .slider__wrapper
+    .slider__info
+      .tools
+        h3.title.title--small.tools__title Сайт бургерной
+        .tools__list
+          span.tools__name HTML, CSS, javascript
+        a.tools__btn
+          +icon('link', 'tools__btn-pic')
+          span.tools__btn-text Посмотреть сайт
+
+    .slider__main
+      +image('works/burgers.jpg', 'burgers', 'slide__img slide__burger')
+    .slider__btn.slider__btn--prev
+      +image('works/coworking.png', 'burgers', 'slide__img slide__btn-img')
+      +icon('portf_arrow_down', 'slider__btn-pic')
+    .slider__btn.slider__btn--next
+      +image('works/portfolio.jpg', 'burgers', 'slide__img slide__btn-img')
+      +icon('portf_arrow_up', 'slider__btn-pic')

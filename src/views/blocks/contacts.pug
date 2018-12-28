@@ -1,0 +1,17 @@
+section.contacts
+  iframe.contacts__map(src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9766.209967713034!2d104.30147321341747!3d52.269670964714905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1545509495564" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen)
+  .contacts__block
+    h2.contacts__title.title.title--small Контакты
+    ul.contacts__list
+      -
+        var contacts = [
+        {name:'skype', text:'icecreamyouscream', href: 'skype:icecreamyouscream'},
+        {name:'envelope', text:'korart95@mail.ru', href: 'mailto:korart95@mail.ru'},
+        {name:'phone', text:'+79149196048', href: 'tel:+79149196048'},
+        {name:'map_marker', text:'г.Иркутск, м-н.Березовый', href: ''}
+        ]
+      each contact in contacts
+        li.contacts__item
+          a.contacts__link(href=`${contact.href}`)
+            +icon(`${contact.name}`, 'contacts__img')
+            span.contacts__text #{contact.text}

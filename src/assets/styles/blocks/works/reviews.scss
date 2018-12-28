@@ -1,21 +1,27 @@
 .reviews__container {
   background: url(./assets/images/bg/bg-review.png) center center / cover no-repeat;
+  display: grid;
+  grid-gap: 20px;
+  grid-template:
+    'title title' auto
+    'comment-l comment-r' auto
+    'callback callback' 100vh
+  / 1fr 1fr;
+}
 
+.reviews__top {
+  grid-area: title;
 }
 
 .reviews__bot {
+  grid-area: callback;
   display: flex;
-  height: 100vh;
 }
 
 .reviews__title {
+  grid-area: title;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 20.8333333333%;
-  margin: calc(68 / 16)rem 0;
+  margin: 68px 0;
 
   .title__pic{
     height: 179px;
@@ -30,21 +36,15 @@
   line-height: 1;
 }
 
-.reviews__top {
-  display: flex;
-}
-
-.reviews__top-col {
-  display: flex;
-  width: 50%;
-}
-.reviews__top-col--left {
-  justify-content: flex-end;
-  width: 50%;
-}
-
 .reviews__item {
-  width: 50%;
+
+  &--left{
+    grid-area: comment-l;
+    justify-self: end;
+  }
+  &--right{
+    grid-area: comment-r;
+  }
 }
 
 .reviews__bot {

@@ -4,86 +4,21 @@ block variables
   - var title = 'Мои работы'
 
 block content
-  include ../common/hero.pug
+  .works__container
+    include ../common/hero.pug
 
-  section.works
-    .works__container
+    .works__content
       .triangle__container
-          .works__triangle.triangle.triangle--left
-            svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--works
-              polygon(points='0,0 0,300 1200,300 1200,280')
-          .triangle.triangle--right
-            svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--works
-              polygon(points='1200,50 1200,300 0,300 0,280')
-      .works__content
-        .works__title
-          .title-bg
-            +icon('works_header', 'title__pic')
-          h1.title Обо мне
-        .slider__wrapper
-          .slider__col.slider__col--left
-            .slider__info.tools
-              h3.title.title--small.tools__title Сайт бургерной
-              .tools__list
-                span.tools__name HTML, CSS, javascript
-              a.tools__btn
-                +icon('link', 'tools__btn-pic')
-                span.tools__btn-text Посмотреть сайт
+        .works__triangle.triangle.triangle--left
+          svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--works
+            polygon(points='0,0 0,300 1200,300 1200,280')
+        .triangle.triangle--right
+          svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--works
+            polygon(points='1200,50 1200,300 0,300 0,280')
+      include ../blocks/slider.pug
 
-          .slider__col.slider__col--right
-            .slider__main
-              +image('works/burgers.jpg', 'burgers', 'slide__img slide__burger')
-            ul.slider__list
-              li.slider__btn.slider__btn--prev
-                +image('works/coworking.png', 'burgers', 'slide__img slide__btn-img')
-                +icon('portf_arrow_down', 'slider__btn-pic')
-              li.slider__btn.slider__btn--next
-                +image('works/portfolio.jpg', 'burgers', 'slide__img slide__btn-img')
-                +icon('portf_arrow_up', 'slider__btn-pic')
-  section.reviews
-    .reviews__container
-      .reviews__title
-        .title-bg
-          +icon('about_header', 'title__pic')
-        h2.title.reviews__title-text Что обо мне говорят
-      .reviews__top
-        .reviews__top-col.reviews__top-col--left
-          .reviews__item.comment
-            span.comment__quotes
-            p.comment__text
-              |Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
-              | 4 месяца только самых тяжелых испытаний и бессонных ночей!
-            .comment__user
-              .comment__img-wrap
-                +image('avatars/dmitriy.png', 'avatar', 'comment__img')
-              .comment__user-desc
-                span.comment__name Ковальчук Дмитрий
-                span.comment__spec основатель Loftschool
-        .reviews__top-col.reviews__top-col--right
-          .reviews__item.comment
-            span.comment__quotes
-            p.comment__text
-              | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
-              | 4 месяца только самых тяжелых испытаний и бессонных ночей!
-            .comment__user
-              .comment__img-wrap
-                +image('avatars/vladimir.png', 'avatar', 'comment__img')
-              .comment__user-desc
-                span.comment__name Сабанцев Владимир
-                span.comment__spec преподаватель
-      .reviews__bot
-        .callback
-          form(method='post' autocomplete id="callback").callback__form
-            h3.collback__title.title.title--small Связаться со мной
-            .callback__form-items
-              input(type='text' placeholder='Имя' tabindex='1').callback__input.callback__name
-              input(type='text' placeholder='Email' tabindex='2').callback__input.callback__email
-              textarea( placeholder='Ваше сообщение' tabindex='3').callback__input.callback__text
-            .callback__buttons
-              button(type='submit').callback__btn Отправить
-              button(type='reset').callback__btn  Очистить
-
-
+    .works__reviews
+      include ../blocks/reviews.pug
 
 
 block scripts

@@ -1,14 +1,16 @@
 .comment {
   display: flex;
   flex-direction: column;
-  margin-right: calc(20 / 16)rem;
+  max-width: 350px;
+  height: 100%;
+  margin-right: 20px;
 }
 
 .comment__quotes {
   font-family: "FontAwesome";
   font-size: 36px;
   color: rgba($dark-grey, .2);
-  margin-bottom: calc(10 / 16)rem;
+  margin-bottom: 10px;
 
   &:before {
     content: '\f10d';
@@ -16,13 +18,14 @@
 }
 
 .comment__text {
-  margin-bottom: calc(27 / 16)rem;
-  word-break-wrap: none;
+  margin-bottom: 27px;
 }
 
 .comment__user {
   display: flex;
   align-items: center;
+
+  margin-top: auto;
 }
 
 .comment__user-desc {
@@ -37,7 +40,7 @@
   height: 77px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: calc(22 / 16)rem;
+  margin-right: 22px;
 }
 
 .comment__name {

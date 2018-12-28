@@ -2,10 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+  height: 100%;
 }
 
 .tools__title {
-  margin-bottom: calc(38 / 16)rem;
+  margin-bottom: 37px;
 }
 
 .tools__list {
@@ -37,12 +41,12 @@
 
 .tools__btn-text {
   color: white;
-  line-height: calc(46 / 16)rem;
+  line-height: 46px;
 }
 
 .tools__btn-pic {
-  width: calc(20 / 16)rem;
-  height: calc(19 / 16)rem;
-  margin: 0 calc(11 / 16)rem;
+  width: 20px;
+  height: 19px;
+  margin: 0 11px;
   fill: white;
 }
