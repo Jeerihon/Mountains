@@ -9,9 +9,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 42px;
-  margin-bottom: calc(24 / 16)rem;
-  padding-right: calc(17 / 16)rem;
+  min-height: 42px;
+  margin-bottom: 24px;
+  padding: 0 17px;
   cursor: pointer;
   transition:all .3s;
 
@@ -38,7 +38,7 @@
 
 .titles__item:hover::after,
 .titles__item--active::after {
-      height: calc(42 / 16)rem;
+      height: 100%;
 }
 
 .titles__text {

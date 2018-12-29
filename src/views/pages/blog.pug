@@ -6,7 +6,7 @@ block variables
 block content
   .blog__container
     section.hero__container
-      .hero
+      .hero.hero--blog
         .hero__socials
           ul.socials__list
             -
@@ -27,16 +27,14 @@ block content
           +icon('blog_header', 'hero__pic hero__pic--blog')
         .hero__content
           +user('Блог', 'title title--color-white', 'Статьи, которые я написал', 'user__desc')
-        .hero__arrow-down
-          +icon('arrow_down', 'arrow-down__pic' )
 
 
     .blog__content
       .blog__triangle.triangle__container
-        .triangle.triangle--left
+        .triangle.triangle--left.triangle--blog
           svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--blog
             polygon(points='0,0 0,300 1200,300 1200,280')
-        .triangle.triangle--right
+        .triangle.triangle--right.triangle--blog
           svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--blog
             polygon(points='1200,50 1200,300 0,300 0,280')
       include ../blocks/articles
