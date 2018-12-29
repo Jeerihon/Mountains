@@ -15,6 +15,10 @@
   animation: .7s ease-in-out 0s normal none infinite running;
   animation-name: bounce-up;
   cursor: pointer;
+
+  &--down {
+    animation-name: bounce-down;
+  }
 }
 
 .arrow__up {

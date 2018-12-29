@@ -1,21 +1,50 @@
 .contacts {
   position: relative;
   height: 100vh;
+  display: grid;
+  grid-template:
+    'map' 100vh
+  / 100%;
+
+  @include phones {
+    grid-template:
+      'contacts' min-content
+      'map' 100vh
+    / 100%;
+  }
+}
+
+.contacts__map-container {
+  grid-area: map;
+  z-index: -1;
 }
 
 .contacts__block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  align-self: center;
+  justify-self: center;
+  grid-area: map;
   background-color: #fff;
   opacity: .85;
   border-radius: 5px;
   padding: 35px 40px;
+
+  @include phones {
+    grid-area: contacts;
+    padding: 30px 10px 0 10px;
+    width: 100%;
+  }
 }
 
 .contacts__title {
   margin-bottom: 39px;
+
+  @include phones {
+    margin-bottom: 20px;
+  }
+}
+
+.contacts__list {
+  margin-right: auto;
 }
 
 .contacts__item {

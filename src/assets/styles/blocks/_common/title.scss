@@ -36,7 +36,12 @@
     &::before,
     &::after {
       margin-top: 3%;
+
+      @include desktop {
+        margin-top: 4%;
+      }
     }
+
   }
 
   &--color-white {

@@ -34,6 +34,19 @@
   &--blog {
     fill: #fff;
   }
+
+  &--about {
+    &-left {
+      fill: $bg-color;
+    }
+    &-right {
+      fill: $bg-color--dark;
+
+      @include tablets {
+        fill: $bg-color;
+      }
+    }
+  }
 }
 
 

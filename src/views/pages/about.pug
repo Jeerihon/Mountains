@@ -6,20 +6,17 @@ block variables
 block content
   .about__container
     include ../common/hero.pug
-    section.about__content
+    .about__content
+      .triangle__container
+        .about__triangle.triangle.triangle--left
+          svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--about-left
+            polygon(points='0,0 0,300 1200,300 1200,280')
+        .triangle.triangle--right
+          svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--about-right
+            polygon(points='1200,50 1200,300 0,300 0,280')
       .about__content-container
-        .about__col.about__col--left
-          .triangle.triangle--left
-            svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic
-              polygon(points='0,0 0,300 1200,300 1200,280')
-          .about__content
-            include ../blocks/userblock.pug
-
-        .about__col.about__col--right.about__col--bg-dark
-          .triangle.triangle--right
-            svg(viewBox="0 0 1200 300" preserveAspectRatio="none").triangle-pic.triangle-pic--dark
-              polygon(points='1200,50 1200,300 0,300 0,280')
-          include ../blocks/skills.pug
+        include ../blocks/userblock.pug
+        include ../blocks/skills.pug
 
     .about__contacts
       include ../blocks/contacts.pug
