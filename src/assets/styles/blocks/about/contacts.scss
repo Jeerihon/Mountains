@@ -73,26 +73,17 @@
 }
 
 .contacts__text {
-  position: relative;
   font-family: 'Roboto-Medium';
   font-size: 16px;
   color: $text-color;
-  transition: all .3s;
+  text-decoration: none;
+  background-image: linear-gradient(rgba($text-color, .8), rgba($text-color, .8));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
 
-  &::after {
-    content: '';
-    position: absolute;
-    display: block;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    opacity: .8;
-    background-color: $text-color;
-    transition: all .3s;
+  &:hover {
+    background-size: 100% 2px;
   }
 }
-
-.contacts__text:hover::after {
-  width: 100%;
-}
-
