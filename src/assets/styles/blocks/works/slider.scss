@@ -82,7 +82,7 @@
     grid-area: btn-next;
   }
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
     display: block;
@@ -96,8 +96,8 @@
   }
 }
 
-.slider__btn:hover::after {
-  opacity: .3;
+.slider__btn:hover::before{
+  opacity: .4;
 }
 
 .slider__btn-pic {

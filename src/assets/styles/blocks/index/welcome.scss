@@ -2,13 +2,12 @@
 
 .welcome__container {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: max-content .75fr .25fr;
+  grid-template:
+    "welcome-t" max-content
+    "welcome-c" 75%
+    "welcome-b" 25%
+   / 100%;
   height: 100vh;
-  grid-template-areas:
-  "welcome-t"
-  "welcome-c"
-  "welcome-b";
   background: url(./assets/images/bg/bg-welcome.png) center center / cover no-repeat;
 }
 
