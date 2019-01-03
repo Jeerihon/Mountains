@@ -11,10 +11,11 @@ html(lang="ru")
     link(rel="stylesheet", href="main.min.css")
   body
     .wrapper
+      include ./blocks/parallax.pug
       .welcome__container
         .welcome__top
           .welcome__btns
-            button.btn__auth
+            button.btn__auth#authBtn
               span Авторизоваться
 
         main.welcome__content

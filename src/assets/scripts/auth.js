@@ -1,1 +1,2 @@
-console.log("auth module loaded");
+import "./modules/authBtn";
+import "./modules/parallax";
