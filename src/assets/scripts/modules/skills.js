@@ -1,25 +1,5 @@
 import Vue from 'vue';
 
-const skillsList = {
-    components: {
-        skillsItem
-    },
-    props: {
-        skillsData: Array
-    },
-    template: "#skills-list"
-};
-
-const skillsItem = {
-    components: {
-        skill
-    },
-    props: {
-        skills: Object
-    },
-    template: "#skills-item",
-};
-
 const skill = {
     props: {
         skillTitle: String,
@@ -37,6 +17,27 @@ const skill = {
         this.drawCircleDependsOnPercentage();
     },
     template: "#skill"
+};
+
+const skillsItem = {
+    components: {
+        skill
+    },
+    props: {
+        skills: Object
+    },
+    template: "#skills-item",
+};
+
+
+const skillsList = {
+    components: {
+        skillsItem
+    },
+    props: {
+        skillsData: Array
+    },
+    template: "#skills-list"
 };
 
 new Vue({
