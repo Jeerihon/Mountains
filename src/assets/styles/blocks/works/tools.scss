@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-  width: 50%;
+  width: 60%;
   height: 100%;
 
   @include phones {
@@ -48,7 +48,6 @@
   align-items: center;
   width: 199px;
   height: 46px;
-  display: flex;
   background-color: $main;
   border-radius: 5px;
   cursor: pointer;
@@ -66,6 +65,7 @@
 .tools__btn-text {
   color: white;
   line-height: 46px;
+  text-decoration: none;
 }
 
 .tools__btn-pic {

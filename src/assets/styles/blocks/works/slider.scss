@@ -2,33 +2,33 @@
 .slider {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background-color: $bg-color--light;
 }
 
 .slider__wrapper {
   display: grid;
   grid-template:
-          "info info display display" 70%
-          "info info btn-prev btn-next" 30%
-  / 1fr 1fr 1fr 1fr;
+          "info display " 70%
+          "info btns" 30%
+  / 1fr 1fr;
   height: 100%;
   background-color: #efebe0;
 
   @include tablets {
     grid-template:
-            'display display' 54%
-            'info info' 27%
-            'btn-prev btn-next' 19%
-    / 1fr 1fr;
+            'display' 54vh
+            'info' 27vh
+            'btns' 19vh
+    / 100%;
     height: 100vh;
   }
   @include phones {
     grid-template:
-            'display display' 46%
-            'info info' min-content
-            'btn-prev btn-next' 16%
-    / 50% 50%;
+            'display' 45.5%
+            'info' 38.5%
+            'btns' 1fr
+    / 100%;
   }
 }
 
@@ -59,11 +59,16 @@
 
 .slide__img {
   max-width: 60%;
+
+  &--display {
+    min-width: 80%;
+  }
 }
 
-.slider__buttons {
+.slider__btns {
   grid-area: btns;
   display: flex;
+  height: 100%;
 }
 
 .slider__btn {
@@ -71,16 +76,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
   cursor: pointer;
   user-select: none;
 
-  &--prev {
-    grid-area: btn-prev;
-  }
-
-  &--next {
-    grid-area: btn-next;
-  }
 
   &::before {
     content: '';

@@ -1,1 +1,1 @@
-import "./modules/skills";
+import './modules/skills'
