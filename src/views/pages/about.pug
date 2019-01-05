@@ -16,7 +16,17 @@ block content
             polygon(points='1200,50 1200,300 0,300 0,280')
       .about__content-container
         include ../blocks/userblock.pug
-        include ../blocks/skills.pug
+        .skills__container
+          .skills__title-container
+            h2.skills__title.title--multiline.title.title--small
+              | Чем я могу быть
+              br
+              | Вам полезен
+            p.skills__desc
+              | Больше всего меня привлекет Frontend разработка,
+              | но я также знаком и могу решать не сложные задачи на Backend.
+              | Но давайте по порядку.
+          #skills-component
 
     .about__contacts
       include ../blocks/contacts.pug
