@@ -4,7 +4,7 @@ extends ../auth.layout.pug
 block content
   .side__container
     .side__inner
-      figure.side.side--front
+      figure.side.side--front.js_side--front
         article.profile-block
           .profile-block__top
             .user.user__textcolor--dark
@@ -40,7 +40,7 @@ block content
                   li.nav__item.nav__item--profile
                     a.nav__link.nav__link--profile(href=`${link.href}.html`) #{link.name}
 
-      figure.side.side--back.rotate
+      figure.side.side--back.js_side--back.rotate
         article.auth
           .auth__block
             form(method='post' autocomplete id="callback").auth__form
@@ -74,6 +74,6 @@ block content
                         span.auth-cap__item-text Не уверен
 
               .auth__buttons
-                a.auth__btn#toMainPageBtn На главную
+                a.auth__btn#js_toMainPageBtn На главную
                 button(type='submit').auth__btn  Войти
 

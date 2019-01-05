@@ -1,10 +1,10 @@
 
 (function () {
-    const container = document.querySelector('.welcome__container'),
-        authBtn = document.getElementById('authBtn'),
-        frontSide = document.querySelector('.side--front'),
-        backSide = document.querySelector('.side--back'),
-        toMainPageBtn = document.getElementById('toMainPageBtn')
+    const container = document.querySelector('.js_welcome__container'),
+        authBtn = document.getElementById('js_authBtn'),
+        frontSide = document.querySelector('.js_side--front'),
+        backSide = document.querySelector('.js_side--back'),
+        toMainPageBtn = document.getElementById('js_toMainPageBtn');
 
     container.onclick = function (e) {
         let target = e.target;
