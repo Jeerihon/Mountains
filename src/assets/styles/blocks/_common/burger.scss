@@ -11,19 +11,13 @@
   transition: all .3s;
   z-index: 99999;
 
-  &:hover {
-    opacity: 1;
+  &::before,
+  &::after,
+  &__elem{
+    height: 5px;
+    background-color: white;
+    border-radius: 4px;
   }
-}
-
-.burger-btn__elem,
-.burger-btn__elem::before,
-.burger-btn__elem::after {
-  height: 5px;
-  background-color: white;
-  border-radius: 4px;
-}
-.burger-btn__elem {
 
   &::before,
   &::after {
@@ -39,37 +33,34 @@
   &::after {
     bottom: 3px;
   }
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
+.burger-btn--active {
 
-//
-//.burger-btn--active {
-//
-//  .burger-btn__elem {
-//    opacity: 0;
-//  }
-//
-//  &::before {
-//    margin-bottom: 0px;
-//    transform: translatey(11px) rotate(45deg);
-//  }
-//
-//  &::after {
-//    margin-top: 0;
-//    transform: translatey(3px) rotate(-45deg)
-//  }
-//}
+  .burger-btn__elem {
+    opacity: 0;
+  }
+
+  &::before {
+    margin-bottom: 0px;
+    transform: translatey(11px) rotate(45deg);
+  }
+
+  &::after {
+    margin-top: 0;
+    transform: translatey(-13px) rotate(-45deg)
+  }
+}
 
 .burger-btn--animation {
   animation: .3s linear 0s normal none 1 running rotate;
 }
 
 @keyframes rotate {
-  0 {
-    transform: rotate(0);
-  }
-
-  100% {
-     transform: rotate(360deg);
-   }
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg);}
 }

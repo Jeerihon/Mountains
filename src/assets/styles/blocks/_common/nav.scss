@@ -4,9 +4,64 @@
   border-radius: 5px;
 }
 
+.nav--menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 50%;
+    background-color: rgba($main, .85);
+    transition: all .5s;
+  }
+
+  &:before {
+    left: -100%;
+  }
+
+  &:after {
+    right: -100%;
+  }
+}
+
+.nav--active {
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+
+  .nav__link--menu {
+    opacity: 1;
+    transition: .3s;
+    transition-delay: .5s;
+  }
+}
+
 .nav__list {
   display: flex;
   width: 100%;
+
+
+  &--menu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    z-index: 99;
+  }
 }
 
 .nav__item {
@@ -14,6 +69,18 @@
   justify-content: center;
   cursor: pointer;
   transition: all .2s;
+
+  &--menu {
+    margin-bottom: 100px;
+
+    @include phones {
+      margin-bottom: 50px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
   &--profile {
     background-color: rgba($main, .5);
@@ -54,6 +121,13 @@
 
   &--hover:hover {
     color: $main;
+  }
+
+  &--menu {
+    opacity: 0;
+    margin-right: 0;
+    transition: 0;
+    transition-delay: 0;
   }
 
   @include phones {

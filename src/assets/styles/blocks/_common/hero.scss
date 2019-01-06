@@ -1,5 +1,6 @@
 .hero__container {
   grid-area: hero;
+  position: relative;
 }
 
 .hero {
@@ -25,7 +26,7 @@
 .hero__menu {
   position: absolute;
   top: calc(38 * 100 / 1200)%;
-  right: calc(32 * 100 / 1800)%;
+  right: 32px;
 
   @include phones {
     top: 10px;

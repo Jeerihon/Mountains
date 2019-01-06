@@ -1,6 +1,7 @@
 // hero section
 
 section.hero__container
+  include ./menu.pug
   .hero
     .hero__socials
       ul.socials__list
@@ -16,7 +17,7 @@ section.hero__container
             a(href=`${item.href}`).socials__link
               +icon(`${item.name}`, 'social__img')
     .hero__menu
-      .burger-btn
+      .burger-btn#js_menuBtn
         .burger-btn__elem
     .hero__title
       +icon('portfolio_header', 'hero__pic')
