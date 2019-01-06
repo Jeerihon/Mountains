@@ -8,6 +8,14 @@
     "welcome-b" 1fr
    / 100%;
   height: 100vh;
+
+  @include phones {
+    grid-template:
+      "welcome-t" max-content
+      "welcome-c" 3fr
+      "welcome-b" 10%
+      / 100%;
+  }
 }
 
 .welcome__top {
