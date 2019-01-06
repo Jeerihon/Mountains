@@ -6,6 +6,7 @@ block variables
 block content
   .blog__container
     section.hero__container
+      include ../common/menu.pug
       .hero.hero--blog
         .hero__socials
           ul.socials__list
@@ -21,7 +22,7 @@ block content
                 a(href=`${item.href}`).socials__link
                   +icon(`${item.name}`, 'social__img')
         .hero__menu
-          .burger-btn
+          .burger-btn#js_menuBtn
             .burger-btn__elem
         .hero__title.hero__title--blog
           +icon('blog_header', 'hero__pic hero__pic--blog')

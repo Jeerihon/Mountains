@@ -10,8 +10,8 @@
   right: 0;
   left: 0;
   bottom: 0;
+  display: flex;
   justify-content: center;
-  align-items: center;
   z-index: 999;
 
   &:before,
@@ -79,6 +79,10 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &:first-child {
+      margin-top: 100px;
     }
   }
 
