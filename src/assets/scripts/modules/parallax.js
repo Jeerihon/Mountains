@@ -18,4 +18,4 @@ const moveLayers = e => {
     });
 };
 
-window.addEventListener('mousemove', moveLayers);
+window.addEventListener('mousemove', moveLayers,  {passive: true});

@@ -6,11 +6,17 @@
      'reviews' auto
     / 100vw;
   height: 100%;
+
+  perspective: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .works__content {
   grid-area: works;
   background-color: #faf8f0;
+
+  transform: translateZ(-50px) scale(2);
 }
 
 works__reviews {
