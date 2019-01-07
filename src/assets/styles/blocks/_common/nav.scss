@@ -22,7 +22,7 @@
     height: 100%;
     width: 50%;
     background-color: rgba($main, .85);
-    transition: all .5s;
+    will-change: transform;
   }
 
   &:before {
@@ -36,6 +36,11 @@
 
 .nav--active {
   z-index: 999;
+
+  &:before,
+  &:after {
+    transition: all .5s;
+  }
 
   &:before {
     left: 0;
@@ -61,7 +66,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    z-index: 99;
+    z-index: 999;
   }
 }
 
@@ -83,7 +88,7 @@
     }
 
     &:first-child {
-      margin-top: 100px;
+      margin-top: 111px;
     }
   }
 
@@ -131,8 +136,6 @@
   &--menu {
     opacity: 0;
     margin-right: 0;
-    transition: opacity .5s;
-    transition-delay: 0s;
   }
 
   @include phones {
