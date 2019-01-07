@@ -8,6 +8,6 @@ mixin image(imagePath, imageAlt, imageClass, retinaImg)
 mixin user(titleText, titleCLass, desc, descClass)
   .user
     .user-img__wrapper
-      +image('avatars/avatar.jpg', 'avatar pic', 'user__img')
+      +image('avatars/avatar.jpg', 'avatar pic', 'user__img', '')
     span(class=`${titleCLass}`) #{titleText}
     span(class=`${descClass}`)  #{desc}
