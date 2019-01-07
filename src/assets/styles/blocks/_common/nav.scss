@@ -12,7 +12,7 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  z-index: 999;
+  z-index: -999;
 
   &:before,
   &:after {
@@ -35,6 +35,7 @@
 }
 
 .nav--active {
+  z-index: 999;
 
   &:before {
     left: 0;
@@ -46,7 +47,7 @@
 
   .nav__link--menu {
     opacity: 1;
-    transition: .3s;
+    transition: all .3s;
     transition-delay: .5s;
   }
 }
@@ -130,8 +131,8 @@
   &--menu {
     opacity: 0;
     margin-right: 0;
-    transition: 0;
-    transition-delay: 0;
+    transition: opacity .5s;
+    transition-delay: 0s;
   }
 
   @include phones {
