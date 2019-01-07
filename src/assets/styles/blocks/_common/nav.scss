@@ -5,7 +5,7 @@
 }
 
 .nav--menu {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -13,6 +13,7 @@
   display: flex;
   justify-content: center;
   z-index: -999;
+  overflow-Y: visible;
 
   &:before,
   &:after {
@@ -36,6 +37,11 @@
 
 .nav--active {
   z-index: 999;
+  overflow-Y: scroll;
+
+  @include tablets {
+    overflow-y: hidden;
+  }
 
   &:before,
   &:after {
@@ -146,5 +152,16 @@
 .nav__item:last-child {
   .nav__link {
     margin-right: 0;
+  }
+}
+
+//class for body if menu active
+
+.noscroll {
+  overflow: hidden;
+  padding-right: 17px;
+
+  @include tablets {
+    padding-right: 0;
   }
 }
