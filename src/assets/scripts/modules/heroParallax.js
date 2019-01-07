@@ -1,9 +1,9 @@
 (function () {
 
   let parallax = (function () {
-    let bg = document.querySelector('.hero__bg');
-    let bgText = document.querySelector('.hero__title');
-    let user = document.querySelector('.hero__content');
+    let bg = document.querySelector('.js_hero__bg');
+    let bgText = document.querySelector('.js_hero__title');
+    let user = document.querySelector('.js_hero__content');
 
     return {
       move: function (block, windowScroll, strafeAmount) {

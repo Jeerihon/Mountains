@@ -19,13 +19,22 @@
   right: 0;
   bottom: 0;
   height: 135%;
-  background: url(./assets/images/bg/bg-hero2.png) center -150px / cover no-repeat;
+  background: url(./assets/images/bg/bg-hero--full.png) center -150px / cover no-repeat;
+
+  @include tablets {
+    background: url(./assets/images/bg/bg-hero.png) center -150px / cover no-repeat;
+  }
+
+  @media (min-device-pixel-ratio: 1.5) or (min-resolution: 144dpi) {
+    background: url(./assets/images/bg/bg-hero2x.png) center -150px / cover no-repeat;
+  }
 }
 
 .hero__socials {
   position: absolute;
   top: calc(32 * 100 / 1200)%;
   left: calc(38 * 100 / 1800)%;
+  z-index: 10;
 
   @include phones {
     top: 15px;

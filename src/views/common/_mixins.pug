@@ -2,8 +2,8 @@ mixin icon(iconName, iconClass)
   svg(class=`${iconClass} ${iconClass}--${iconName}`)
     use(xlink:href=`./assets/images/icons/sprite.svg#${iconName}`)
 
-mixin image(imagePath, imageAlt, imageClass)
-  img(src=`./assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`)
+mixin image(imagePath, imageAlt, imageClass, retinaImg)
+  img(src=`./assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`, srcset=`./assets/images/${retinaImg} 2x`)
 
 mixin user(titleText, titleCLass, desc, descClass)
   .user
