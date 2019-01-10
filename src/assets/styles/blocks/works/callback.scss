@@ -1,23 +1,56 @@
 .callback {
+  position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
   padding-top: 20px;
   width: 380px;
+  height: 430px;
+  margin: 0 auto 300px auto;
+  overflow: hidden;
+
+  @include tablets {
+
+    margin: 0 auto 100px auto;
+  }
 
   @include phones {
     width: 300px;
-    margin-top: 20px;
   }
 }
 
-.callback__title {
-  margin-bottom: 30px;
+.callback__bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+
+  img {
+    //max-width: 100%;
+  }
+}
+
+.callback__blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("./assets/images/bg/bg-review2.png") center no-repeat;
+  filter: blur(20px);
+}
+
+.callback__form-wrapper {
+  z-index: 10;
 }
 
 .callback__form {
   display: flex;
   flex-direction: column;
+}
+
+.callback__title {
+  margin-bottom: 30px;
 }
 
 .callback__form-items {

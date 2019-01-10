@@ -1,5 +1,6 @@
 section.reviews
-  .reviews__container
+.reviews__container
+  .reviews__content
     .reviews__title
       .title-bg
         +icon('about_header', 'title__pic')
@@ -7,32 +8,32 @@ section.reviews
         | Что обо мне
         br
         | говорят
-    .reviews__item.reviews__item--left
-      .comment
-        span.comment__quotes
-        p.comment__text
-          |Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
-          | 4 месяца только самых тяжелых испытаний и бессонных ночей!
-        .comment__user
-          .comment__img-wrap
-            +image('avatars/dmitriy.png', 'avatar', 'comment__img', 'avatars/dmitriy2x.png')
-          .comment__user-desc
-            span.comment__name Ковальчук Дмитрий
-            span.comment__spec основатель Loftschool
-    .reviews__item.reviews__item--right
-      .comment
-        span.comment__quotes
-        p.comment__text
-          | Этот код выдержит любые испытания.
-          | Только пожалуйста, не загружайте сайт на слишком старых браузерах!
-        .comment__user
-          .comment__img-wrap
-            +image('avatars/vladimir.png', 'avatar', 'comment__img', 'avatars/vladimir2x.png')
-          .comment__user-desc
-            span.comment__name Сабанцев Владимир
-            span.comment__spec преподаватель
-    .reviews__bot
-      include ./callback.pug
-      .reviews__arrow-container.arrow__container
-        +icon('portf_arrow_up', 'arrow__up')
+    .reviews__comments
+      .reviews__item
+        .comment
+          span.comment__quotes
+          p.comment__text
+            |Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
+            | 4 месяца только самых тяжелых испытаний и бессонных ночей!
+          .comment__user
+            .comment__img-wrap
+              +image('avatars/dmitriy.png', 'avatar', 'comment__img', 'avatars/dmitriy2x.png')
+            .comment__user-desc
+              span.comment__name Ковальчук Дмитрий
+              span.comment__spec основатель Loftschool
+      .reviews__item
+        .comment
+          span.comment__quotes
+          p.comment__text
+            | Этот код выдержит любые испытания.
+            | Только пожалуйста, не загружайте сайт на слишком старых браузерах!
+          .comment__user
+            .comment__img-wrap
+              +image('avatars/vladimir.png', 'avatar', 'comment__img', 'avatars/vladimir2x.png')
+            .comment__user-desc
+              span.comment__name Сабанцев Владимир
+              span.comment__spec преподаватель
+    include ./callback.pug
+    .reviews__arrow-container.arrow__container
+      +icon('portf_arrow_up', 'arrow__up')
 
