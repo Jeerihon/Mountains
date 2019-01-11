@@ -25,8 +25,8 @@
   top: 0;
   left: 0;
 
-  img {
-    //max-width: 100%;
+  &-img {
+    object-fit: contain;
   }
 }
 
@@ -34,9 +34,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  background: url("./assets/images/bg/bg-review2.png") center no-repeat;
+  bottom: 0;
+  background: url("./assets/images/bg/bg-review.png") center no-repeat;
   filter: blur(20px);
 }
 
