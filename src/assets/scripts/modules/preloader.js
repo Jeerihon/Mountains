@@ -22,13 +22,11 @@
       function imageLoaded () {
         loadedImg++;
 
-        const percent = Math.round(100 / imagesCount * loadedImg);
-        progress.innerHTML = percent;
-
         const curStrokeDashArray = Math.round(initStrokeDashOffset / imagesCount * loadedImg);
         rounds.style.strokeDashoffset = initStrokeDashOffset -  curStrokeDashArray;
-        console.log(percent);
 
+        const percent = Math.round(100 / imagesCount * loadedImg);
+        progress.innerHTML = percent;
       }
 
 
