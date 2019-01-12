@@ -6,16 +6,16 @@
     let user = document.querySelector('.js_hero__content');
 
     return {
-      move: function (block, windowScroll, strafeAmount) {
+      move(block, windowScroll, strafeAmount) {
         let strafe = windowScroll / -strafeAmount + '%';
         let style = block.style;
-        let transformString = 'translate3d(0,' + strafe +', 0)'
+        let transformString = `translate3d(0, ${strafe}, 0)`;
 
         style.transform = transformString;
         style.webkitTransform = transformString;
       },
 
-      init: function (wScroll) {
+      init(wScroll) {
         this.move(bg, wScroll, 100);
         this.move(bgText, wScroll, 40);
         this.move(user, wScroll, 5);

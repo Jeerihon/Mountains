@@ -4,15 +4,14 @@ let blur = (function () {
   let blur = document.getElementById('js_blur');
 
   return {
-    set: function () {
+    set() {
       let imgWidth = document.getElementById('js_blur-container').offsetWidth,
         posLeft = -wrapper.offsetLeft,
         posTop = -wrapper.offsetTop,
         blurCSS = blur.style;
 
-      blurCSS.backgroundSize = imgWidth + 'px' + ' ' + 'auto';
-      blurCSS.backgroundPosition = posLeft + 'px' + ' ' + posTop + 'px';
-      console.log(posTop)
+      blurCSS.backgroundSize = `${imgWidth}px auto`;
+      blurCSS.backgroundPosition = `${posLeft}px ${posTop}px`;
     }
   };
 })();

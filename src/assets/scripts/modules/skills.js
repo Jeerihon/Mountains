@@ -8,9 +8,9 @@ const skill = {
     methods: {
         drawCircleDependsOnPercentage() {
             const circle = this.$refs['circle'];
-            const percent = -1 * this.skillPercentage;
+            const percent = -this.skillPercentage;
 
-            circle.style.animationDelay = percent + "s";
+            circle.style.animationDelay = `${percent}s`;
         }
     },
     mounted() {

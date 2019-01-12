@@ -11,9 +11,10 @@ html(lang="ru")
     link(rel="stylesheet", href="main.min.css")
   body
     .wrapper
+      include ./common/preloader.pug
       include ./blocks/parallax.pug
-      .welcome__container.js_welcome__container
-        .welcome__top
+      .welcome.js_welcome
+        header.welcome__top
           .welcome__btns
             button.btn__auth#js_authBtn
               span Авторизоваться
@@ -21,7 +22,7 @@ html(lang="ru")
         main.welcome__content
           block content
 
-        .welcome__bot
+        footer.welcome__bot
           .copyright.welcome__copyright
             span.copyright__name © Корытов Артем
             p | создано с любовью в LoftSchool | 2018
