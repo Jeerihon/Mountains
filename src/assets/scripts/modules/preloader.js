@@ -4,7 +4,7 @@
   const rounds = document.querySelector('.js_preloader__img');
   const progress = document.querySelector('.js_preloader__progress');
   const images =  Array.from(document.querySelectorAll("img"));
-  const imagesCount = images.length - 1;
+  const imagesCount = images.length;
   const initStrokeDashOffset = 439;
   let loadedImg = 0;
 
@@ -20,6 +20,7 @@
       images.forEach(imageLoaded);
 
       function imageLoaded () {
+        loadedImg++;
 
         const percent = Math.round(100 / imagesCount * loadedImg);
         progress.innerHTML = percent;
@@ -27,7 +28,7 @@
         const curStrokeDashArray = Math.round(initStrokeDashOffset / imagesCount * loadedImg);
         rounds.style.strokeDashoffset = initStrokeDashOffset -  curStrokeDashArray;
         console.log(percent);
-        loadedImg++;
+
       }
 
 
