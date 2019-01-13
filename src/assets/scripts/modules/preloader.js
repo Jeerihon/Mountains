@@ -28,13 +28,15 @@ preloaderPromise.then(function () {
 
   function imageLoaded() {
     loadedImg++;
-
+    
     const curStrokeDashArray = Math.round(initStrokeDashOffset / imagesCount * loadedImg);
     rounds.style.strokeDashoffset = initStrokeDashOffset - curStrokeDashArray;
 
     const percent = Math.round(100 / imagesCount * loadedImg);
     progress.innerHTML = percent;
-
+  
+    console.log(progress.innerHTML);
+    
     if (loadedImg >= imagesCount) {
       setTimeout(function () {
         if (!preloader.classList.contains('done')) {
