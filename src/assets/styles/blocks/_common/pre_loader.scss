@@ -24,7 +24,6 @@
   stroke-dasharray: 439;
   stroke-dashoffset: 439;
   transition: all .5s;
-  transform: rotate(-135deg);
 }
 
 .preloader__progress {
@@ -34,6 +33,20 @@
   transform: translate(-50%, -50%);
   font-size: 24px;
   color: white;
+}
+
+.preloader__circle {
+  transform-origin: center;
+
+  &-1 {
+    transform: rotate(-135deg);
+  }
+  &-2 {
+    transform: rotate(-125deg);
+  }
+  &-3 {
+    transform: rotate(-115deg);
+  }
 }
 
 // when preloader is done

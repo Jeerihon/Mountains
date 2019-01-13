@@ -25,25 +25,28 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 120%;
+  min-width: 120%;
   transform: translateX(-50%);
 }
 
 .cloud {
   &_1 {
     width: 60%;
+    min-width: 60%;
     left: 20%;
     top: 20%;
   }
 
   &_2 {
     width: 16%;
+    min-width: 16%;
     top: 20%;
     left: 50%;
   }
 
   &_3 {
     width: 16%;
+    min-width: 16%;
     top: -10%;
     left: 80%;
   }
