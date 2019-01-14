@@ -11,11 +11,11 @@ name.addEventListener('keydown', function (event) {
   let isLetter = false,
     isControl = false;
 
-  if (isFinite(event.key) == false) {
+  if (isFinite(event.key) === false) {
     isLetter = true;
   }
 
-  if (event.key == "ArrowLeft" || event.key == "ArrowRight" || event.key == "Backspace" || event.keyCode == '32') {
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "Backspace" || event.keyCode === '32') {
     isControl = true;
   }
 
@@ -24,8 +24,46 @@ name.addEventListener('keydown', function (event) {
   }
 });
 
-sendBtn.addEventListener('click', event => {
-  event.preventDefault();
+function sendFile(file) {
+  const promise = new Promise(function (resolve) {
+    const xhr = new XMLHttpRequest();
+    const preloader = document.querySelector('.js_preloader');
+    const rounds = document.querySelector('.js_preloader__img');
+    const progress = document.querySelector('.js_preloader__progress');
+
+
+    xhr.responseType = 'json';
+
+    //launch and reset the preloader when upload had started
+    xhr.upload.onloadstart = function () {
+      preloader.classList.toggle('done');
+      preloader.classList.toggle('preloader--callback');
+    };
+
+    xhr.upload.onprogress = function (event) {
+      uploadProgress(rounds, progress, event);
+    };
+
+    xhr.onloadend = function () {
+      preloader.classList.toggle('done');
+    };
+
+
+    xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
+    xhr.send(file);
+    xhr.addEventListener('load', () => {
+      if (xhr.response.status) {
+        const message = xhr.response.message;
+        resolve(message);
+      }
+    });
+  })
+
+  return promise;
+}
+
+sendBtn.addEventListener('click', function (e) {
+  e.preventDefault();
 
   //check fields on validity
   if (validateForm(myForm)) {
@@ -37,17 +75,12 @@ sendBtn.addEventListener('click', event => {
     formData.append("comment", comment.value);
     formData.append("to", 'mail@mail.com');
 
-    const xhr = new XMLHttpRequest();
-    xhr.responseType = 'json';
-    xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
-    xhr.send(formData);
-    xhr.addEventListener('load', () => {
-      if (xhr.response.status) {
-        const message = xhr.response.message;
+    //send the bundle
+    sendFile(formData)
+      .then(function (message) {
         body.appendChild(createResponse(message));
         document.body.style.overflow = 'hidden';
-      }
-    });
+      })
   }
 });
 
@@ -109,4 +142,14 @@ function createResponse(text) {
 
   return overlayElement;
 }
+
+function uploadProgress(rounds, progress, event) {
+  const initStrokeDashOffset = 439;
+  const curStrokeDashArray = Math.round(initStrokeDashOffset / event.total * event.loaded);
+
+  rounds.style.strokeDashoffset = initStrokeDashOffset - curStrokeDashArray;
+
+  progress.innerHTML = (100 / event.total * event.loaded);
+}
+
 

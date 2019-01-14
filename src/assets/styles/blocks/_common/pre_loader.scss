@@ -10,6 +10,11 @@
   visibility: visible;
   transition: all 1s;
   z-index: 9999999;
+
+  &--callback {
+    background: none;
+    background-color: rgba($main, .75);
+  }
 }
 
 .preloader__container {

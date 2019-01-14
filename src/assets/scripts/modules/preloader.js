@@ -41,6 +41,10 @@ preloaderPromise.then(function () {
           preloader.classList.add('done');
         }
       }, 2000);
+      setTimeout(function () {
+        rounds.style.strokeDashoffset = initStrokeDashOffset;
+        progress.innerHTML = 0;
+      }, 3000);
     }
   }
 });
