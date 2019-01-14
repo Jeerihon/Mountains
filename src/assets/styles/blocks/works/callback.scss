@@ -5,7 +5,6 @@
   border-radius: 5px;
   padding-top: 20px;
   width: 380px;
-  height: 430px;
   margin: 0 auto 300px auto;
   overflow: hidden;
 
@@ -59,23 +58,32 @@
   padding: 0 20px;
 }
 
+.callback__input-wrap {
+  height: auto;
+  margin-bottom: 20px;
+}
+
 .callback__input {
   transition: all .3s;
   display: flex;
   height: 45px;
+  width: 100%;
   border: 2px solid transparent;
   border-radius: 5px;
   outline: none;
   padding: 0 20px;
-  margin-bottom: 20px;
   color: $dark-grey;
 
   &::placeholder {
     color: rgba($dark-grey, .5);
   }
 
-  &:focus {
+  &:valid {
     border-color: $secondary;
+  }
+
+  &--error {
+    border-color: $red;
   }
 }
 .callback__text {
@@ -109,5 +117,35 @@
 
   &:hover {
     background-color: rgba($main, 1)
+  }
+}
+
+.callback__error {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  background-color: $red;
+  margin-top: 0px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  transition: all .3s;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 10px solid transparent;
+    border-bottom: 10px solid $red;
+    top: -20px;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+
+  &--active {
+    height: auto;
+    margin-top: 14px;
+    padding: 16px;
+    overflow: visible;
   }
 }
