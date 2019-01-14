@@ -33,7 +33,7 @@ preloaderPromise.then(function () {
     rounds.style.strokeDashoffset = initStrokeDashOffset - curStrokeDashArray;
 
     const percent = Math.round(100 / imagesCount * loadedImg);
-    progress.textContent = percent;
+    progress.innerHTML = percent;
     
     if (loadedImg >= imagesCount) {
       setTimeout(function () {
