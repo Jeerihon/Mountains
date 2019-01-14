@@ -149,7 +149,7 @@ function uploadProgress(rounds, progress, event) {
 
   rounds.style.strokeDashoffset = initStrokeDashOffset - curStrokeDashArray;
 
-  progress.innerHTML = (100 / event.total * event.loaded);
+  progress.textContent = (100 / event.total * event.loaded);
 }
 
 

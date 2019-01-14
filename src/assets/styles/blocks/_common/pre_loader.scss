@@ -31,14 +31,14 @@
   transition: all .5s;
 }
 
-.preloader__progress {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: white;
-}
+//.preloader__progress {
+//  position: absolute;
+//  top: 50%;
+//  left: 50%;
+//  transform: translate(-50%, -50%);
+//  //font-size: 24px;
+//  //color: white;
+//}
 
 .preloader__circle {
   transform-origin: center;
