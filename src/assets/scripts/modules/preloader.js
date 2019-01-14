@@ -34,7 +34,6 @@ preloaderPromise.then(function () {
 
     const percent = Math.round(100 / imagesCount * loadedImg);
     progress.textContent = percent;
-    console.log(progress.textContent)
     
     if (loadedImg >= imagesCount) {
       setTimeout(function () {
