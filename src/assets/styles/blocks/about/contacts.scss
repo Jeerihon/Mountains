@@ -16,7 +16,7 @@
 
 .contacts__map-container {
   grid-area: map;
-  z-index: -1;
+  height: 100vh;
 }
 
 .contacts__block {
@@ -77,10 +77,8 @@
   font-size: 16px;
   color: $text-color;
   text-decoration: none;
-  background-image: linear-gradient(rgba($text-color, .8), rgba($text-color, .8));
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
+  background: linear-gradient(rgba($text-color, .8), rgba($text-color, .8)) no-repeat 0% 100%;
+  background-size: 0 2px;
   transition: background-size .3s;
 
   &:hover {
