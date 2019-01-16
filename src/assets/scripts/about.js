@@ -1,5 +1,5 @@
-import './modules/skills'
-import './modules/menu'
-import './modules/heroParallax'
 import './modules/preloader'
+import './modules/heroParallax'
+import './modules/menu'
+import './modules/skills'
 import './modules/map'

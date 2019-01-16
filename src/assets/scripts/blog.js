@@ -1,3 +1,5 @@
+import './modules/preloader'
 import './modules/menu'
 import './modules/heroParallax'
-import './modules/preloader'
+import './modules/articles'
+import './modules/blogNav'
