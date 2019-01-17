@@ -12,12 +12,12 @@
 }
 
 .arrow__container {
-  animation: .7s ease-in-out 0s normal none infinite running;
-  //animation-name: bounce-up;
+  animation: 1.3s ease-in-out 0s normal none infinite running;
+  animation-name: bounce-up;
   cursor: pointer;
 
   &--down {
-    //animation-name: bounce-down;
+    animation-name: bounce-down;
   }
 }
 
@@ -32,11 +32,11 @@
 
 @keyframes bounce-up {
   0% {transform: translateY(0)}
-  50% {transform: translateY(-20%)}
+  50% {transform: translateY(-10px)}
   100% {transform: translateY(0)}
 }
 @keyframes bounce-down {
   0% {transform: translateY(0)}
-  50% {transform: translateY(20%)}
+  50% {transform: translateY(10px)}
   100% {transform: translateY(0)}
 }
