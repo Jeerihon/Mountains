@@ -15,10 +15,6 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 24px;
-
-  @include desktop {
-    //margin-bottom: 35px;
-  }
 }
 
 .user__img {
@@ -45,4 +41,17 @@
 
 .user--textcolor-dark {
   color: $text-color;
+}
+
+.user--welcome {
+  .user-img__wrapper {
+    margin-bottom: 10px;
+  }
+
+  @include tablets {
+    .user__desc {
+
+      font-size: 18px;
+    }
+  }
 }

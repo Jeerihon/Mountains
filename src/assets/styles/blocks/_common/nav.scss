@@ -117,9 +117,12 @@
       margin-right: 0;
       padding: 14px 31px;
 
+      @include tablets {
+        padding: 14px 30px;
+      }
 
       @include phones {
-        padding: 14px 23px;
+        padding: 14px 24.5px;
       }
     }
   }

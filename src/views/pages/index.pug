@@ -7,7 +7,7 @@ block content
       figure.side__item.side__item--front.js_side--front
         article.profile-block
           .profile-block__top
-            .user.user--textcolor-dark
+            .user.user--textcolor-dark.user--welcome
               .user-img__wrapper
                 +image('avatars/avatar.jpg', 'аватар пользователя', 'user__img', 'avatars/avatar2x.jpg')
               h1.user__title Корытов Артем
@@ -44,7 +44,7 @@ block content
         article.auth
           .auth__block
             form(method='post' autocomplete id="callback").auth__form
-              h3.callback__title.title.title--small Авторизация
+              h3.auth__title.title.title--small Авторизуйтесь
               .auth__form-items
                 label(for="login").auth__row
                   span.auth__row-icon-wrap
@@ -73,7 +73,7 @@ block content
                         span.auth-cap__btn-custom.auth-cap__btn-custom--radio
                         span.auth-cap__item-text Не уверен
 
-              .auth__buttons
-                button(type='button').auth__btn#js_toMainPageBtn На главную
-                button(type='submit').auth__btn  Войти
+            .auth__buttons
+              button(type='button').auth__btn#js_toMainPageBtn На главную
+              button(type='submit').auth__btn  Войти
 

@@ -76,6 +76,11 @@
     padding: 0 15%;
     margin-bottom: 50px;
   }
+
+  @include tablets {
+    padding: 0;
+    margin-bottom: 50px;
+  }
 }
 
 .skills__list {
