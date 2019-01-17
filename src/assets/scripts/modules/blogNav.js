@@ -16,6 +16,13 @@
   wrapper.style.overflow = 'initial';
 
   window.addEventListener("load", init);
+console.log(window.innerWidth)
+  if (window.innerWidth <= 768) {
+
+    nav.addEventListener('click', function () {
+      nav.classList.toggle('aside-menu--active');
+    })
+  }
 
 
   function anchorActive() {
