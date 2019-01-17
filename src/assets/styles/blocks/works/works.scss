@@ -1,7 +1,6 @@
 .works {
   display: grid;
   grid-template:
-     'hero' 100vh
      'works' minmax(100vh, auto)
      'reviews' auto
     / 100vw;

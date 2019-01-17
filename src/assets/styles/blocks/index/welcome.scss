@@ -20,6 +20,10 @@
 .welcome__top {
   grid-area: welcome-t;
   align-items: end;
+
+  @include phones {
+    align-items: center;
+  }
 }
 
 .welcome__btns {
@@ -40,8 +44,8 @@
 
   @include phones {
     margin-top: calc(36 * 100 / 650)%;
-    margin-right: 50%;
-    transform: translateX(50%);
+    margin-right: 0;
+    justify-content: center;
   }
 }
 

@@ -8,7 +8,6 @@
 .blog__container {
   display: grid;
   grid-template:
-    'hero' minmax(568px, auto)
     'blog' minmax(100vh, auto)
   / 100%;
 }

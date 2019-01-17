@@ -43,21 +43,22 @@ block content
       figure.side__item.side__item--back.js_side--back.rotate
         article.auth
           .auth__block
-            form(method='post' autocomplete id="callback").auth__form
+            form(method='post' autocomplete id="callback").auth__form.js_auth__form
               h3.auth__title.title.title--small Авторизуйтесь
               .auth__form-items
                 label(for="login").auth__row
                   span.auth__row-icon-wrap
                     +icon('login', 'auth__row-icon')
-                  input(type='text' id="login" placeholder='Логин' tabindex='1' required).auth__input.auth__login
+                  input(type='text' id="login" placeholder='Логин' tabindex='1' autocomplete required).auth__input.auth__login
                 label(for="password").auth__row
                   span.auth__row-icon-wrap
                     +icon('password', 'auth__row-icon')
-                  input(type='password' id="password" placeholder='Пароль' tabindex='2' required).auth__input.auth__password
+                  input(type='password' id="password" placeholder='Пароль' tabindex='2' autocomplete required).auth__input.auth__password
                 .auth-cap
                   .auth-cap__question
-                    label.auth-cap__block
-                      input(type='checkbox').auth-cap__btn-stock
+                    label(for='man').auth-cap__block
+                      input(type='checkbox' id='man').auth-cap__btn-stock
+                      .callback__error
                       span.auth-cap__btn-custom.auth-cap__btn-custom--check
                         +icon('check', 'auth-cap__btn-img')
                       span.auth-cap__item-text Я человек
@@ -72,8 +73,9 @@ block content
                         input(type='radio' name='isRobot').auth-cap__btn-stock
                         span.auth-cap__btn-custom.auth-cap__btn-custom--radio
                         span.auth-cap__item-text Не уверен
+                .error-window.error-window--auth.js_error-window
 
             .auth__buttons
               button(type='button').auth__btn#js_toMainPageBtn На главную
-              button(type='submit').auth__btn  Войти
+              button(type='submit').auth__btn#js_enterBtn  Войти
 

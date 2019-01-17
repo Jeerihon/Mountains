@@ -61,13 +61,13 @@
   width: 15px;
   height: 17px;
   fill: rgba($text-color, .3);
-  transition: all .3;
+  transition: all .3s;
 
   &--success {
-    fill: $main;
+    fill: $secondary;
   }
 
-  &--fail {
+  &--error {
     fill: $red;
   }
 }
@@ -90,8 +90,12 @@
     color: rgba($dark-grey, .5);
   }
 
-  &:focus {
+  &--success {
     border-color: $secondary;
+  }
+
+  &--error {
+    border-color: $red;
   }
 }
 

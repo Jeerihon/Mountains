@@ -11,3 +11,36 @@ mixin user(titleText, titleCLass, desc, descClass)
       +image('avatars/avatar.jpg', 'avatar pic', 'user__img', 'avatars/avatar2x.jpg')
     h2(class=`${titleCLass}`) #{titleText}
     h3(class=`${descClass}`)  #{desc}
+
+mixin header
+  -
+    var socials = [
+    { name: 'vk', href: 'https://vk.com/mrjeerihon'},
+    { name: 'github', href: 'https://github.com/Jeerihon'},
+    { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
+    ]
+
+  header.hero
+    section.hero__container
+      .hero__bg.js_hero__bg
+      .hero__socials
+        ul.socials__list
+          each item in socials
+            li.socials__item.socials__item--hero
+              a(href=`${item.href}`).socials__link
+                +icon(`${item.name}`, 'social__img')
+      .hero__menu
+        .burger-btn#js_menuBtn
+          button(type="button").burger-btn__elem
+      if title=='Блог'
+        .hero__title.hero__title--blog.js_hero__title
+          +icon('blog_header', 'hero__pic hero__pic--blog')
+        .hero__content.js_hero__content
+          +user('Блог', 'title title--color-white', 'Статьи, которые я написал', 'user__desc')
+      else
+        .hero__title.js_hero__title
+          +icon('portfolio_header', 'hero__pic')
+        .hero__content.js_hero__content
+          +user('Корытов Артем', 'user__title', 'Личный сайт веб разработчика', 'user__desc')
+        button(type="button").hero__arrow-down.arrow__container.arrow__container--down
+          +icon('arrow_down', 'arrow-down__pic' )

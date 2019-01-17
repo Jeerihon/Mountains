@@ -109,10 +109,10 @@ function validateField(field) {
 
   if (!field.checkValidity()) {
     field.classList.add('callback__input--error');
-    field.nextElementSibling.classList.add('callback__error--active');
+    field.nextElementSibling.classList.add('error-window--active');
   } else {
     field.classList.remove('callback__input--error');
-    field.nextElementSibling.classList.remove('callback__error--active');
+    field.nextElementSibling.classList.remove('error-window --active');
   }
   return field.checkValidity();
 }

@@ -1,5 +1,13 @@
 .hero {
-  grid-area: hero;
+  height: 65vh;
+
+  @include tablets {
+    height: 54vh;
+  }
+
+  @include phones {
+    height: 98vh;
+  };
 }
 
 .hero__container {
@@ -54,6 +62,7 @@
   position: absolute;
   top: calc(49 * 100 / 1200)%;
   right: 80px;
+  z-index: 99999;
 
   @include desktop {
     right: calc(27 * 100 / 1800)%;

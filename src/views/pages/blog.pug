@@ -4,32 +4,7 @@ block variables
   - var title = 'Блог'
 
 block content
-  .blog__container
-    section.hero
-      .hero__container.hero--blog
-        .hero__bg.js_hero__bg
-        .hero__socials
-          ul.socials__list
-            -
-              var socials = [
-              { name: 'vk', href: 'https://vk.com/mrjeerihon'},
-              { name: 'github', href: 'https://github.com/Jeerihon'},
-              { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
-              ]
-
-            each item in socials
-              li.socials__item
-                a(href=`${item.href}`).socials__link
-                  +icon(`${item.name}`, 'social__img')
-        .hero__menu
-          .burger-btn#js_menuBtn
-            .burger-btn__elem
-        .hero__title.hero__title--blog.js_hero__title
-          +icon('blog_header', 'hero__pic hero__pic--blog')
-        .hero__content.js_hero__content
-          +user('Блог', 'title title--color-white', 'Статьи, которые я написал', 'user__desc')
-
-
+  main.blog__container
     .blog__content
       .blog__triangle.triangle__container
         .triangle.triangle--left.triangle--blog

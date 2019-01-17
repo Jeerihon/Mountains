@@ -1,7 +1,6 @@
 .about__container {
   display: grid;
   grid-template:
-    'hero' 65vh
     'content' calc(100vh + 20px)
     'contacts' 100vh
     / 100%;
@@ -9,7 +8,6 @@
 
   @include desktop {
     grid-template:
-      'hero' 65vh
       'content' minmax(100vh, auto)
       'contacts' 100vh
     / 100%;
@@ -17,7 +15,6 @@
 
   @include tablets {
     grid-template:
-            'hero' 54vh
             'content' minmax(100vh, auto)
             'contacts' 100vh
     / 100%;
@@ -25,7 +22,6 @@
 
   @include phones {
     grid-template:
-      'hero' 98vh
       'content' auto
       'contacts' minmax(100vh, calc(100vh + 300px))
     / 100%;
