@@ -20,7 +20,7 @@ mixin header
     { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
     ]
 
-  header.hero
+  header.hero#js_header
     section.hero__container
       .hero__bg.js_hero__bg
       .hero__socials
@@ -42,5 +42,6 @@ mixin header
           +icon('portfolio_header', 'hero__pic')
         .hero__content.js_hero__content
           +user('Корытов Артем', 'user__title', 'Личный сайт веб разработчика', 'user__desc')
-        button(type="button").hero__arrow-down.arrow__container.arrow__container--down
-          +icon('arrow_down', 'arrow-down__pic' )
+        button(type="button").hero__arrow-down
+          i(class="fa fa-chevron-down" aria-hidden="true")#js_arrowDown
+          //+icon('arrow_down', 'arrow-down__pic' )

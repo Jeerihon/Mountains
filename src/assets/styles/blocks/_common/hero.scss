@@ -125,11 +125,18 @@
 
 .hero__arrow-down {
   position: absolute;
+  display: flex;
+  justify-content: center;
   background: none;
   bottom: 77px;
+  width: 100%;
   z-index: 100;
+  cursor: default;
+  outline: none;
+
 
   @include tablets {
     bottom: 48px;
   }
 }
+
