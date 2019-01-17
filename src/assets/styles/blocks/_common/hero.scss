@@ -84,7 +84,7 @@
     margin-top: calc(120 * 100 / 768)%;
   }
 
-  @include tablets {
+  @include phones {
     margin-top: calc(162 * 100 / 440)%;
   }
 }
@@ -97,6 +97,10 @@
 
   @include desktop {
     width: 100%;
+  }
+
+  @include phones {
+    display: none;
   }
 }
 
