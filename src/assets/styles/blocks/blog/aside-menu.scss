@@ -2,11 +2,11 @@
   grid-area: titles;
   width: 60%;
   justify-self: end;
-  padding-top: 7px;
-  margin-right: 116px;
+  padding-top: 6px;
+  margin-right: calc(377 * 100 / 1800)%;
 
   @include desktop {
-    margin-right: 15%;
+    margin-right: 16%;
     width: 80%;
   }
 
@@ -28,17 +28,17 @@
   display: flex;
   justify-content: flex-end;
   min-height: 42px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   padding: 0 17px;
   cursor: pointer;
-  transition:all .3s;
+  transition: all .3s;
 
   &--active {
-    color: $main;
-  }
 
-  &--active {
-    font-family: 'Roboto-Bold';
+    .aside-menu__btn {
+      font-family: 'Roboto-Bold';
+      color: $main;
+    }
   }
 
   &:after {
@@ -60,11 +60,15 @@
 }
 
 .aside-menu__btn {
-  background: none;
   height: auto;
+  padding: 0;
+  background: none;
+  font-family: 'Roboto-Regular';
+  color: rgba($dark-grey, .95);
   text-align: right;
-  transition: all .1s;
+  line-height: 27px;
   outline: none;
+  transition: all .1s;
 
   &:hover {
     color: $main;

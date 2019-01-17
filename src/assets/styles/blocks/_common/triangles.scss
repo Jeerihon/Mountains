@@ -33,6 +33,10 @@
 
   &--blog {
     fill: #fff;
+
+    @include tablets {
+      transform: translateY(2px);
+    }
   }
 
   &--about {

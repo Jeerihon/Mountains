@@ -9,8 +9,8 @@ mixin user(titleText, titleCLass, desc, descClass)
   .user
     .user-img__wrapper
       +image('avatars/avatar.jpg', 'avatar pic', 'user__img', 'avatars/avatar2x.jpg')
-    h2(class=`${titleCLass}`) #{titleText}
-    h3(class=`${descClass}`)  #{desc}
+    h1(class=`${titleCLass}`) #{titleText}
+    h2(class=`${descClass}`)  #{desc}
 
 mixin header
   -
@@ -20,7 +20,7 @@ mixin header
     { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
     ]
 
-  header.hero#js_header
+  header.hero#js_header(class= title === "Блог" ? "hero--blog": "")
     section.hero__container
       .hero__bg.js_hero__bg
       .hero__socials
@@ -35,8 +35,10 @@ mixin header
       if title=='Блог'
         .hero__title.hero__title--blog.js_hero__title
           +icon('blog_header', 'hero__pic hero__pic--blog')
-        .hero__content.js_hero__content
+        .hero__content.js_hero__content.hero__content--blog
           +user('Блог', 'title title--color-white', 'Статьи, которые я написал', 'user__desc')
+        button(type="button").hero__arrow-down.hero__arrow-down--blog
+          i(class="fa fa-chevron-down" aria-hidden="true")#js_arrowDown
       else
         .hero__title.js_hero__title
           +icon('portfolio_header', 'hero__pic')
@@ -44,4 +46,3 @@ mixin header
           +user('Корытов Артем', 'user__title', 'Личный сайт веб разработчика', 'user__desc')
         button(type="button").hero__arrow-down
           i(class="fa fa-chevron-down" aria-hidden="true")#js_arrowDown
-          //+icon('arrow_down', 'arrow-down__pic' )

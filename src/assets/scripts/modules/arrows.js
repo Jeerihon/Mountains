@@ -15,7 +15,7 @@
       if (target === arrowUp) {
         scrollIt(header)
       }
-    }
+    };
 
   function scrollIt(element) {
     window.scrollTo({
