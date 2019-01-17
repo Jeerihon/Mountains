@@ -196,16 +196,5 @@
     streetViewControl: false,
     fullscreenControl: false,
   });
-
-  const image = {
-    url: "https://raw.githubusercontent.com/OlBol/AdvancedCourse-Project/master/img/map-marker.png",
-    size: new google.maps.Size(50, 40)
-  };
-
-  const marker = new google.maps.Marker({
-    position: { lat: 55.01091807, lng: 82.93429031 },
-    map: map,
-    icon: image
-  });
 })();
 /*eslint-disable*/

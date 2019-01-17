@@ -8,6 +8,14 @@
   color: $dark-grey;
   text-align: center;
 
+  @include tablets {
+    font-size: 58px;
+  }
+
+  @include phones {
+    font-size: 42px;
+  }
+
   &::before,
   &::after {
     content: '';

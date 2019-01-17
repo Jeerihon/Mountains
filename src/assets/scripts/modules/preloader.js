@@ -40,11 +40,11 @@ preloaderPromise.then(function () {
         if (!preloader.classList.contains('done')) {
           preloader.classList.add('done');
         }
-      }, 2000);
+      }, 1000);
       setTimeout(function () {
         rounds.style.strokeDashoffset = initStrokeDashOffset;
         progress.innerHTML = 0;
-      }, 3000);
+      }, 2000);
     }
   }
 });

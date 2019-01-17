@@ -9,5 +9,5 @@ mixin user(titleText, titleCLass, desc, descClass)
   .user
     .user-img__wrapper
       +image('avatars/avatar.jpg', 'avatar pic', 'user__img', 'avatars/avatar2x.jpg')
-    span(class=`${titleCLass}`) #{titleText}
-    span(class=`${descClass}`)  #{desc}
+    h2(class=`${titleCLass}`) #{titleText}
+    h3(class=`${descClass}`)  #{desc}

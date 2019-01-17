@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   width: 40px;
-  height: 35px;
+  height: 41px;
   cursor: pointer;
   opacity: .5;
   transition: all .3s;
@@ -48,7 +48,7 @@
 
   &::before {
     margin-bottom: 0px;
-    transform: translatey(11px) rotate(45deg);
+    transform: translatey(17px) rotate(45deg);
   }
 
   &::after {

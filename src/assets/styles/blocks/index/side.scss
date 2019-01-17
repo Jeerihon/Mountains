@@ -1,18 +1,18 @@
-.side__container {
+.side {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
 
-.side__inner {
+.side__container {
   width: 380px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.side {
+.side__item {
   width: 100%;
   position: absolute;
   display: flex;

@@ -1,13 +1,11 @@
-.hero__container {
+.hero {
   grid-area: hero;
-  position: relative;
 }
 
-.hero {
+.hero__container {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100%;
   overflow: hidden;
 }
@@ -19,54 +17,91 @@
   right: 0;
   bottom: 0;
   height: 135%;
-  background: url(./assets/images/bg/bg-hero--full.png) center -150px / cover no-repeat;
+  background: url(./assets/images/bg/bg-hero--full.png) center center / cover no-repeat;
 
   @include tablets {
-    background: url(./assets/images/bg/bg-hero.png) center -150px / cover no-repeat;
+    background: url(./assets/images/bg/bg-hero.png) center center / cover no-repeat;
   }
 
   @media (min-device-pixel-ratio: 1.5) or (min-resolution: 144dpi) {
-    background: url(./assets/images/bg/bg-hero2x.png) center -150px / cover no-repeat;
+    background: url(./assets/images/bg/bg-hero2x.png) center center / cover no-repeat;
   }
 }
 
 .hero__socials {
   position: absolute;
-  top: calc(32 * 100 / 1200)%;
-  left: calc(38 * 100 / 1800)%;
+  top: calc(61 * 100 / 1200)%;
+  left: calc(60 * 100 / 1800)%;
   z-index: 10;
 
+  @include desktop {
+    left: calc(16 * 100 / 1800)%;
+  }
+
+  @include tablets {
+    top: calc(70 * 100 / 1200)%;
+    left: calc(6 * 100 / 1800)%;
+  }
+
   @include phones {
-    top: 15px;
-    left: 10px;
+    top: 11px;
+    left: -12px;
+    transform: scale(.8);
   }
 }
 
 .hero__menu {
   position: absolute;
-  top: calc(38 * 100 / 1200)%;
-  right: 32px;
+  top: calc(49 * 100 / 1200)%;
+  right: 80px;
+
+  @include desktop {
+    right: calc(27 * 100 / 1800)%;
+  }
+
+  @include tablets {
+    top: calc(57 * 100 / 1200)%;
+    right: calc(14 * 100 / 768)%;
+
+  }
 
   @include phones {
-    top: 10px;
-    right: 10px;
+    top: 1px;
+    right: 2px;
+    transform: scale(.6);
   }
 }
 
 .hero__content {
+  margin-top: calc(145 * 100 / 1800)%;
   z-index: 10;
+
+  @include desktop {
+    margin-top: calc(155 * 100 / 1200)%;
+  }
+
+  @include tablets {
+    margin-top: calc(120 * 100 / 768)%;
+  }
+
+  @include tablets {
+    margin-top: calc(162 * 100 / 440)%;
+  }
 }
 
 .hero__title {
   position: absolute;
   display: flex;
-  width: 90%;
+  width: 61%;
   height: 90%;
+
+  @include desktop {
+    width: 100%;
+  }
 }
 
 .hero__pic {
   width: 100%;
-  height: 100%;
   fill: white;
   opacity: .06;
 
@@ -77,6 +112,11 @@
 
 .hero__arrow-down {
   position: absolute;
-  bottom: calc(100 * 100 / 1200)%;
+  background: none;
+  bottom: 77px;
   z-index: 100;
+
+  @include tablets {
+    bottom: 48px;
+  }
 }

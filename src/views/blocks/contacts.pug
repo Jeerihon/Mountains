@@ -1,18 +1,22 @@
+-
+  var contacts = [
+  {name:'skype', text:'icecreamyouscream', href: 'skype:icecreamyouscream'},
+  {name:'envelope', text:'korart95@mail.ru', href: 'mailto:korart95@mail.ru'},
+  {name:'phone', text:'+79149196048', href: 'tel:+79149196048'}
+  ]
+
 section.contacts
   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw6BYEWm9ft20VkdRBtctm5pTSccf52Ro")
   .contacts__map-container#map
   .contacts__block
     h2.contacts__title.title.title--small Контакты
     ul.contacts__list
-      -
-        var contacts = [
-        {name:'skype', text:'icecreamyouscream', href: 'skype:icecreamyouscream'},
-        {name:'envelope', text:'korart95@mail.ru', href: 'mailto:korart95@mail.ru'},
-        {name:'phone', text:'+79149196048', href: 'tel:+79149196048'},
-        {name:'map_marker', text:'г.Иркутск, м-н.Березовый', href: ''}
-        ]
       each contact in contacts
         li.contacts__item
           a.contacts__link(href=`${contact.href}`)
             +icon(`${contact.name}`, 'contacts__img')
             span.contacts__text #{contact.text}
+      li.contacts__item
+        .contacts__link
+          +icon('map_marker', 'contacts__img')
+          span.contacts__text г.Иркутск, м-н.Березовый

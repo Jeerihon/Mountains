@@ -3,12 +3,12 @@
   height: 100vh;
   display: grid;
   grid-template:
-    'map' 100vh
+    'map' 100%
   / 100%;
 
   @include phones {
     grid-template:
-      'contacts' min-content
+      'contacts' auto
       'map' 100vh
     / 100%;
   }
@@ -16,7 +16,7 @@
 
 .contacts__map-container {
   grid-area: map;
-  height: 100vh;
+  height: 100%;
 }
 
 .contacts__block {
@@ -28,10 +28,16 @@
   border-radius: 5px;
   padding: 35px 40px;
 
+  @include tablets {
+    font-size: 18px;
+    transform: translateY(-45%);
+  }
+
   @include phones {
     grid-area: contacts;
     padding: 30px 10px 0 10px;
     width: 100%;
+    transform: translateY(0);
   }
 }
 
@@ -53,13 +59,27 @@
   margin-bottom: 23px;
   cursor: pointer;
   line-height: 25px;
+  cursor: pointer;
   transition: all .3s;
+
+  &:last-child {
+
+
+    .contacts__text {
+      background: none;
+      cursor: default;
+    }
+
+    .contacts__img {
+      cursor: default;
+    }
+
+  }
 }
 
 .contacts__link {
   display: flex;
   text-decoration: none;
-  cursor: pointer;
   opacity: .8;
   transition: all .3s;
 }
@@ -69,16 +89,14 @@
   height: 24px;
   fill: $main;
   margin-right: 10px;
-  cursor: pointer;
 }
 
 .contacts__text {
-  font-family: 'Roboto-Medium';
-  font-size: 16px;
-  color: $text-color;
-  text-decoration: none;
   background: linear-gradient(rgba($text-color, .8), rgba($text-color, .8)) no-repeat 0% 100%;
   background-size: 0 2px;
+  color: $text-color;
+  text-decoration: none;
+  font-family: 'Roboto-Medium';
   transition: background-size .3s;
 
   &:hover {
