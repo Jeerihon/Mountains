@@ -57,6 +57,7 @@
       left: 100%;
       border-radius: 50%;
       transform: translateX(25%);
+      z-index: -10;
     }
   }
 }
@@ -131,6 +132,10 @@
   @include tablets {
     width: 80%;
     color: rgba(white, .65);
+  }
+
+  @include phones {
+    width: 70%;
   }
 
   &:hover {
