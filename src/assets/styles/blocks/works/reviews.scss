@@ -71,12 +71,12 @@
 
       &::before {
         margin-right: 1%;
-        margin-top: 16%;
+        margin-top: 6%;
       }
 
       &::after {
         margin-left: 1%;
-        margin-top: 16%;
+        margin-top: 6%;
       }
     }
   }
@@ -91,12 +91,11 @@
   flex-wrap: wrap;
 
   @include tablets {
-    justify-content: space-between;
     padding: 0 44px 0 24px;
     margin-bottom: 30px;
   }
 
-  @include tablets {
+  @include phones {
     padding: 0 13px 0 12px;
     margin-bottom: 30px;
   }
