@@ -250,3 +250,15 @@
   top: calc(550 * 100 / 1200)%;
 }
 
+.hero--works {
+
+  @include tablets {
+    height: 54vh;
+  }
+
+  @include phones {
+    height: 98vh;
+  }
+
+}
+

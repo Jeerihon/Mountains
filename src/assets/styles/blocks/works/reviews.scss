@@ -12,19 +12,75 @@
 
 .reviews__title {
   position: relative;
-  margin: 68px 0;
+  margin: 58px 0;
 
-  .title__pic{
-    height: 179px;
-  }
-
-  .title {
-    line-height: 1;
+  @include tablets {
+    margin: 40px 0 34px 0;
   }
 
   @include phones {
-    margin: 40px 0 20px 0;
+    margin: 32px 0 16px 0;
   }
+
+  .title__pic{
+    margin-top: -16px;
+    height: 179px;
+
+    @include tablets {
+      margin-top: -10px;
+      transform: scale(.75);
+    }
+  }
+
+  .title {
+    line-height: 67px;
+    margin: 0 auto;
+    max-width: 350px;
+
+    &::before {
+      margin-right: 0;
+      margin-top: 9%;
+    }
+
+    &::after {
+      margin-left: 0;
+      margin-top: 9%;
+    }
+
+    @include tablets {
+      max-width: 95%;
+      font-size: 55px;
+      letter-spacing: .2px;
+
+      &::before {
+        margin-right: 2%;
+        margin-top: 3.5%;
+      }
+
+      &::after {
+        margin-left: 2%;
+        margin-top: 3.5%;
+      }
+    }
+
+    @include phones {
+      max-width: 80%;
+      letter-spacing: 1px;
+      font-size: 40px;
+      line-height: 56px;
+
+      &::before {
+        margin-right: 1%;
+        margin-top: 16%;
+      }
+
+      &::after {
+        margin-left: 1%;
+        margin-top: 16%;
+      }
+    }
+  }
+
 }
 
 .reviews__comments {
@@ -33,18 +89,46 @@
   margin-bottom: 70px;
   padding: 0 20px;
   flex-wrap: wrap;
+
+  @include tablets {
+    justify-content: space-between;
+    padding: 0 44px 0 24px;
+    margin-bottom: 30px;
+  }
+
+  @include tablets {
+    padding: 0 13px 0 12px;
+    margin-bottom: 30px;
+  }
 }
 
 .reviews__arrow-container {
-  display: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 14%;
   width: 100%;
-  margin-bottom: 300px;
   background-color: transparent;
   cursor: default;
   outline: none;
 
+  @include desktop {
+    bottom: 15.5%;
+  }
+
+  i {
+    font-size: 30px;
+  }
+
   @include tablets {
-    display: flex;
-    justify-content: center;
+    bottom: 23%;
+  }
+
+  @include phones {
+    bottom: 23.5%;
+
+    i {
+      font-size: 38px;
+    }
   }
 }

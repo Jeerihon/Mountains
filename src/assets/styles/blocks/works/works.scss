@@ -1,7 +1,7 @@
 .works {
   display: grid;
   grid-template:
-     'works' minmax(100vh, auto)
+     'works' minmax(99vh, auto)
      'reviews' auto
     / 100vw;
   height: 100%;

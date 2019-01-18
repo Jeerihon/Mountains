@@ -20,7 +20,7 @@ mixin header
     { name: 'in', href: 'https://www.linkedin.com/in/artem-korytov-4488ab177/'}
     ]
 
-  header.hero#js_header(class= title === "Блог" ? "hero--blog": "")
+  header.hero#js_header(class=`hero--${title}`)
     section.hero__container
       .hero__bg.js_hero__bg
       .hero__socials

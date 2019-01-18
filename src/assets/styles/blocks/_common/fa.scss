@@ -3,8 +3,12 @@
   cursor: pointer;
   color: white;
   opacity: .5;
-  font-size: 38px;
+  font-size: 30px;
   transition: .2s;
+
+  @include tablets {
+    font-size: 38px;
+  }
 
   &:hover {
     opacity: 1;

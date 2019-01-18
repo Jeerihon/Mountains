@@ -17,26 +17,31 @@
 
   @include tablets {
     grid-template:
-            'display' 54vh
-            'info' 27vh
-            'btns' 19vh
+            'display' 56vh
+            'info' 29vh
+            'btns' 23vh
     / 100%;
-    height: 100vh;
+    height: 108vh;
   }
 
   @include phones {
     grid-template:
             'display' 45.5%
-            'info' 38.5%
+            'info' 39%
             'btns' 1fr
     / 100%;
+    height: 100vh;
   }
 }
 
 .slider__info {
   grid-area: info;
   background-color: #f0efe9;
-  justify-content: end;
+  padding-left: calc(70 * 100 / 1800)%;
+
+  @include desktop {
+    padding-left: 0;
+  }
 }
 
 .slider__title {
@@ -44,10 +49,59 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 57px 62px;
+  margin: 54px 76px 64px 58px;
+
+  .title {
+    letter-spacing: 1px;
+
+    &::before {
+      margin-right: 1%;
+    }
+
+    &::after {
+      margin-left: 1%;
+    }
+
+    @include tablets {
+      letter-spacing: 3px;
+      font-size: 52px;
+
+      &::before {
+        margin-right: 2.5%;
+      }
+
+      &::after {
+        margin-left: 2.5%;
+      }
+    }
+
+    @include phones {
+      letter-spacing: 1.7px;
+      font-size: 41px;
+
+      &::before {
+        margin-right: 4%;
+      }
+
+      &::after {
+        margin-left: 4%;
+      }
+    }
+  }
+
+
+  @include tablets {
+    margin: 40px 76px 40px 58px;
+
+    .title-bg {
+      max-width: 100%;
+      width: 63%;
+      top: 5px;
+    }
+  }
 
   @include phones {
-    margin: 20px 0 30px 0;
+    margin: 22px 0 30px 0;
   }
 }
 
@@ -80,7 +134,6 @@
   width: 50%;
   cursor: pointer;
   user-select: none;
-
 
   &::before {
     content: '';
