@@ -9,15 +9,15 @@ import works from "./components/works";
 
 const routes = [
   {
-    path: '/admin',
+    path: '/dist/admin',
     component: about
   },
   {
-    path: '/admin/blog',
+    path: '/dist/admin/blog',
     component: blog
   },
   {
-    path: '/admin/works',
+    path: '/dist/admin/works',
     component: works
   }
 ];
