@@ -5,6 +5,9 @@ mixin icon(iconName, iconClass)
 mixin image(imagePath, imageAlt, imageClass, retinaImg)
   img(src=`./assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`, srcset=`./assets/images/${retinaImg} 2x`)
 
+mixin imagePresent(imagePath, imageClass)
+  img(src=`./assets/images/${imagePath}` class=`${imageClass}` role='presentation')
+
 mixin user(titleText, titleCLass, desc, descClass)
   .user
     .user-img__wrapper
