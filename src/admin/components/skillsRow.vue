@@ -4,21 +4,14 @@
     td 100
     td %
     td
-      svg.svg
-        use(xlink:href='./assets/images/icons/sprite.svg#pencil')
+      button
+        image(src="../assets/images/admin/pencil.png")
     td
-      svg.svg
-        use(xlink:href='./assets/images/icons/sprite.svg#cancel')
+      button
+        image(src="../assets/images/admin/cancel.png")
 
 </template>
 
 <style lang="scss" scoped>
 
-  .svg {
-    height: 20px;
-    width: 20px;
-    background-color: yellow;
-    fill: black;
-    stroke: black;
-  }
 </style>
