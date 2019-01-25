@@ -8,7 +8,7 @@
         use(xlink:href='./assets/images/icons/sprite.svg#pencil')
     td
       svg.svg
-        use(xlink:href='./assets/images/icons/sprite.svg#close')
+        use(xlink:href='./assets/images/icons/sprite.svg#cancel')
 
 </template>
 
