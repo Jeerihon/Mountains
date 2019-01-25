@@ -8,16 +8,28 @@ import blog from "./components/blog";
 import works from "./components/works";
 
 const routes = [
+  // {
+  //   path: '/dist/a,
+  //   component: about
+  // },
+  // {
+  //   path: '/dist/admin/blog',
+  //   component: blog
+  // },
+  // {
+  //   path: '/dist/admin/works',
+  //   component: works
+  // }
   {
-    path: '/dist/admin',
+    path: '/admin',
     component: about
   },
   {
-    path: '/dist/admin/blog',
+    path: '/admin/blog',
     component: blog
   },
   {
-    path: '/dist/admin/works',
+    path: '/admin/works',
     component: works
   }
 ];

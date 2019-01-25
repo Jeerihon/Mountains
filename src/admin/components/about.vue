@@ -1,12 +1,12 @@
 <template lang="pug">
-  .about-container
-    h2.title Страница «Обо мне»
+  #about
+    h2.about__title Страница «Обо мне»
     skills-block
 
 </template>
 
 <script>
-  import skillsBlock from './skillsBlock'
+  import skillsBlock from './about/skillsBlock'
 
   export default {
     components: {
@@ -27,5 +27,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .about__title {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
 </style>

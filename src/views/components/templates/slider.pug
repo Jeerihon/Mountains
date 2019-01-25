@@ -21,22 +21,37 @@ script(type="text/x-template")#slider-root
 script(type="text/x-template")#slider-info
   .slider__info
     .tools
-      h3.title.title--small.title--multiline.tools__title {{work.title}}
+      transition(
+        appear
+        :css='false'
+        @enter="enterCb"
+      )
+        h3(:key='work.title').title.title--small.title--multiline.tools__title {{work.title}}
       .tools__list
-        span.tools__name {{work.tools}}
+        transition-group(
+          appear
+          :css='false'
+          @enter="enterCb"
+        )
+          .tools__name(:key='work.tools') {{work.tools}}
       a.tools__btn
         +icon('link', 'tools__btn-pic')
         a.tools__btn-text(:href="work.link") Посмотреть сайт
 
 script(type="text/x-template")#slider-display
   .slider__display
-    img(:src="work.photo").slide__img.slide__img--display
+    transition(name="fade" mode="out-in")
+      img(:src="work.photo" :key="work.photo").slide__img.slide__img--display
 
 script(type="text/x-template")#slider-btns
   .slider__btns
     button.slider__btn.slider__btn--prev(@click="slide('prev')")
-      img(:src="prevBtnWorks[index].photo").slide__img.slide__btn-img
+      transition-group(name='slide-down')
+        .slide__btn-container(:key="prevBtnWorks[index].photo")
+          img(:src="prevBtnWorks[index].photo").slide__img.slide__btn-img
       +icon('portf_arrow_down', 'slider__btn-pic')
     button.slider__btn.slider__btn--next(@click="slide('next')")
-      img(:src="nextBtnWorks[index].photo").slide__img.slide__btn-img
+      transition-group(name='slide-up')
+        .slide__btn-container(:key="nextBtnWorks[index].photo")
+          img(:src="nextBtnWorks[index].photo").slide__img.slide__btn-img
       +icon('portf_arrow_up', 'slider__btn-pic')

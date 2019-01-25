@@ -6,13 +6,14 @@
     admin-nav
 
     main.content
+      .content__bg
       transition(name="fade" mode="out-in")
         router-view
 </template>
 
 <script>
-  import adminHeader from './components/adminHeader';
-  import adminNav from './components/adminNav';
+  import adminHeader from './components/common/adminHeader';
+  import adminNav from './components/common/adminNav';
 
   export default {
     components: {
@@ -33,7 +34,8 @@
 
   body {
     margin: 0;
-    font-family: 'Roboto-Regular', Helvetica, sans-serif;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    font-weight: 400;
     font-size: 16px;
     color: $text-color;
     -webkit-font-smoothing: antialiased;
@@ -52,7 +54,31 @@
   }
 
   .content {
+    position: relative;
+    height: 100%;
     padding: 55px 30px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(white, .85);
+      z-index: -5;
+    }
+  }
+
+  .content__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../assets/images/bg/bg-admin.jpg") center 0 / cover no-repeat;
+    z-index: -10;
   }
 
   button {

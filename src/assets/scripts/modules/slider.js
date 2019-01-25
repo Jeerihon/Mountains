@@ -4,6 +4,39 @@ const info = {
   template: "#slider-info",
   props: {
     work: Object
+  },
+  methods: {
+    enterCb(el, done) {
+      const sentense = el.innerText.trim();
+
+      const sentenseWrappedInSpans = sentense.split('').map(letter => {
+        return `<span class="${letter === " " ? "whitespace" : ""}">${letter}</span>`;
+      }).join('');
+
+      el.innerHTML = sentenseWrappedInSpans;
+
+      const letters = Array.from(el.children);
+
+      let i = 0;
+      function animate(letters) {
+        const currentLetter = letters[i];
+        let timer = setTimeout(() => {
+          animate(letters);
+        }, 20);
+
+        currentLetter.classList.add('bounceIn');
+        i++;
+
+        if (i >= letters.length) {
+          clearTimeout(timer);
+        }
+
+      }
+
+      animate(letters);
+
+      done();
+    }
   }
 };
 

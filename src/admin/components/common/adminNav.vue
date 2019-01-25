@@ -28,7 +28,7 @@
     background-color: #f0efe9;
     width: 100%;
     height: 60px;
-    font-family: 'Roboto-Medium', Helvetica, sans-serif;
+    font-weight: 500;
   }
 
   .nav__list {
@@ -50,7 +50,7 @@
     width: 200%;
     line-height: 60px;
     text-decoration: none;
-    color: inherit;
+    color: rgba($text-color, .7);
     cursor: pointer;
     padding-right: 180px;
     transition: all .2s;
@@ -60,6 +60,7 @@
       display: block;
       visibility: visible;
       position: absolute;
+      color: rgba($text-color, 1);
       width: 50%;
       top: 0;
       right: 0;
@@ -73,7 +74,6 @@
   .router-link-exact-active {
     background-color: white;
     color: $main;
-    font-weight: bold;
     transition: all 0s;
 
     &:after {
