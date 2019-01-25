@@ -112,7 +112,7 @@ function validateField(field) {
     field.nextElementSibling.classList.add('error-window--active');
   } else {
     field.classList.remove('callback__input--error');
-    field.nextElementSibling.classList.remove('error-window --active');
+    field.nextElementSibling.classList.remove('error-window--active');
   }
   return field.checkValidity();
 }
