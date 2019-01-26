@@ -9,25 +9,7 @@
 
 
   enterBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    if (validateForm(form)) {
-
-      //bundling a json file consisting of fields value
-      let formData = new FormData(form);
-      formData.append("login", login.value);
-      formData.append("password", password.value);
-
-      console.log('succsesful')
-
-      //send the bundle
-      // sendFile(formData)
-      //   .then(function (message) {
-      //     body.appendChild(createResponse(message));
-      //     document.body.style.overflow = 'hidden';
-      //   })
-    }
-
+    validateForm(form)
   });
 
   function validateForm(form) {
@@ -77,7 +59,8 @@
     return field.checkValidity();
   }
 
-  // function validate() {
-  //
-  // }
-})();
+// function validate() {
+//
+// }
+})
+();

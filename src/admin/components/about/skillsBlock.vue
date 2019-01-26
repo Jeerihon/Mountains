@@ -2,8 +2,17 @@
   .skills-block
     table.skills-block__table
       thead.skills-block__head
-        tr.skills-block__title Frontend
-      skills-row
+        tr.skills-block__title {{type.name}}
+      skills-row(
+        v-for="skill in skills"
+        v-if="type.id === skill.category"
+        :key="skill.id"
+        :skill="skill"
+      )
+      skills-row(
+        :editMode="true"
+        :typeId="type.id"
+      )
 
 </template>
 
@@ -13,11 +22,25 @@
   export default {
     components: {
       skillsRow
+    },
+    props: {
+      type: {
+        type: Object,
+        default: () => {}
+      },
+      skills: {
+        type: Array,
+        default: () => []
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+
+  .skills-block {
+    margin-bottom: 100px;
+  }
 
   .skills-block__table {
     border-collapse: separate;

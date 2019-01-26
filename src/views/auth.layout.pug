@@ -20,12 +20,15 @@ html(lang="ru")
 
         main.welcome__content
           block content
+          include ./components/templates/authForm
 
         footer.welcome__bot
           .copyright.welcome__copyright
             span.copyright__name © Корытов Артем
             p | создано с любовью в LoftSchool | 2018
 
-    
+
+
+
 
     script(src="auth.bundle.js")
