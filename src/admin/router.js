@@ -9,7 +9,7 @@ import works from "./components/works";
 
 const routes = [
   {
-    path: '/dist/admin',
+    path: '/dist/admin/',
     component: about
   },
   {
