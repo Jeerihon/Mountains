@@ -5,12 +5,15 @@ script(type="text/x-template")#form
         h3.auth__title.title.title--small Авторизуйтесь
         .auth__form-items
           label(for="login").auth__row
-            span.auth__row-icon-wrap
+            span(:class="{'validation--error': validation.hasError('user.name')}").auth__row-icon-wrap
               +icon('login', 'auth__row-icon')
 
+            // name
             input(
               v-model="user.name"
-              type='text' id="login"
+              :class="{'auth__input--error': validation.hasError('user.name')}"
+              type='text'
+              id="login"
               placeholder='Логин'
               tabindex='1'
               autocomplete
@@ -18,23 +21,24 @@ script(type="text/x-template")#form
             ).auth__input.auth__login
 
           label(for="password").auth__row
-            span.auth__row-icon-wrap
+            span(:class="{'validation--error': validation.hasError('user.name')}").auth__row-icon-wrap
               +icon('password', 'auth__row-icon')
 
-
+            // password
             input(
               v-model="user.password"
+              :class="{'auth__input--error': validation.hasError('user.name')}"
               type='password'
               id="password"
               placeholder='Пароль'
               tabindex='2'
               autocomplete
-              required
             ).auth__input.auth__password
+
           .auth-cap
             .auth-cap__question
               label(for='man').auth-cap__block
-                input(type='checkbox' id='man').auth-cap__btn-stock
+                input(type='checkbox' id='man' v-model='checked').auth-cap__btn-stock
                 .callback__error
                 span.auth-cap__btn-custom.auth-cap__btn-custom--check
                   +icon('check', 'auth-cap__btn-img')
@@ -43,14 +47,17 @@ script(type="text/x-template")#form
               span.cap__question-text Вы точно не робот?
               .auth-cap__block-wrap
                 label.auth-cap__block.auth-cap__block--radio
-                  input(type='radio' name='isRobot').auth-cap__btn-stock
+                  input(type='radio' name='isRobot' v-model='picked' :value='1').auth-cap__btn-stock
                   span.auth-cap__btn-custom.auth-cap__btn-custom--radio
                   span.auth-cap__item-text.auth-cap__item-text Да
                 label.auth-cap__block.auth-cap__block--radio
-                  input(type='radio' name='isRobot').auth-cap__btn-stock
+                  input(type='radio' name='isRobot' v-model='picked' :value='0' ).auth-cap__btn-stock
                   span.auth-cap__btn-custom.auth-cap__btn-custom--radio
                   span.auth-cap__item-text Не уверен
 
+          div(
+            :class="{'error-window--active': validation.hasError()}"
+          ).error-window.error-window--auth {{validation.firstError()}}
           div(:class="error === true ? 'error-window--active' : ''").error-window.error-window--auth.js_error-window {{errorMessage}}
       .auth__buttons
         button(type='button').auth__btn#js_toMainPageBtn На главную

@@ -55,21 +55,13 @@
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   background-color: #f0efe9;
+  transition: all .3s;
 }
 
 .auth__row-icon {
   width: 15px;
   height: 17px;
   fill: rgba($text-color, .3);
-  transition: all .3s;
-
-  &--success {
-    fill: $secondary;
-  }
-
-  &--error {
-    fill: $red;
-  }
 }
 
 .auth__input {
@@ -243,4 +235,21 @@
     fill: white;
   }
 }
+
+.validation {
+
+  &--success {
+    .auth__row-icon {
+      fill: $secondary;
+    }
+  }
+
+  &--error {
+    .auth__row-icon {
+      fill: $red;
+    }
+  }
+}
+
+
 
