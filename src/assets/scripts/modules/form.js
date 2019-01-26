@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import SimpleVueValidation from 'simple-vue-validator';
-import appRequests from '../../'
+
 const Validator = SimpleVueValidation.Validator;
 
 Vue.use(SimpleVueValidation);
