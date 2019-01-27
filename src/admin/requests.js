@@ -5,6 +5,6 @@ axios.defaults.baseURL = 'https://webdev-api.loftschool.com';
 const token = localStorage.getItem('token');
 console.log(token);
 
-axios.defaults.header['Authorization'] = 'bearer ${token}';
+axios.defaults.headers.common['Authorization'] = 'Bearer ${token}';
 
 export default axios;
