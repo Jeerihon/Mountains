@@ -5,7 +5,11 @@ const skills = {
   },
   mutations: {
     fillUpSkills: (state, skills) => state.skills = skills,
-    addNewSkill: (state, newSkill) => state.skills.push(newSkill)
+    addNewSkill: (state, newSkill) => state.skills.push(newSkill),
+    removeSkill: (state, skillToRemoveId) =>
+      (state.skills = state.skills.filter(
+        skill => skill.id !== skillToRemoveId
+      ))
   },
   data () {
     return {
@@ -13,8 +17,8 @@ const skills = {
     }
   },
   actions: {
-    fetch({commit}) {
-      this.$axios.get('/skills/91').then(response => {
+    fetch({ commit }, user_id) {
+      this.$axios.get(`/skills/${user_id}`).then(response => {
         commit('fillUpSkills', response.data)
       })
     },
@@ -27,6 +31,11 @@ const skills = {
           console.error(error);
         }
       );
+    },
+    remove({ commit }, skillId) {
+      this.$axios.delete(`/skills/${skillId}`).then(response => {
+        commit('removeSkill', skillId)
+      })
     }
   }
 };

@@ -1,8 +1,18 @@
 <template lang="pug">
   header.header
     h1.title Панель администрирования
-    a.toSite(href="./dist") Вернуться на сайт
+    button.toSite(type='button' @click="goBack") Вернуться на сайт
 </template>
+
+<script>
+  export default {
+    methods: {
+      goBack() {
+        this.$router.go(-1);
+      }
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
 
@@ -26,11 +36,13 @@
     color: rgba(white, .7);
     transition: all .2s;
     text-decoration: none;
+    background-color: transparent;
+    outline: none;
 
     &:before {
       content: '';
       position: absolute;
-      width: 100%;
+      width: 92%;
       height: 1px;
       background-color: #fff;
       top: 100%;

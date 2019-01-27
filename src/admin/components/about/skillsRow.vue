@@ -7,7 +7,7 @@
       button(type='button').button
         img(src="../../../assets/images/admin/pencil.png")
     td.skills-row__button--container
-      button(type='button').button
+      button(type='button' @click="removeSkill(skill.id)").button
         img(src="../../../assets/images/admin/cancel.png")
 
   tfoot(v-else).skills-input
@@ -47,7 +47,8 @@
     },
     methods: {
       ...mapActions({
-        addNewSkill: "skills/add"
+        addNewSkill: "skills/add",
+        removeSkill: "skills/remove"
       })
     }
   }
