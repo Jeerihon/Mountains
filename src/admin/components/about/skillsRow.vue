@@ -53,6 +53,7 @@
       addNewSkill(newSkill) {
         this.addNewSkillAction(newSkill).then(response => {
           this.newSkill.title = '';
+          console.log(response)
         })
       }
     }

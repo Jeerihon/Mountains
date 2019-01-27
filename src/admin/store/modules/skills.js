@@ -27,9 +27,6 @@ const skills = {
         response => {
           commit('addNewSkill', response.data);
           return response
-        },
-        error => {
-          console.error(error);
         }
       ).catch(error => {
         throw error

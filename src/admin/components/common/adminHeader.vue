@@ -1,18 +1,9 @@
 <template lang="pug">
   header.header
     h1.title Панель администрирования
-    button.toSite(type='button' @click="goBack") Вернуться на сайт
+    a.toSite(href='dist/index.html') Вернуться на сайт
 </template>
 
-<script>
-  export default {
-    methods: {
-      goBack() {
-        this.$router.go(-2);
-      }
-    }
-  }
-</script>
 
 <style lang="scss" scoped>
 
