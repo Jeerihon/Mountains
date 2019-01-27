@@ -11,19 +11,8 @@
 </template>
 
 <script>
-  import skillsBlock from './about/skillsBlock'
-
-  const data = [
-    {id: 1, title: "Html", percents: 20, category: 1},
-    {id: 2, title: "pug", percents: 56, category: 0},
-    {id: 3, title: "sad", percents: 20, category: 1},
-    {id: 4, title: "dsf", percents: 48, category: 2},
-    {id: 5, title: "sgsdfh", percents: 45, category: 2},
-    {id: 6, title: "sdf", percents: 5, category: 0},
-    {id: 7, title: "Htdsfgml", percents: 3, category: 1},
-    {id: 8, title: "sdh", percents: 20, category: 0},
-    {id: 9, title: "dsfg", percents: 20, category: 1}
-  ];
+  import skillsBlock from './about/skillsBlock';
+  import { mapActions, mapState } from 'vuex';
 
   export default {
     components: {
@@ -35,9 +24,21 @@
           {id: 0, name: 'Frontend'},
           {id: 1, name: 'Backend'},
           {id: 2, name: 'Workflow'}
-        ],
-        skills: data
+        ]
       }
+    },
+    computed: {
+      ...mapState('skills', {
+        skills: state => state.skills
+      })
+    },
+    created() {
+      this.fetchSkills();
+    },
+    methods: {
+      ...mapActions({
+        fetchSkills: "skills/fetch"
+      })
     }
   }
 </script>
