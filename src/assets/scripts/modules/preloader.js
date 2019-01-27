@@ -1,10 +1,10 @@
 // declarate variables
 const preloader = document.querySelector('.js_preloader');
-const rounds = document.querySelector('.js_preloader__img');
+// const rounds = document.querySelector('.js_preloader__img');
 const progress = document.querySelector('.js_preloader__progress');
 const images = Array.from(document.querySelectorAll("img"));
 const imagesCount = images.length;
-const initStrokeDashOffset = 439;
+// const initStrokeDashOffset = 439;
 let loadedImg = 0;
 
 
@@ -29,8 +29,8 @@ preloaderPromise.then(function () {
   function imageLoaded() {
     loadedImg++;
     
-    const curStrokeDashArray = Math.round(initStrokeDashOffset / imagesCount * loadedImg);
-    rounds.style.strokeDashoffset = initStrokeDashOffset - curStrokeDashArray;
+    // const curStrokeDashArray = Math.round(initStrokeDashOffset / imagesCount * loadedImg);
+    // rounds.style.strokeDashoffset = initStrokeDashOffset - curStrokeDashArray;
 
     const percent = Math.round(100 / imagesCount * loadedImg);
     progress.innerHTML = percent;
@@ -42,7 +42,7 @@ preloaderPromise.then(function () {
         }
       }, 1000);
       setTimeout(function () {
-        rounds.style.strokeDashoffset = initStrokeDashOffset;
+        // rounds.style.strokeDashoffset = initStrokeDashOffset;
         progress.innerHTML = 0;
       }, 2000);
     }

@@ -55,6 +55,8 @@ new Vue({
           // и перенаправляем на страницу админ панели
           if (response.status === 200) {
             localStorage.setItem('token', response.data.token);
+
+
             location.href="./admin";
           }
 

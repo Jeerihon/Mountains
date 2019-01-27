@@ -1,5 +1,6 @@
 .hero {
   height: 65vh;
+  min-height: 400px;
 
   @include tablets {
     height: 54vh;

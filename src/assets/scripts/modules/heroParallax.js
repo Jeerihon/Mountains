@@ -17,8 +17,8 @@
 
       init(wScroll) {
         this.move(bg, wScroll, 100);
-        this.move(bgText, wScroll, 50);
-        this.move(user, wScroll, 40);
+        this.move(bgText, wScroll, 60);
+        this.move(user, wScroll, 50);
       }
     }
   })();
