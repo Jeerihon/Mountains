@@ -11,12 +11,24 @@
   let navBtnArray = Array.from(navBtn);
   const articlesArray = Array.from(articles);
   const wrapper = document.querySelector('.wrapper');
+  const heroHeight = document.getElementById('js_header').offsetHeight;
+  const mobBtn = document.querySelector('.js_mobBtn');
 
   navList.children[0].classList.add(activeBtnClass);
   wrapper.style.overflow = 'initial';
 
+
+  window.onscroll = function () {
+    if (navList.offsetTop >= heroHeight && window.innerWidth <= 768) {
+      mobBtn.style.opacity = 1;
+    } else if (navList.offsetTop <= heroHeight && window.innerWidth <= 768) {
+      mobBtn.style.opacity = 0;
+    }
+  }
+
+
+
   window.addEventListener("load", init);
-console.log(window.innerWidth)
   if (window.innerWidth <= 768) {
 
     nav.addEventListener('click', function () {

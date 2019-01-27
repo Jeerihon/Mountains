@@ -11,6 +11,7 @@ script(type='text/x-template')#articles
 
 script(type='text/x-template')#aside-menu
   aside.aside-menu.js_aside-menu
+    button(type="button").aside-menu__mob-btn.js_mobBtn
     ul.aside-menu__list.js_aside-menu__list
       li(v-for="articlesObj in articlesData").aside-menu__item.js_scroll-article
         button(:data-index-button='articlesObj.index').aside-menu__btn {{articlesObj.title}}

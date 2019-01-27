@@ -20,18 +20,6 @@ const routes = [
     path: '/dist/admin/works',
     component: works
   }
-  // {
-  //   path: '/admin',
-  //   component: about
-  // },
-  // {
-  //   path: '/admin/blog',
-  //   component: blog
-  // },
-  // {
-  //   path: '/admin/works',
-  //   component: works
-  // }
 ];
 
 export default new VueRouter({ routes, mode: 'history'})

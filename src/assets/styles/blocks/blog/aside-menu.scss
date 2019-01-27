@@ -12,11 +12,13 @@
 
   @include tablets {
     grid-area: articles;
-    position: relative;
+    position: absolute;
+    top: 0;
+    height: 100%;
     width: 80%;
-    transform: translateX(-105%);
+    transform: translateX(-100%);
     background-color: $main;
-    z-index: 99;
+    z-index: 100500;
     cursor: pointer;
     transition: transform .3s;
     will-change: transform;
@@ -27,38 +29,32 @@
     }
 
     @include phones {
-      transform: translateX(-84%);
       width: 100%;
 
       &--active {
         transform: translateX(-10%);
       }
     }
+  }
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 100%;
-      display: block;
-      height: 100%;
-      width: 100%;
-      background-color: $main;
-    }
+.aside-menu__mob-btn {
+  position: sticky;
+  display: none;
+  top: 30vh;
+  left: 510px;
+  height: 40px;
+  width: 40px;
+  transform: translateX(25%);
+  border-radius: 50%;
+  background-color: $main;
+  outline: none;
+  z-index: -10;
+  opacity: 0;
+  transition: opacity .3s;
 
-
-    &::after {
-      content: '';
-      position: sticky;
-      top: 26%;
-      display: block;
-      height: 40px;
-      width: 40px;
-      background-color: $main;
-      left: 100%;
-      border-radius: 50%;
-      transform: translateX(25%);
-      z-index: -10;
-    }
+  @include tablets {
+    display: block;
   }
 }
 
@@ -68,7 +64,7 @@
   flex-direction: column;
   justify-content: flex-end;
   position: sticky;
-  top: 0;
+  top: 5vh;
 }
 
 .aside-menu__item {
@@ -130,7 +126,7 @@
   transition: all .1s;
 
   @include tablets {
-    width: 80%;
+    width: 60%;
     color: rgba(white, .65);
   }
 
