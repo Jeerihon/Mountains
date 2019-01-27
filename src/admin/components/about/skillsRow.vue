@@ -47,9 +47,14 @@
     },
     methods: {
       ...mapActions({
-        addNewSkill: "skills/add",
+        addNewSkillAction: "skills/add",
         removeSkill: "skills/remove"
-      })
+      }),
+      addNewSkill(newSkill) {
+        this.addNewSkillAction(newSkill).then(response => {
+          this.newSkill.title = '';
+        })
+      }
     }
   }
 </script>

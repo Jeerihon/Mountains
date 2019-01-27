@@ -23,14 +23,17 @@ const skills = {
       })
     },
     add({ commit }, payload) {
-      this.$axios.post('/skills', payload).then(
+      return this.$axios.post('/skills', payload).then(
         response => {
-          commit('addNewSkill', response.data)
+          commit('addNewSkill', response.data);
+          return response
         },
         error => {
           console.error(error);
         }
-      );
+      ).catch(error => {
+        throw error
+      });
     },
     remove({ commit }, skillId) {
       this.$axios.delete(`/skills/${skillId}`).then(response => {
