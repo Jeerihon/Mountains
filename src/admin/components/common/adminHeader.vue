@@ -33,7 +33,7 @@
     &:before {
       content: '';
       position: absolute;
-      width: 92%;
+      width: 100%;
       height: 1px;
       background-color: #fff;
       top: 100%;

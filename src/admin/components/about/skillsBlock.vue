@@ -40,6 +40,7 @@
 
   .skills-block {
     margin-bottom: 100px;
+    margin-right: 200px;
   }
 
   .skills-block__table {

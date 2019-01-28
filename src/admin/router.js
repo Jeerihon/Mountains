@@ -9,17 +9,29 @@ import works from "./components/works";
 
 const routes = [
   {
-    path: '/dist/admin/about',
+    path: '/about',
     component: about
   },
   {
-    path: '/dist/admin/blog',
+    path: '/blog',
     component: blog
   },
   {
-    path: '/dist/admin/works',
+    path: '/works',
     component: works
   }
+  // {
+  //   path: '/dist/admin/about',
+  //   component: about
+  // },
+  // {
+  //   path: '/dist/admin/blog',
+  //   component: blog
+  // },
+  // {
+  //   path: '/dist/admin/works',
+  //   component: works
+  // }
 ];
 
 export default new VueRouter({ routes, mode: 'history'})

@@ -1,12 +1,13 @@
 <template lang="pug">
   #about
     h2.about__title Страница «Обо мне»
-    skills-block(
-      v-for="type in types"
-      :key="type.id"
-      :type="type"
-      :skills="skills"
-    )
+    .about-skills
+      skills-block(
+        v-for="type in types"
+        :key="type.id"
+        :type="type"
+        :skills="skills"
+      )
 
 </template>
 
@@ -48,5 +49,11 @@
     font-size: 21px;
     font-weight: 500;
     margin-bottom: 40px;
+  }
+
+  .about-skills {
+    display: flex;
+    flex-wrap: wrap;
+    width: 860px;
   }
 </style>
