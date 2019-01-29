@@ -13,14 +13,13 @@ const routes = [
   {
     path: './dist/admin',
     component: app,
-
-  },
-  {
-    path: '/dist/admin/about',
-    component: about,
     meta: {
       isPublic: true
     }
+  },
+  {
+    path: '/dist/admin/about',
+    component: about
   },
   {
     path: '/dist/admin/blog',
