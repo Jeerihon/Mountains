@@ -1,7 +1,7 @@
 <template lang="pug">
   header.header
     h1.title Панель администрирования
-    a.toSite(href='dist/index.html') Вернуться на сайт
+    a.toSite(href='/dist/') Вернуться на сайт
 </template>
 
 
