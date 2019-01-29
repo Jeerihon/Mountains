@@ -6,6 +6,10 @@ import axiosRequest from "./requests";
 store.$axios = axiosRequest;
 
 
+import CKEditor from '@ckeditor/ckeditor5-vue';
+Vue.use( CKEditor );
+
+
 
 new Vue({
   el: "#admin-app",

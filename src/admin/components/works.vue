@@ -1,6 +1,5 @@
 <template lang="pug">
   #works
-    h2.works__title Страница «Мои работы»
     .works__container
       works-form
       works-table
@@ -18,5 +17,8 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .works__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>

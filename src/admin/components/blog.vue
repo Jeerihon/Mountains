@@ -1,15 +1,36 @@
 <template lang="pug">
+  ckeditor( :editor="editor" v-model="editorData" :config="editorConfig")
 </template>
 
 <script>
-  // import blogForm from './blog/worksForm';
-  // import blogTable from './blog/worksTable';
-  //
-  // export default {
-  //   components: {
-  //     blogForm, blogTable
-  //   }
-  // }
+  import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+  export default {
+    data() {
+      return {
+        editor: ClassicEditor,
+        editorData: '',
+        editorConfig: {
+          toolbar: {
+            items: [
+              'heading',
+              'bold',
+              'italic',
+              'link',
+              'ul',
+              'undo',
+              'redo',
+              'imageupload',
+              'bulletedlist',
+              'numberedlist',
+              'blockquote'
+            ]
+          },
+          language: 'ru'
+        }
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

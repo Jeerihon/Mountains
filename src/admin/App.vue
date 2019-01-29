@@ -14,10 +14,17 @@
 <script>
   import adminHeader from './components/common/adminHeader';
   import adminNav from './components/common/adminNav';
+  import {mapState} from 'vuex';
+
 
   export default {
     components: {
       adminHeader, adminNav
+    },
+    computed: {
+      ...mapState({
+        pages: state => state.adminPages.pages
+      })
     }
   };
 </script>
