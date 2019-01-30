@@ -13,8 +13,8 @@
     label(for="image").form__item.form__item--imgUpload
       input(type='file' name='image' id="image" @change="renderPicAndAddToData").form__imgUpload-stoc
       img(
-        v-show="!editMode"
-        src="../../../assets/images/admin/work_img.png"
+          v-show="!editMode"
+          src="../../../assets/images/admin/work_img.png"
         ).form__imgUpload-pic
       div(v-show="editMode").preview
         img(:src="previewPic").preview__img

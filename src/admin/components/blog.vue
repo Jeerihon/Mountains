@@ -1,34 +1,18 @@
 <template lang="pug">
-  ckeditor( :editor="editor" v-model="editorData" :config="editorConfig")
+  #blog
+    .blog__container
+      blog-form
+      blog-table
 </template>
 
 <script>
-  import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+  import blogForm from './blog/blogForm';
+  import blogTable from './blog/blogTalble';
 
   export default {
-    data() {
-      return {
-        editor: ClassicEditor,
-        editorData: '',
-        editorConfig: {
-          toolbar: {
-            items: [
-              'heading',
-              'bold',
-              'italic',
-              'link',
-              'ul',
-              'undo',
-              'redo',
-              'imageupload',
-              'bulletedlist',
-              'numberedlist',
-              'blockquote'
-            ]
-          },
-          language: 'ru'
-        }
-      }
+    components: {
+      blogForm, blogTable
     }
   }
 </script>
@@ -38,5 +22,8 @@
     font-size: 21px;
     font-weight: 500;
     margin-bottom: 40px;
+  }
+  .blog__container {
+    display: flex;
   }
 </style>

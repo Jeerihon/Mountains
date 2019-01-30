@@ -3,26 +3,28 @@
     h2.title Страница «Блог»
     .form-container
       form.form
-        <!--h3.form__title {{editMode? 'Изменить запись' : 'Добавить запись'}}-->
-        h3.form__title Добавить запись
+        h3.form__title {{editMode? 'Изменить запись' : 'Добавить запись'}}
         label.form__item
-          input(type='text' placeholder="Название" :config="dateConfig").form__input
+          input(type='text' placeholder="Название" v-model="post.title").form__input
         label.form__item.form__item--date
-          datepicker(placeholder="Дата" :language="ru" input-class="datepicker__input form__input" format="dd.MM.yyyy").datepicker
+          datepicker(placeholder="Дата" :language="ru" input-class="datepicker__input form__input" format="dd.MM.yyyy"  v-model="post.date").datepicker
 
     .editor
-      ckeditor( :editor="editor" v-model="editorData" :config="editorConfig")
+      ckeditor( :editor="editor" v-model="post.content" :config="editorConfig")
     button(
-    type="button"
-    @click="editMode? editCurWork(work) : addNewWork(work)"
-    :class="editMode? 'edit' : ''"
-  ).form__btn {{editMode? 'Сохранить изменения' : 'Добавить'}}
+      type="button"
+      @click="editMode? editCurPost(post) : addNewPost(post)"
+      :class="editMode? 'edit' : ''"
+    ).form__btn {{editMode? 'Сохранить изменения' : 'Добавить'}}
+
+    pre {{post.date}}
 </template>
 
 <script>
   import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   import Datepicker from 'vuejs-datepicker';
   import { ru } from 'vuejs-datepicker/dist/locale'
+  import { mapActions, mapState } from "vuex";
 
   export default {
     components: {
@@ -30,6 +32,12 @@
     },
     data() {
       return {
+        post: {
+          id: 0,
+          title: "",
+          date: "",
+          content: ""
+        },
         editor: ClassicEditor,
         editorData: '',
         editorConfig: {
@@ -52,6 +60,42 @@
         },
         ru: ru
       }
+    },
+    computed: {
+      ...mapState('posts', {
+        existedPost: state => state.existedPost,
+        editMode: state => state.editMode,
+        editItem: state => state.editItem
+      })
+    },
+    watch: {
+      existedPost(value) {
+        this.setExistedPost(value)
+      }
+    },
+    methods: {
+      ...mapActions({
+        addNewPost: 'posts/add',
+        editPost: 'posts/edit',
+        tooglingMode: "posts/tooglingMode",
+        resetEditItem: "posts/resetEditItem"
+      }),
+      setExistedPost(existedPost) {
+        this.post.id = existedPost.id;
+        this.post.title = existedPost.title;
+        this.post.date = existedPost.date;
+        this.post.content = existedPost.content;
+      },
+      editCurPost(post) {
+        this.editPost(post).then(response => {
+          this.post.title ="";
+          this.post.date ="";
+          this.post.content = "";
+          this.tooglingMode();
+          this.resetEditItem();
+          console.log(response)
+        })
+      }
     }
   }
 </script>
@@ -59,6 +103,7 @@
 <style lang="scss">
   .blogform-wrap {
     margin-right: 55px;
+    width: 500px;
   }
 
   .title {
@@ -141,7 +186,12 @@
 
   .editor {
     display: flex;
+    width: 100%;
     margin-bottom: 30px;
+
+    .ck-editor {
+      width: 100%;
+    }
   }
 
   .form__btn {

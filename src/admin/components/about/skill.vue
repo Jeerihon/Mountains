@@ -1,16 +1,14 @@
 <template lang="pug">
   tr(v-if="editMode === false").skill
-    <!--td.skill__name {{skill.title}}-->
-    td.skill__name
-      input( type='text' :placeholder='skill.title' v-model='newSkill.title').skill__input.skill__input--name
-    <!--td.skill__percentage {{skill.percents}}-->
-    td.skill__percentage
-      input( type='text' :placeholder='skill.percents' v-model='newSkill.percents').skill__input.skill__input--percentage
+    td.skill__name {{editingMode? '' : skill.title}}
+      input(v-show='editingMode' type='text' :placeholder='newSkill.title' v-model='newSkill.title').skill__input.skill__input--name
+    td.skill__percentage {{editingMode? '' : skill.percents}}
+      input(v-show='editingMode' type='text' :placeholder='newSkill.percents' v-model='newSkill.percents').skill__input.skill__input--percentage
     td.skill__percent %
     td.skill__button--container
-      button(v-show="!editMode" type='button').button
+      button(v-show='!editingMode' @click="editExistedSkill(skill)" type='button').button
         img(src="../../../assets/images/admin/pencil.png")
-      button(v-show="editMode" type='button').button
+      button(v-show='editingMode' type='button' @click="editingSkill(newSkill)").button
         img(src="../../../assets/images/admin/checked.png")
     td.skill__button--container
       button(type='button' @click="removeSkill(skill.id)").button
@@ -43,6 +41,7 @@
     },
     data() {
       return {
+        editingMode: false,
         newSkill: {
           id: 0,
           title: "",
@@ -62,6 +61,16 @@
           this.newSkill.title = '';
           console.log(response)
         })
+      },
+      editExistedSkill(existedSkill) {
+        this.editingMode = true;
+        this.newSkill.id = existedSkill.id;
+        this.newSkill.title = existedSkill.title;
+        this.newSkill.percents = existedSkill.percents;
+      },
+      editingSkill(newSkill) {
+        this.editSkill(newSkill);
+        this.editingMode = false;
       }
     }
   }
@@ -75,7 +84,9 @@
 
   .skill__name {
     padding-left:  20px;
-
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .skill__input-wrap {
@@ -83,14 +94,16 @@
   }
 
   .skill__input--name {
-    width: 90px;
+    width: 100%;
+    box-sizing: border-box;
     padding-left: 20px;
-    height: 33px
+    height: 31px;
+    text-align: center;
   }
 
   .skill__input--percentage {
-    width: 45px;
-    height: 33px;
+    width: 43px;
+    height: 31px;
     text-align: center;
   }
 

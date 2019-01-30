@@ -10,13 +10,34 @@
             td.table__data.table__data--content Содержание
             td.table__data.table__data--btns
         post(
-        v-for="post in posts"
-        :key="post.id"
-        :work="post"
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
         )
 </template>
 
 <script>
+  import post from './post';
+  import { mapActions, mapState } from "vuex";
+
+  export default {
+    components: {
+      post
+    },
+    computed: {
+      ...mapState('posts', {
+        posts: state => state.posts
+      })
+    },
+    created() {
+      this.fetchPosts()
+    },
+    methods: {
+      ...mapActions({
+        fetchPosts: 'posts/fetch',
+      })
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

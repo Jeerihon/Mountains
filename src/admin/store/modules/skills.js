@@ -45,7 +45,7 @@ const skills = {
       });
 
       this.$axios.post(`/skills/${skill.id}`, formData).then(response => {
-          commit('editSkill', response.data.skill)
+          commit('editSkill', response.data.skill);
           return response
         }
       ).catch(error => {

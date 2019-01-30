@@ -12,11 +12,12 @@
         button(
           type='button'
           @click="getWork(work); tooglingMode(); setEditItem(work.id); toogleIsEdit()"
-        :class="work.id === editItem? 'edit' : '' "
+          :class="work.id === editItem? 'edit' : '' "
         ).button
           img(src="../../../assets/images/admin/pencil.png")
         button(type='button' @click="removeWork(work.id)").button
           img(src="../../../assets/images/admin/cancel.png")
+
 </template>
 
 <script>
