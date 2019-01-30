@@ -33,7 +33,7 @@ script(type="text/x-template")#slider-info
           :css='false'
           @enter="enterCb"
         )
-          .tools__name(:key='work.tools') {{work.tools}}
+          .tools__name(:key='work.techs') {{work.techs}}
       a.tools__btn
         +icon('link', 'tools__btn-pic')
         a.tools__btn-text(:href="work.link") Посмотреть сайт
@@ -41,7 +41,7 @@ script(type="text/x-template")#slider-info
 script(type="text/x-template")#slider-display
   .slider__display
     transition(name="fade" mode="out-in")
-      img(:src="work.photo" :key="work.photo").slide__img.slide__img--display
+      img(:src="`https://webdev-api.loftschool.com/${work.photo}`" :key="work.photo").slide__img.slide__img--display
 
 script(type="text/x-template")#slider-btns
   .slider__btns
@@ -55,3 +55,5 @@ script(type="text/x-template")#slider-btns
         .slide__btn-container(:key="nextBtnWorks[index].photo")
           img(:src="nextBtnWorks[index].photo").slide__img.slide__btn-img
       +icon('portf_arrow_up', 'slider__btn-pic')
+
+  pre {{works}}

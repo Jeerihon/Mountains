@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import axios from 'axios';
 
 const info = {
   template: "#slider-info",
@@ -110,7 +111,9 @@ new Vue({
     }
   },
   created() {
-    this.works = require('../../../data/works.json');
+    axios.get('https://webdev-api.loftschool.com/works/91').then(response => {
+      this.works = response.data
+    })
   },
   methods: {
     makeInfiniteSliding(value) {

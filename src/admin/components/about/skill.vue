@@ -67,6 +67,7 @@
         this.newSkill.id = existedSkill.id;
         this.newSkill.title = existedSkill.title;
         this.newSkill.percents = existedSkill.percents;
+        this.newSkill.category = existedSkill.category;
       },
       editingSkill(newSkill) {
         this.editSkill(newSkill);
