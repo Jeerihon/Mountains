@@ -1,19 +1,24 @@
 <template lang="pug">
-  tr(v-if="editMode === false").skills-row
-    td.skills-row__name {{skill.title}}
-    td.skills-row__percentage {{skill.percents}}
-    td.skills-row__percent %
-    td.skills-row__button--container
-      button(type='button').button
+  tr(v-if="editMode === false").skill
+    <!--td.skill__name {{skill.title}}-->
+    td.skill__name
+      input( type='text' :placeholder='skill.title' v-model='newSkill.title').skill__input.skill__input--name
+    <!--td.skill__percentage {{skill.percents}}-->
+    td.skill__percentage
+      input( type='text' :placeholder='skill.percents' v-model='newSkill.percents').skill__input.skill__input--percentage
+    td.skill__percent %
+    td.skill__button--container
+      button(v-show="!editMode" type='button').button
         img(src="../../../assets/images/admin/pencil.png")
-    td.skills-row__button--container
+      button(v-show="editMode" type='button').button
+        img(src="../../../assets/images/admin/checked.png")
+    td.skill__button--container
       button(type='button' @click="removeSkill(skill.id)").button
         img(src="../../../assets/images/admin/cancel.png")
 
-  tfoot(v-else).skills-input
-    tr.skills-input__container
-      input(type='text' placeholder="Название" v-model='newSkill.title').skills-input__item
-      button(type='button' @click="addNewSkill(newSkill)").skills-input__btn Добавить
+  .skills-input__container(v-else)
+    input(type='text' placeholder="Название" v-model='newSkill.title').skill__input.skills-input__item
+    button(type='button' @click="addNewSkill(newSkill)").skills-input__btn Добавить
 
 </template>
 
@@ -39,6 +44,7 @@
     data() {
       return {
         newSkill: {
+          id: 0,
           title: "",
           percents: 0,
           category: this.typeId
@@ -48,7 +54,8 @@
     methods: {
       ...mapActions({
         addNewSkillAction: "skills/add",
-        removeSkill: "skills/remove"
+        removeSkill: "skills/remove",
+        editSkill: 'skills/edit'
       }),
       addNewSkill(newSkill) {
         this.addNewSkillAction(newSkill).then(response => {
@@ -62,17 +69,36 @@
 
 <style lang="scss" scoped>
 
-  .skills-row__name {
-    padding-right: 20px;
+  .skill {
+    height: 33px;
+  }
+
+  .skill__name {
+    padding-left:  20px;
+
+  }
+
+  .skill__input-wrap {
     padding-left: 20px;
   }
 
-  .skills-row__percentage {
+  .skill__input--name {
+    width: 90px;
+    padding-left: 20px;
+    height: 33px
+  }
+
+  .skill__input--percentage {
+    width: 45px;
+    height: 33px;
+    text-align: center;
+  }
+
+  .skill__percentage {
     width: 45px;
     background: white;
     text-align: center;
     border-radius: 5px;
-    padding: 8px 0;
   }
 
   .button {
@@ -83,30 +109,19 @@
     background-color: transparent;
   }
 
-  .skills-input {
-    position: relative;
-  }
-
   .skills-input__container {
-    position: absolute;
     display: flex;
-    padding-left: 20px;
+    padding-left: 30px;
     padding-top: 10px;
   }
 
   .skills-input__item {
     width: 190px;
     height: 45px;
-    border: 2px solid transparent;
-    border-radius: 5px;
+
     padding-left: 20px;
     margin-right: 10px;
-    outline: none;
-    transition: all .1s;
 
-    &:focus {
-      border: 2px solid $main;
-    }
   }
 
   .skills-input__btn {
@@ -118,6 +133,17 @@
     transition: all .2s;
     &:hover {
       background-color: $secondary;
+    }
+  }
+
+  .skill__input {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    outline: none;
+    transition: all .1s;
+
+    &:focus {
+      border: 2px solid $main;
     }
   }
 </style>

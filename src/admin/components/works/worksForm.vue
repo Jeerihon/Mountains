@@ -3,7 +3,7 @@
     h2.title Страница «Мои работы»
     .form-container
       form.form
-        h3.form__title Добавить работу
+        h3.form__title {{editMode? 'Изменить работу' : 'Добавить работу'}}
         label.form__item
           input(type='text' name='name' placeholder='Название проекта' v-model="work.title").form__input
         label.form__item
@@ -12,7 +12,10 @@
           input(type='text' name='link' placeholder='Ссылка' v-model="work.link").form__input
     label(for="image").form__item.form__item--imgUpload
       input(type='file' name='image' id="image" @change="renderPicAndAddToData").form__imgUpload-stoc
-      img(v-show="!editMode" src="../../../assets/images/admin/work_img.png").form__imgUpload-pic
+      img(
+        v-show="!editMode"
+        src="../../../assets/images/admin/work_img.png"
+        ).form__imgUpload-pic
       div(v-show="editMode").preview
         img(:src="previewPic").preview__img
       span.form__imgUpload-btn {{editMode? 'Изменить картинку' : 'Загрузить картинку'}}
@@ -44,7 +47,8 @@
     computed: {
       ...mapState('works', {
         existedWork: state => state.existedWork,
-        editMode: state => state.editMode
+        editMode: state => state.editMode,
+        editItem: state => state.editItem
       })
     },
     watch: {
@@ -57,6 +61,7 @@
         addNewWork: 'works/add',
         editWork: 'works/edit',
         tooglingMode: "works/tooglingMode",
+        resetEditItem: "works/resetEditItem"
       }),
       renderPicAndAddToData(e) {
         const file = e.target.files[0];
@@ -84,6 +89,7 @@
           this.work.link = "";
           this.previewPic ="";
           this.tooglingMode();
+          this.resetEditItem();
           console.log(response)
         })
       }

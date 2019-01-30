@@ -1,22 +1,26 @@
 <template lang="pug">
-  tr.work
+  tr(:class="work.id === editItem? 'edit' : '' ").work
     td.work__title {{work.title}}
     td.work__techs {{work.techs}}
     td.work__link
-      a(href='work.title').work__link-text {{work.link}}
+      a(href='work.title' ).work__link-text {{work.link}}
     td.work__photo
       .work__photo-wrap
         img(:src="`https://webdev-api.loftschool.com/${work.photo}`").work__photo-pic
     td.work__buttons
       .work__buttons-wrap
-        button(type='button' @click="getWork(work); tooglingMode()").button
+        button(
+          type='button'
+          @click="getWork(work); tooglingMode(); setEditItem(work.id); toogleIsEdit()"
+        :class="work.id === editItem? 'edit' : '' "
+        ).button
           img(src="../../../assets/images/admin/pencil.png")
-        button(type='button').button
+        button(type='button' @click="removeWork(work.id)").button
           img(src="../../../assets/images/admin/cancel.png")
 </template>
 
 <script>
-  import { mapActions } from "vuex";
+  import {mapActions, mapState} from "vuex";
 
   export default {
     props: {
@@ -26,11 +30,27 @@
         }
       }
     },
+    data() {
+      return {
+        isEdit: false
+      }
+    },
+    computed: {
+      ...mapState('works', {
+        editMode: state => state.editMode,
+        editItem: state => state.editItem
+      })
+    },
     methods: {
       ...mapActions({
         getWork: "works/getExistedWork",
         tooglingMode: "works/tooglingMode",
-      })
+        setEditItem: "works/setEditItem",
+        removeWork: "works/remove"
+      }),
+      toogleIsEdit() {
+        this.isEdit = true
+      }
     }
   }
 </script>
@@ -42,6 +62,10 @@
 
     &:nth-child(even) {
       background-color: #f9f9f9;
+    }
+
+    &.edit {
+      background-color: rgba($main, .15);
     }
   }
 
@@ -90,9 +114,14 @@
 
   .button {
     background-color: transparent;
+    outline: none;
 
     &:first-child {
       margin-bottom: 10px;
+    }
+
+    &.edit {
+      display: none;
     }
   }
 

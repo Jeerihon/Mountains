@@ -3,17 +3,24 @@ const works = {
   state: {
     works: [],
     existedWork: [],
-    editMode: ''
+    editMode: false,
+    editItem: null
   },
   mutations: {
     addNewWork: (state, work) => state.works.push(work),
     fillUpWorks: (state, works) => state.works = works,
     setExistedWork: (state, work) => state.existedWork = work,
     toogleMode: (state) => state.editMode = !state.editMode,
+    resetEditItem: (state) => state.editItem = null,
+    setEditItem: (state, work) => state.editItem = work,
     editWork: (state, editedWork) =>
       (state.works = state.works.map(work => {
         return work.id === editedWork.id ? editedWork : work
-      }))
+      })),
+    removeWork: (state, workToRemoveId) =>
+      (state.works = state.works.filter(
+        work => work.id !== workToRemoveId
+      ))
   },
   actions: {
     add({commit}, work) {
@@ -54,6 +61,17 @@ const works = {
     },
     tooglingMode({commit}) {
       commit('toogleMode')
+    },
+    resetEditItem({commit}) {
+      commit('resetEditItem')
+    },
+    setEditItem({commit}, work) {
+      commit('setEditItem', work)
+    },
+    remove({ commit }, workId) {
+      this.$axios.delete(`/works/${workId}`).then(response => {
+        commit('removeWork', workId)
+      })
     }
   }
 };

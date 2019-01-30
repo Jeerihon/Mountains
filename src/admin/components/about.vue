@@ -54,6 +54,6 @@
   .about-skills {
     display: flex;
     flex-wrap: wrap;
-    width: 860px;
+    width: 1100px;
   }
 </style>

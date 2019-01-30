@@ -9,15 +9,15 @@
         :key="skill.id"
         :skill="skill"
       )
-      skills-row(
-        :editMode="true"
-        :typeId="type.id"
-      )
+    skills-row(
+      :editMode="true"
+      :typeId="type.id"
+    )
 
 </template>
 
 <script>
-  import skillsRow from './skillsRow';
+  import skillsRow from './skill';
 
   export default {
     components: {
