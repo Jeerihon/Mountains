@@ -1,6 +1,6 @@
 <template lang="pug">
   .table-container
-    h3.table__title Последние работы
+    h3.table__title Последние записи
     .table__wrap
       table.table
         thead.table__header

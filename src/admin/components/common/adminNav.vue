@@ -24,23 +24,56 @@
 </script>
 
 <style lang="scss" scoped>
+  @mixin desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  }
+
+  @mixin tablets {
+    @media (max-width: $tablets) {
+      @content;
+    }
+  }
+
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
+  }
+
   .nav {
     background-color: #f0efe9;
     width: 100%;
     height: 60px;
     font-weight: 500;
+
+    @include phones {
+      height: auto;
+    }
   }
 
   .nav__list {
     display: flex;
     width: 100%;
+
+    @include phones {
+      flex-direction: column;
+    }
   }
 
   .nav__item {
     border-right: 2px solid white;
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     text-align: center;
     overflow: hidden;
+
+    @include phones {
+      max-width: 100%;
+      border-right: none;
+      border-bottom: 2px solid white;
+    }
   }
 
   .nav__link {
@@ -52,8 +85,13 @@
     text-decoration: none;
     color: rgba($text-color, .7);
     cursor: pointer;
-    padding-right: 180px;
+    padding-right: 100%;
     transition: all .2s;
+
+    @include phones {
+      line-height: 46px;
+      font-size: 14px;
+    }
 
     &:after {
       content: 'Перейти';

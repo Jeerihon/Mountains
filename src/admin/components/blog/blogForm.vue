@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.blogform-wrap
+  div.form-wrap
     h2.title Страница «Блог»
     .form-container
       form.form
@@ -12,9 +12,9 @@
     .editor
       ckeditor( :editor="editor" v-model="post.content" :config="editorConfig")
     button(
-      type="button"
-      @click="editMode? editCurPost(post) : addNewPost(post)"
-      :class="editMode? 'edit' : ''"
+    type="button"
+    @click="editMode? editCurPost(post) : addPost(post)"
+    :class="editMode? 'edit' : ''"
     ).form__btn {{editMode? 'Сохранить изменения' : 'Добавить'}}
 
     pre {{post.date}}
@@ -23,8 +23,8 @@
 <script>
   import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   import Datepicker from 'vuejs-datepicker';
-  import { ru } from 'vuejs-datepicker/dist/locale'
-  import { mapActions, mapState } from "vuex";
+  import {ru} from 'vuejs-datepicker/dist/locale'
+  import {mapActions, mapState} from "vuex";
 
   export default {
     components: {
@@ -44,6 +44,7 @@
           toolbar: {
             items: [
               'heading',
+              '|',
               'bold',
               'italic',
               'link',
@@ -86,24 +87,56 @@
         this.post.date = existedPost.date;
         this.post.content = existedPost.content;
       },
+      addPost(post) {
+        this.addNewPost(post).then(response => {
+
+          this.resetInput()
+          console.log(response)
+        })
+      },
       editCurPost(post) {
         this.editPost(post).then(response => {
-          this.post.title ="";
-          this.post.date ="";
-          this.post.content = "";
+          this.resetInput()
           this.tooglingMode();
           this.resetEditItem();
           console.log(response)
         })
+      },
+      resetInput() {
+        this.post.title = "";
+        this.post.date = "";
+        this.post.content = "";
       }
     }
   }
 </script>
 
 <style lang="scss">
-  .blogform-wrap {
+
+  @mixin tablets {
+    @media (max-width: $tablets) {
+      @content;
+    }
+  }
+
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
+  }
+
+  .form-wrap {
     margin-right: 55px;
     width: 500px;
+    margin-bottom: 45px;
+
+    @include tablets {
+      margin-right: 0;
+    }
+
+    @include phones {
+      margin-bottom: 30px;
+    }
   }
 
   .title {
@@ -116,6 +149,10 @@
     width: 300px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
+    @include phones {
+      width: 100%;
+    }
   }
 
   .form__title {
@@ -128,8 +165,12 @@
     display: flex;
     height: 45px;
     margin-bottom: 20px;
-  }
+    width: 100%;
 
+    @include phones {
+      width: 300px;
+    }
+  }
 
   .form__input {
     width: 100%;
@@ -139,7 +180,6 @@
     font-size: 16px;
     outline: none;
     transition: all .1s;
-
 
     &:focus {
       border: 2px solid $main;
@@ -186,11 +226,26 @@
 
   .editor {
     display: flex;
-    width: 100%;
+    width: 500px;
     margin-bottom: 30px;
 
     .ck-editor {
       width: 100%;
+    }
+
+    .ck-toolbar {
+      font-size: 11px;
+      height: 30px;
+      border-top-color: white;
+    }
+
+    .ck-content {
+      height: 155px;
+      overflow-y: auto;
+    }
+
+    .ck-focused{
+      border: 1px solid $main!important;
     }
   }
 

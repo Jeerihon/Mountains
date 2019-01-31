@@ -1,18 +1,18 @@
-(function () {
+const navigation = function() {
 
-  const nav = document.querySelector('.js_aside-menu');
-  const navList = nav.querySelector('.js_aside-menu__list');
-  const navBtn = nav.getElementsByClassName('js_scroll-article');
-  const articles = document.querySelectorAll(".js_articles__item");
-  const activeBtnClass = 'aside-menu__item--active';
-  const speed = 1;
+  let nav = document.querySelector('.js_aside-menu');
+  let navList = nav.querySelector('.js_aside-menu__list');
+  let navBtn = nav.getElementsByClassName('js_scroll-article');
+  let articles = document.querySelectorAll(".js_articles__item");
+  let activeBtnClass = 'aside-menu__item--active';
+  let speed = 1;
   let clickAnimation = false;
   let positionArticles = [];
   let navBtnArray = Array.from(navBtn);
-  const articlesArray = Array.from(articles);
-  const wrapper = document.querySelector('.wrapper');
-  const heroHeight = document.getElementById('js_header').offsetHeight;
-  const mobBtn = document.querySelector('.js_mobBtn');
+  let articlesArray = Array.from(articles);
+  let wrapper = document.querySelector('.wrapper');
+  let heroHeight = document.getElementById('js_header').offsetHeight;
+  let mobBtn = document.querySelector('.js_mobBtn');
 
   navList.children[0].classList.add(activeBtnClass);
   wrapper.style.overflow = 'initial';
@@ -24,8 +24,7 @@
     } else if (navList.offsetTop <= heroHeight && window.innerWidth <= 768) {
       mobBtn.style.opacity = 0;
     }
-  }
-
+  };
 
 
   window.addEventListener("load", init);
@@ -122,4 +121,6 @@
     return position;
   }
 
-})();
+};
+
+export default navigation;

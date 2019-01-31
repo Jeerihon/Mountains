@@ -25,5 +25,6 @@
   }
   .blog__container {
     display: flex;
+    flex-wrap: wrap;
   }
 </style>

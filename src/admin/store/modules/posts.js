@@ -13,7 +13,7 @@ const posts = {
     setExistedPost: (state, post) => state.existedPost = post,
     toogleMode: (state) => state.editMode = !state.editMode,
     resetEditItem: (state) => state.editItem = null,
-    setEditItem: (state, post) => state.editItem = post.date,
+    setEditItem: (state, post) => state.editItem = post,
     editPost: (state, editedPost) =>
       (state.posts = state.posts.map(post => {
         return post.id === editedPost.id ? editedPost : post

@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import axios from "axios/index";
+import navigation from "./blogNav";
 
 const asideMenu = {
   props: {
@@ -25,7 +27,11 @@ new Vue({
     }
   },
   created() {
-    this.articles = require('../../../data/articles.json');
+    axios.get('https://webdev-api.loftschool.com/posts/91').then(response => {
+      this.articles = response.data
+    }).then(response => {
+      navigation()
+    })
   },
   template: "#articles"
 });

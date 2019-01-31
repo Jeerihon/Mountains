@@ -79,6 +79,12 @@
 
 <style lang="scss" scoped>
 
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
+  }
+
   .skill {
     height: 33px;
   }
@@ -88,6 +94,10 @@
     max-width: 170px;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include phones {
+      max-width: 130px;
+    }
   }
 
   .skill__input-wrap {
@@ -99,7 +109,6 @@
     box-sizing: border-box;
     padding-left: 20px;
     height: 31px;
-    text-align: center;
   }
 
   .skill__input--percentage {
@@ -127,14 +136,22 @@
     display: flex;
     padding-left: 30px;
     padding-top: 10px;
+
+    @include phones {
+      padding-left: 10px;
+      width: 100%;
+    }
   }
 
   .skills-input__item {
     width: 190px;
     height: 45px;
-
     padding-left: 20px;
     margin-right: 10px;
+
+    @include phones {
+      width: 100%;
+    }
 
   }
 

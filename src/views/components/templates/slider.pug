@@ -45,15 +45,14 @@ script(type="text/x-template")#slider-display
 
 script(type="text/x-template")#slider-btns
   .slider__btns
+    pre {{prevBtnWorks}}
     button.slider__btn.slider__btn--prev(@click="slide('prev')")
       transition-group(name='slide-down')
-        .slide__btn-container(:key="prevBtnWorks[index].photo")
-          img(:src="prevBtnWorks[index].photo").slide__img.slide__btn-img
+        .slide__btn-container(:key="prevBtnWorks[index]")
+          //img(:src="prevBtnWorks[index].photo").slide__img.slide__btn-img
       +icon('portf_arrow_down', 'slider__btn-pic')
     button.slider__btn.slider__btn--next(@click="slide('next')")
       transition-group(name='slide-up')
-        .slide__btn-container(:key="nextBtnWorks[index].photo")
-          img(:src="nextBtnWorks[index].photo").slide__img.slide__btn-img
+        .slide__btn-container(:key="nextBtnWorks[index]")
+          //img(:src="nextBtnWorks[index].photo").slide__img.slide__btn-img
       +icon('portf_arrow_up', 'slider__btn-pic')
-
-  pre {{works}}

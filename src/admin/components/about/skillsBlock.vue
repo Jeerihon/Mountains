@@ -38,14 +38,36 @@
 
 <style lang="scss" scoped>
 
-  .skills-block {
-    margin-bottom: 100px;
-    margin-right: 200px;
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
   }
+
+  .skills-block {
+    margin-bottom: 30px;
+
+    &:nth-child(odd) {
+    margin-right: 138px;
+    }
+
+    @include phones {
+      width: 100%;
+      transform: translateX(-8px);
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+    }
+  }
+
 
   .skills-block__table {
     border-collapse: separate;
     border-spacing: 10px;
+
+    @include phones {
+      width: 100%;
+    }
   }
 
   .skills-block__title {

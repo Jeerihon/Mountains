@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.form-wrap
     h2.title Страница «Мои работы»
     .form-container
       form.form
@@ -98,6 +98,31 @@
 </script>
 
 <style lang="scss" scoped>
+
+  @mixin tablets {
+    @media (max-width: $tablets) {
+      @content;
+    }
+  }
+
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
+  }
+
+  .form-wrap {
+    margin-bottom: 45px;
+
+    @include tablets {
+      margin-right: 0;
+    }
+
+    @include phones {
+      margin-bottom: 30px;
+    }
+  }
+
   .title {
     font-size: 21px;
     font-weight: 500;
@@ -109,6 +134,10 @@
     display: flex;
     flex-direction: column;
     margin-right: 180px;
+
+    @include phones {
+      width: 100%;
+    }
   }
 
   .form__title {
@@ -125,6 +154,10 @@
     &--imgUpload {
       align-items: center;
       margin: 55px 0;
+
+      @include tablets {
+        margin: 0 0 30px 0;
+      }
     }
   }
 
@@ -154,7 +187,7 @@
     color: $main;
     cursor: pointer;
     transition: all .2s;
-position: relative;
+    position: relative;
 
     &:hover {
       color: $secondary;

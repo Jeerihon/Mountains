@@ -57,7 +57,7 @@ new Vue({
             localStorage.setItem('token', response.data.token);
 
 
-            location.replace("/dist/admin/");
+            location.replace("/admin");
           }
 
           // Убираем окно с описанием ошибок

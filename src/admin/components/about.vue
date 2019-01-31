@@ -45,15 +45,26 @@
 </script>
 
 <style lang="scss" scoped>
+
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
+  }
+
   .about__title {
-    font-size: 21px;
+    font-size: 21Px;
     font-weight: 500;
     margin-bottom: 40px;
+
+    @include phones {
+      margin-bottom: 24px;
+    }
   }
 
   .about-skills {
     display: flex;
     flex-wrap: wrap;
-    width: 1100px;
+    max-width: 1000px;
   }
 </style>

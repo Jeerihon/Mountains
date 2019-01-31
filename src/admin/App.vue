@@ -30,9 +30,32 @@
 </script>
 
 <style lang="scss">
+  @mixin fullscreen {
+    @media (max-width: $fullscreen) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  }
+
+  @mixin tablets {
+    @media (max-width: $tablets) {
+      @content;
+    }
+  }
+
+  @mixin phones {
+    @media (max-width: $phones) {
+      @content;
+    }
+  }
+
   html {
     font-size: 16px;
-    user-select: none;
   }
 
   body, html {
@@ -56,7 +79,8 @@
   }
 
   .wrapper {
-    overflow: hidden;
+    overflo-y: auto;
+    overflow-x: hidden;
     height: 100%;
   }
 
@@ -64,6 +88,10 @@
     position: relative;
     height: 100%;
     padding: 55px 30px;
+
+    @include phones {
+      padding: 30px 10px;
+    }
 
     &:after {
       content: '';
