@@ -13,6 +13,12 @@ const articles = {
   props: {
     articlesData: Array
   },
+  methods: {
+    setDate(date) {
+      let d = new Date(date * 1000);
+      return d.toLocaleDateString()
+    }
+  },
   template: '#articles__section'
 };
 
@@ -30,7 +36,8 @@ new Vue({
     axios.get('https://webdev-api.loftschool.com/posts/91').then(response => {
       this.articles = response.data
     }).then(response => {
-      navigation()
+      navigation();
+      console.log(response)
     })
   },
   template: "#articles"

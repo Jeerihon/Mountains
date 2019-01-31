@@ -1,7 +1,7 @@
 <template lang="pug">
   tr(:class="post.id === editItem? 'edit' : '' ").post
     td.post__title  {{post.title}}
-    td.date  {{date}}
+    td.date  {{setDate(post.date)}}
     td.post__content
       .post__content-text(v-html='post.content')
     td.post__buttons
@@ -29,7 +29,6 @@
     },
     data() {
       return {
-        date: this.post.date,
         isEdit: false
       }
     },
@@ -40,11 +39,6 @@
         postDate: state => state.editItem
       })
     },
-    watch: {
-      date(value) {
-        this.post.date = value
-      }
-    },
     methods: {
       ...mapActions({
         getPost: "posts/getExistedPost",
@@ -54,6 +48,10 @@
       }),
       toogleIsEdit() {
         this.isEdit = true
+      },
+      setDate(date) {
+        let d = new Date(date * 1000);
+        return d.toLocaleDateString()
       }
     }
   }
@@ -61,15 +59,17 @@
 
 <style lang="scss" scoped>
 
+
   /* mixin for multiline */
   @mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: transparent){
-    overflow: hidden;
+
     position: relative;
     line-height: $lineHeight;
     max-height: calc(16 * 3)px;
     text-align: justify;
     margin-right: -1em;
     padding-right: 40px;
+
 
     &:before {
       content: '...';
@@ -109,15 +109,22 @@
   .post__content {
     max-width: 166px;
 
-    &-text {
-      @include multiLineEllipsis();
-    }
 
     &-text {
+      padding-right: 20px;
+      max-height: calc(16 * 3)px;
+      overflow: hidden;
+      font-size: 14Px;
       color: inherit;
 
       &:hover {
         text-decoration: none;
+      }
+    }
+
+    &-text {
+      h1, h2, h3, h4, h5 {
+        color: red;
       }
     }
   }

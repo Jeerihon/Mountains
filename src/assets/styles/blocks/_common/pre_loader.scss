@@ -42,14 +42,16 @@
 
 .preloader__circle {
   transform-origin: center;
-  animation: spin 1s infinite linear;
   &-1 {
+    animation: spin 1.9s infinite ease-in-out;
     transform: rotate(-135deg);
   }
   &-2 {
+    animation: spin 1.8s infinite ease-in-out;
     transform: rotate(-125deg);
   }
   &-3 {
+    animation: spin 2s infinite ease-in-out;
     transform: rotate(-115deg);
   }
 }
@@ -62,9 +64,11 @@
 
 @keyframes spin {
   from {
+    opacity: 1;
     stroke-dasharray: 0 439;
   }
   to {
     stroke-dasharray: 439 0;
+    opacity: 0;
   }
 }

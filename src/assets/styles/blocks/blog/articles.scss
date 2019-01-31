@@ -131,4 +131,35 @@
       margin-bottom: 0;
     }
   }
+
+  a {
+    background: linear-gradient(rgba($secondary, .8), rgba($secondary, .8)) no-repeat 0% 100%;
+    background-size: 0 2px;
+    color: $secondary;
+    text-decoration: none;
+    font-family: 'Roboto-Medium';
+    transition: background-size .3s;
+
+    &:hover {
+      background-size: 100% 2px;
+    }
+  }
+  
+  blockquote {
+    margin: 0 0 20px 40px;
+    position: relative;
+    padding: 15px 20px;
+    background-color: #f5f2f0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 100%;
+      display: block;
+      height: 100%;
+      width: 40px;
+      background-color: #e7e5e3;
+    }
+  }
 }

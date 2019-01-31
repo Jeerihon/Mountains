@@ -19,6 +19,7 @@ const info = {
       const letters = Array.from(el.children);
 
       let i = 0;
+
       function animate(letters) {
         const currentLetter = letters[i];
         let timer = setTimeout(() => {
@@ -52,39 +53,13 @@ const btns = {
   template: "#slider-btns",
   props: {
     works: Array,
-    index: Number
-  },
-  data() {
-    return {
-      prevBtnWorks: [],
-      nextBtnWorks: []
-    }
-  },
-  created() {
-    this.prevBtnWorks = this.transformWorksArrForBtn('prev');
-    this.nextBtnWorks = this.transformWorksArrForBtn('next');
+    index: Number,
+    prevBtnWorks: Array,
+    nextBtnWorks: Array
   },
   methods: {
     slide(direction) {
       this.$emit('slide', direction);
-    },
-    transformWorksArrForBtn(btnDirection) {
-      const worksArray = [...this.works];
-      const lastItem = worksArray[worksArray.length - 1];
-
-      switch (btnDirection) {
-        case 'next' :
-          worksArray.push(worksArray[0]);
-          worksArray.shift();
-          break;
-
-        case 'prev' :
-          worksArray.unshift(lastItem);
-          worksArray.pop();
-          break;
-      }
-
-      return worksArray;
     }
   }
 };
@@ -97,7 +72,9 @@ new Vue({
   data() {
     return {
       works: [],
-      currentIndex: 0
+      currentIndex: 0,
+      prevBtnWorks: [],
+      nextBtnWorks: []
     }
   },
   computed: {
@@ -113,6 +90,9 @@ new Vue({
   created() {
     axios.get('https://webdev-api.loftschool.com/works/91').then(response => {
       this.works = response.data
+    }).then(response => {
+      this.prevBtnWorks = this.transformWorksArrForBtn('prev');
+      this.nextBtnWorks = this.transformWorksArrForBtn('next');
     })
   },
   methods: {
@@ -136,6 +116,24 @@ new Vue({
           this.currentIndex -= 1;
           break
       }
+    },
+    transformWorksArrForBtn(btnDirection) {
+      const worksArray = [...this.works];
+      const lastItem = worksArray[worksArray.length - 1];
+
+      switch (btnDirection) {
+        case 'next' :
+          worksArray.push(worksArray[0]);
+          worksArray.shift();
+          break;
+
+        case 'prev' :
+          worksArray.unshift(lastItem);
+          worksArray.pop();
+          break;
+      }
+
+      return worksArray;
     }
   },
   template: "#slider-root"

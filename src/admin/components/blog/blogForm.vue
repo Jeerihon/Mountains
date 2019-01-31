@@ -7,7 +7,14 @@
         label.form__item
           input(type='text' placeholder="Название" v-model="post.title").form__input
         label.form__item.form__item--date
-          datepicker(placeholder="Дата" :language="ru" input-class="datepicker__input form__input" format="dd.MM.yyyy"  v-model="post.date").datepicker
+          datepicker(
+          placeholder="Дата"
+          :language="ru"
+          input-class="datepicker__input form__input"
+          format="dd.MM.yyyy"
+          v-model="post.date"
+          :disabledDates="disabledDates"
+          ).datepicker
 
     .editor
       ckeditor( :editor="editor" v-model="post.content" :config="editorConfig")
@@ -17,7 +24,6 @@
     :class="editMode? 'edit' : ''"
     ).form__btn {{editMode? 'Сохранить изменения' : 'Добавить'}}
 
-    pre {{post.date}}
 </template>
 
 <script>
@@ -54,10 +60,22 @@
               'imageupload',
               'bulletedlist',
               'numberedlist',
-              'blockquote'
+              'blockquote',
+              'codeblock'
             ]
           },
           language: 'ru'
+        },
+        disabledDates: {
+          customPredictor(date) {
+            const curDate = new Date();
+            const day = curDate.getDate();
+            const month = curDate.getMonth();
+            const year = curDate.getFullYear();
+            if (date.getDate() > day && date.getMonth() >= month || date.getMonth() > month  ||  date.getFullYear() > year) {
+              return true;
+            }
+          }
         },
         ru: ru
       }
@@ -84,7 +102,7 @@
       setExistedPost(existedPost) {
         this.post.id = existedPost.id;
         this.post.title = existedPost.title;
-        this.post.date = existedPost.date;
+        this.post.date = new Date(existedPost.date*1000).toLocaleDateString();
         this.post.content = existedPost.content;
       },
       addPost(post) {
@@ -244,8 +262,8 @@
       overflow-y: auto;
     }
 
-    .ck-focused{
-      border: 1px solid $main!important;
+    .ck-focused {
+      border: 1px solid $main !important;
     }
   }
 
