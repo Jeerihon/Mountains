@@ -63,7 +63,7 @@
     "vue-template-compiler": "2.5.13",
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.6",
+    "webpack-dev-server": "^3.1.14",
     "webpack-stream": "^4.0.3"
   },
   "browserslist": [
@@ -79,6 +79,7 @@
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
     "request": "^2.87.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
     "signale": "^1.1.0",
     "simple-vue-validator": "^0.16.0",
     "vue": "2.5.13",

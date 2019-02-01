@@ -9,7 +9,7 @@
           type='text'
           placeholder="Название"
           v-model="post.title"
-          :class="{error: validation.hasError('post.title')}"
+          :class="{error: validation.hasError('post.title') && validMode}"
           ).form__input
         label.form__item.form__item--date
           datepicker(
@@ -19,10 +19,10 @@
           format="dd.MM.yyyy"
           v-model="post.date"
           :disabledDates="disabledDates"
-          :class="{error: validation.hasError('post.date')}"
+          :class="{error: validation.hasError('post.date') && validMode}"
           ).datepicker
 
-    .editor(:class="{error: validation.hasError('post.content')}")
+    .editor(:class="{error: validation.hasError('post.content') && validMode}")
       ckeditor( :editor="editor" v-model="post.content" :config="editorConfig")
     button(
     type="button"
@@ -65,6 +65,7 @@
           date: "",
           content: ""
         },
+        validMode: false,
         editor: ClassicEditor,
         editorData: '',
         editorConfig: {
@@ -127,6 +128,7 @@
       },
       addPost(post) {
         this.addNewPost(post).then(response => {
+          this.validMode = !this.validMode;
           this.$validate().then(success => {
             if (!success) return;
             this.resetInput();
@@ -136,6 +138,7 @@
       },
       editCurPost(post) {
         this.editPost(post).then(response => {
+          this.validMode = !this.validMode;
           this.resetInput()
           this.tooglingMode();
           this.resetEditItem();
