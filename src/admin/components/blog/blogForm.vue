@@ -139,7 +139,7 @@
       editCurPost(post) {
         this.editPost(post).then(response => {
           this.validMode = !this.validMode;
-          this.resetInput()
+          this.resetInput();
           this.tooglingMode();
           this.resetEditItem();
           console.log(response)

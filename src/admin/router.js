@@ -33,26 +33,25 @@ const routes = [
 ]
 
 const router = new VueRouter({routes});
-// const guard = axios.create({
-//   baseURL: 'https://webdev-api.loftschool.com'
-// });
+const guard = axios.create({
+  baseURL: 'https://webdev-api.loftschool.com'
+});
 
 router.beforeEach((to, from, next) => {
   const isPrivate = to.matched.some(record => record.meta.auth)
   
   if (isPrivate === true) {
-    next()
-    // guard.get('/user', {
-    //   headers: {
-    //     Authorization: `Bearer ${localStorage.getItem('token')}`
-    //   }
-    // }).then(response => {
-    //   next();
-    // }).catch(error => {
-    //   location.replace("/");
-    //   localStorage.removeItem('token');
-    //
-    // })
+    guard.get('/user', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then(response => {
+      next();
+    }).catch(error => {
+      location.replace("/");
+      localStorage.removeItem('token');
+
+    })
   } else {
     next();
   }
