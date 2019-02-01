@@ -93,6 +93,7 @@ new Vue({
     }).then(response => {
       this.prevBtnWorks = this.transformWorksArrForBtn('prev');
       this.nextBtnWorks = this.transformWorksArrForBtn('next');
+      console.log(response)
     })
   },
   methods: {

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import SimpleVueValidation from 'simple-vue-validator';
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 const Validator = SimpleVueValidation.Validator;
 
@@ -45,7 +45,7 @@ new Vue({
     }
   },
   methods: {
-    ...mapMutations({
+    ...mapActions({
         authorize: 'user/authorize'
     }),
     login() {
