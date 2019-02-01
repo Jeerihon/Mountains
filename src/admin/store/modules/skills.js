@@ -1,7 +1,9 @@
 const skills = {
   namespaced: true,
   state: {
-    skills: []
+    skills: [],
+    showPopup: false,
+    popupMessage: ''
   },
   mutations: {
     fillUpSkills: (state, skills) => state.skills = skills,
@@ -13,7 +15,12 @@ const skills = {
     editSkill: (state, editedSkill) =>
       (state.skills = state.skills.map(skill => {
         return skill.id === editedSkill.id ? editedSkill : skill
-      }))
+      })),
+    popupShow: (state, message) => {
+      state.showPopup = true;
+      state.popupMessage = message;
+    },
+    hidePopup: (state) => state.showPopup = false
   },
   data() {
     return {
@@ -30,9 +37,11 @@ const skills = {
       return this.$axios.post('/skills', payload).then(
         response => {
           commit('addNewSkill', response.data);
+          commit('popupShow', "Запись добавлена");
           return response
         }
       ).catch(error => {
+        commit('popupShow', "Что-то пошло не так");
         throw error
       });
     },
@@ -46,6 +55,7 @@ const skills = {
 
       this.$axios.post(`/skills/${skill.id}`, formData).then(response => {
           commit('editSkill', response.data.skill);
+          commit('popupShow', response.data.message);
           return response
         }
       ).catch(error => {
@@ -54,8 +64,12 @@ const skills = {
     },
     remove({commit}, skillId) {
       this.$axios.delete(`/skills/${skillId}`).then(response => {
-        commit('removeSkill', skillId)
+        commit('removeSkill', skillId);
+        commit('popupShow', response.data.message);
       })
+    },
+    hide({commit}) {
+      commit('hidePopup')
     }
   }
 };

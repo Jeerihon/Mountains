@@ -9,17 +9,20 @@
       .content__bg
       transition(name="fade" mode="out-in")
         router-view
+
+    popup
 </template>
 
 <script>
   import adminHeader from './components/common/adminHeader';
   import adminNav from './components/common/adminNav';
+  import popup from './components/common/popup';
   import {mapState} from 'vuex';
 
 
   export default {
     components: {
-      adminHeader, adminNav
+      adminHeader, adminNav, popup
     },
     computed: {
       ...mapState({
@@ -73,6 +76,7 @@
   }
 
   #root {
+    position: relative;
     height: 100%;
     display: flex;
     flex-flow: column;

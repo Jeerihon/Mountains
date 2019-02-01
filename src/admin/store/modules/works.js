@@ -4,7 +4,9 @@ const works = {
     works: [],
     existedWork: [],
     editMode: false,
-    editItem: null
+    editItem: null,
+    showPopup: false,
+    popupMessage: ''
   },
   mutations: {
     addNewWork: (state, work) => state.works.push(work),
@@ -20,9 +22,19 @@ const works = {
     removeWork: (state, workToRemoveId) =>
       (state.works = state.works.filter(
         work => work.id !== workToRemoveId
-      ))
+      )),
+    popupShow: (state, message) => {
+      state.showPopup = true;
+      state.popupMessage = message;
+    },
+    hidePopup: (state) => state.showPopup = false
   },
   actions: {
+    fetch({commit}) {
+      this.$axios.get('/works/91').then(response => {
+        commit('fillUpWorks', response.data)
+      })
+    },
     add({commit}, work) {
       const formData = new FormData();
 
@@ -32,12 +44,8 @@ const works = {
       });
 
       this.$axios.post('/works', formData).then(response => {
-        commit('addNewWork', response.data)
-      })
-    },
-    fetch({commit}) {
-      this.$axios.get('/works/91').then(response => {
-        commit('fillUpWorks', response.data)
+        commit('addNewWork', response.data);
+        commit('popupShow', response.data.message);
       })
     },
     edit({commit}, work) {
@@ -49,7 +57,8 @@ const works = {
       });
 
       this.$axios.post(`/works/${work.id}`, formData).then(response => {
-        commit('editWork', response.data.work)
+        commit('editWork', response.data.work);
+        commit('popupShow', response.data.message);
           return response
         }
       ).catch(error => {
@@ -70,7 +79,8 @@ const works = {
     },
     remove({ commit }, workId) {
       this.$axios.delete(`/works/${workId}`).then(response => {
-        commit('removeWork', workId)
+        commit('removeWork', workId);
+        commit('popupShow', response.data.message);
       })
     }
   }

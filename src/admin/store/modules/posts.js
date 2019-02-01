@@ -5,7 +5,9 @@ const posts = {
     existedPost: [],
     editMode: false,
     editItem: null,
-    postDate: ''
+    postDate: '',
+    showPopup: false,
+    popupMessage: ''
   },
   mutations: {
     addNewPost: (state, post) => state.posts.push(post),
@@ -22,9 +24,19 @@ const posts = {
       (state.posts = state.posts.filter(
         post => post.id !== postToRemoveId
       )),
-    setPostDate: (state, date) => state.postDate = date
+    setPostDate: (state, date) => state.postDate = date,
+    popupShow: (state, message) => {
+      state.showPopup = true;
+      state.popupMessage = message;
+    },
+    hidePopup: (state) => state.showPopup = false
   },
   actions: {
+    fetch({commit}) {
+      this.$axios.get('/posts/91').then(response => {
+        commit('fillUpPosts', response.data)
+      })
+    },
     add({commit}, post) {
       const formData = new FormData();
 
@@ -43,12 +55,8 @@ const posts = {
       formData.append("date", editedDate);
 
       this.$axios.post('/posts', formData).then(response => {
-        commit('addNewPost', response.data)
-      })
-    },
-    fetch({commit}) {
-      this.$axios.get('/posts/91').then(response => {
-        commit('fillUpPosts', response.data)
+        commit('addNewPost', response.data);
+        commit('popupShow', response.data.message);
       })
     },
     edit({commit}, post) {
@@ -72,6 +80,7 @@ const posts = {
       this.$axios.post(`/posts/${post.id}`, formData).then(response => {
           commit('editPost', response.data.post);
           commit('setEditItem', response.data.post);
+          commit('popupShow', response.data.message);
           return response
         }
       ).catch(error => {
@@ -92,7 +101,8 @@ const posts = {
     },
     remove({commit}, postId) {
       this.$axios.delete(`/posts/${postId}`).then(response => {
-        commit('removePost', postId)
+        commit('removePost', postId);
+        commit('popupShow', response.data.message);
       })
     }
   }
