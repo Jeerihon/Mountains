@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import axios from 'axios';
 import SimpleVueValidation from 'simple-vue-validator';
-import { mapActions } from 'vuex';
 
 const Validator = SimpleVueValidation.Validator;
 
@@ -45,9 +44,6 @@ new Vue({
     }
   },
   methods: {
-    ...mapActions({
-        authorize: 'user/authorize'
-    }),
     login() {
 
       // Проверяем поля на валидность
@@ -59,7 +55,7 @@ new Vue({
           // и перенаправляем на страницу админ панели
           if (response.status === 200) {
             localStorage.setItem('token', response.data.token);
-            this.authorize();
+
 
             location.replace("/admin");
           }

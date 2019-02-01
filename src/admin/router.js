@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import axios from 'axios';
-import store from './store';
 
 Vue.use(VueRouter);
 
@@ -40,10 +39,9 @@ const guard = axios.create({
 
 router.beforeEach((to, from, next) => {
   const isPrivate = to.matched.some(record => record.meta.auth)
-  const isUserAuthorized = store.state.user.isAuth;
 
   
-  if (isPrivate === true && isUserAuthorized === false) {
+  if (isPrivate === true) {
     guard.get('/user', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
