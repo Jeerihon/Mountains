@@ -33,5 +33,5 @@ script(type="text/x-template")#skill
   .skill
     svg(viewBox="0 0 120 120" preserveAspectRatio="none").circle__percentage
       circle(cx="60" cy="60" r="50" stroke-width='40' stroke='#00bfa5' fill='none').circle--under.circle
-      circle(cx="60" cy="60" r="50" stroke-width='40' stroke='#00bfa5' fill='none' ref="circle").circle--above.circle
+      circle(v-scroll="handleScroll" cx="60" cy="60" r="50" stroke-width='40' stroke='#00bfa5' fill='none' ref="circle").circle--above.circle
     span.skill__tech-name {{skillTitle}}

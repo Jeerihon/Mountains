@@ -32,14 +32,13 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({routes});
 const guard = axios.create({
   baseURL: 'https://webdev-api.loftschool.com'
 });
 
 router.beforeEach((to, from, next) => {
   const isPrivate = to.matched.some(record => record.meta.auth)
-
   
   if (isPrivate === true) {
     guard.get('/user', {
@@ -59,4 +58,4 @@ router.beforeEach((to, from, next) => {
 });
 
 
-export default new VueRouter({routes, mode: 'history'})
+export default router;

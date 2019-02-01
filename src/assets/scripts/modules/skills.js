@@ -1,21 +1,42 @@
 import Vue from 'vue';
 import axios from "axios/index";
 
+Vue.directive('scroll', {
+  inserted: function (el, binding) {
+    let f = function () {
+      if (binding.value(el)) {
+        window.removeEventListener('scroll', f)
+      }
+    }
+    window.addEventListener('scroll', f)
+  }
+})
+
 const skill = {
   props: {
     skillTitle: String,
     skillPercentage: Number
   },
   methods: {
-    drawCircleDependsOnPercentage() {
-      const circle = this.$refs['circle'];
-      const percent = -this.skillPercentage;
+    handleScroll: function (el) {
+      const circle = this.$refs["circle"];
+      let wScroll = window.pageYOffset;
+      let windowMargin = window.innerHeight / 2;
+      let svgPos = el.getBoundingClientRect().top;
+      let startAnimate = wScroll - svgPos + windowMargin;
 
-      circle.style.animationDelay = `${percent}s`;
+      const dashOffset = 314;
+      const requiredDashoffset = (dashOffset / 100) * (100 - this.skillPercentage);
+
+      if (startAnimate >= (svgPos - dashOffset)) {
+        circle.style.strokeDashoffset = requiredDashoffset;
+      }
+
+      if (startAnimate > 2000 || startAnimate < 100) {
+
+        circle.style.strokeDashoffset = dashOffset
+      }
     }
-  },
-  mounted() {
-    this.drawCircleDependsOnPercentage();
   },
   template: "#skill"
 };
@@ -25,7 +46,7 @@ const skillsItem = {
     skill
   },
   props: {
-    type: Number,
+    type: Object,
     skills: Array
   },
   template: "#skills-item",
