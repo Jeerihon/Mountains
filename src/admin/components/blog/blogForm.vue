@@ -5,7 +5,12 @@
       form.form
         h3.form__title {{editMode? 'Изменить запись' : 'Добавить запись'}}
         label.form__item
-          input(type='text' placeholder="Название" v-model="post.title").form__input
+          input(
+          type='text'
+          placeholder="Название"
+          v-model="post.title"
+          :class="{error: validation.hasError('post.title')}"
+          ).form__input
         label.form__item.form__item--date
           datepicker(
           placeholder="Дата"
@@ -14,9 +19,10 @@
           format="dd.MM.yyyy"
           v-model="post.date"
           :disabledDates="disabledDates"
+          :class="{error: validation.hasError('post.date')}"
           ).datepicker
 
-    .editor
+    .editor(:class="{error: validation.hasError('post.content')}")
       ckeditor( :editor="editor" v-model="post.content" :config="editorConfig")
     button(
     type="button"
@@ -31,10 +37,25 @@
   import Datepicker from 'vuejs-datepicker';
   import {ru} from 'vuejs-datepicker/dist/locale'
   import {mapActions, mapState} from "vuex";
+  import SimpleVueValidator from 'simple-vue-validator';
+
+  const Validator = SimpleVueValidator.Validator;
 
   export default {
     components: {
       Datepicker
+    },
+    mixins: [SimpleVueValidator.mixin],
+    validators: {
+      'post.title'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+      'post.date'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+      'post.content'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      }
     },
     data() {
       return {
@@ -60,8 +81,7 @@
               'imageupload',
               'bulletedlist',
               'numberedlist',
-              'blockquote',
-              'codeblock'
+              'blockquote'
             ]
           },
           language: 'ru'
@@ -107,9 +127,11 @@
       },
       addPost(post) {
         this.addNewPost(post).then(response => {
-
-          this.resetInput()
-          console.log(response)
+          this.$validate().then(success => {
+            if (!success) return;
+            this.resetInput();
+            console.log(response)
+          })
         })
       },
       editCurPost(post) {
@@ -202,11 +224,19 @@
     &:focus {
       border: 2px solid $main;
     }
+
+    &.error {
+      border: 2px solid $red;
+    }
   }
 
   .datepicker {
     width: 100%;
-
+    &.error {
+      .form__input {
+        border: 2px solid $red;
+      }
+    }
   }
 
   .form__item--date {
@@ -264,6 +294,12 @@
 
     .ck-focused {
       border: 1px solid $main !important;
+    }
+
+    &.error {
+      .ck-content {
+        border: 1px solid $red !important;
+      }
     }
   }
 

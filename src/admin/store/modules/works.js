@@ -45,7 +45,7 @@ const works = {
 
       this.$axios.post('/works', formData).then(response => {
         commit('addNewWork', response.data);
-        commit('popupShow', response.data.message);
+        commit('popupShow', "Запись добавлена");
       })
     },
     edit({commit}, work) {
@@ -82,6 +82,9 @@ const works = {
         commit('removeWork', workId);
         commit('popupShow', response.data.message);
       })
+    },
+    hide({commit}) {
+      commit('hidePopup')
     }
   }
 };

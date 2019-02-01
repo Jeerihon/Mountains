@@ -1,29 +1,64 @@
 <template lang="pug">
   tr(v-if="editMode === false").skill
     td.skill__name {{editingMode? '' : skill.title}}
-      input(v-show='editingMode' type='text' :placeholder='newSkill.title' v-model='newSkill.title').skill__input.skill__input--name
+      input(
+        v-show='editingMode'
+        type='text'
+        :placeholder='newSkill.title'
+        v-model='newSkill.title'
+      ).skill__input.skill__input--name
     td.skill__percentage {{editingMode? '' : skill.percents}}
-      input(v-show='editingMode' type='text' :placeholder='newSkill.percents' v-model='newSkill.percents').skill__input.skill__input--percentage
+      input(
+        v-show='editingMode'
+        type='text'
+        pattern="\d [0-9]"
+        :placeholder='newSkill.percents'
+        v-model='newSkill.percents'
+        :class="{error: validation.hasError('newSkill.percents')}"
+      ).skill__input.skill__input--percentage
     td.skill__percent %
     td.skill__button--container
-      button(v-show='!editingMode' @click="editExistedSkill(skill)" type='button').button
+      button(
+        v-show='!editingMode'
+        @click="editExistedSkill(skill)"
+        type='button'
+      ).button
         img(src="../../../assets/images/admin/pencil.png")
-      button(v-show='editingMode' type='button' @click="editingSkill(newSkill)").button
+      button(
+        v-show='editingMode'
+        type='button'
+        @click="editingSkill(newSkill)"
+      ).button
         img(src="../../../assets/images/admin/checked.png")
     td.skill__button--container
-      button(type='button' @click="removeSkill(skill.id)").button
+      button(
+        type='button'
+        @click="removeSkill(skill.id)"
+      ).button
         img(src="../../../assets/images/admin/cancel.png")
 
   .skills-input__container(v-else)
-    input(type='text' placeholder="Название" v-model='newSkill.title').skill__input.skills-input__item
+    input( :class="{error: validation.hasError('newSkill.title')}" type='text' placeholder="Название" v-model='newSkill.title').skill__input.skills-input__item
     button(type='button' @click="addNewSkill(newSkill)").skills-input__btn Добавить
 
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
+  import {mapActions} from 'vuex';
+  import SimpleVueValidator from 'simple-vue-validator';
+
+  const Validator = SimpleVueValidator.Validator;
 
   export default {
+    mixins: [SimpleVueValidator.mixin],
+    validators: {
+      'newSkill.title'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+      'newSkill.percents'(value) {
+        return Validator.value(value).lessThanOrEqualTo(100).required('Необходимо заполнить все поля');
+      }
+    },
     props: {
       skill: {
         type: Object,
@@ -57,9 +92,12 @@
         editSkill: 'skills/edit'
       }),
       addNewSkill(newSkill) {
-        this.addNewSkillAction(newSkill).then(response => {
-          this.newSkill.title = '';
-          console.log(response)
+        this.$validate().then(success => {
+          if (!success) return;
+          this.addNewSkillAction(newSkill).then(response => {
+            this.newSkill.title = '';
+            console.log(response)
+          })
         })
       },
       editExistedSkill(existedSkill) {
@@ -70,8 +108,11 @@
         this.newSkill.category = existedSkill.category;
       },
       editingSkill(newSkill) {
-        this.editSkill(newSkill);
-        this.editingMode = false;
+        this.$validate().then(success => {
+          if (!success) return;
+          this.editSkill(newSkill);
+          this.editingMode = false;
+        })
       }
     }
   }
@@ -90,7 +131,7 @@
   }
 
   .skill__name {
-    padding-left:  20px;
+    padding-left: 20px;
     max-width: 170px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -175,6 +216,10 @@
 
     &:focus {
       border: 2px solid $main;
+    }
+
+    &.error {
+      border: 2px solid $red;
     }
   }
 </style>

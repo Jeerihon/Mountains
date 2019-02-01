@@ -5,12 +5,18 @@
       form.form
         h3.form__title {{editMode? 'Изменить работу' : 'Добавить работу'}}
         label.form__item
-          input(type='text' name='name' placeholder='Название проекта' v-model="work.title").form__input
+          input(type='text' name='name' placeholder='Название проекта' v-model="work.title"
+          :class="{error: validation.hasError('work.title')}"
+          ).form__input
         label.form__item
-          input(type='text' name='techs' placeholder='Технологии' v-model="work.techs").form__input
+          input(type='text' name='techs' placeholder='Технологии' v-model="work.techs"
+          :class="{error: validation.hasError('work.techs')}"
+          ).form__input
         label.form__item
-          input(type='text' name='link' placeholder='Ссылка' v-model="work.link").form__input
-    label(for="image").form__item.form__item--imgUpload
+          input(type='text' name='link' placeholder='Ссылка' v-model="work.link"
+          :class="{error: validation.hasError('work.link')}"
+          ).form__input
+    label(for="image" :class="{error: validation.hasError('work.photo')}").form__item.form__item--imgUpload
       input(type='file' name='image' id="image" @change="renderPicAndAddToData").form__imgUpload-stoc
       img(
           v-show="!editMode"
@@ -21,7 +27,7 @@
       span.form__imgUpload-btn {{editMode? 'Изменить картинку' : 'Загрузить картинку'}}
     button(
       type="button"
-      @click="editMode? editCurWork(work) : addNewWork(work)"
+      @click="editMode? editCurWork(work) : addWork(work)"
       :class="editMode? 'edit' : ''"
     ).form__btn {{editMode? 'Сохранить изменения' : 'Добавить'}}
 
@@ -30,8 +36,26 @@
 
 <script>
   import { mapActions, mapState } from "vuex";
+  import SimpleVueValidator from 'simple-vue-validator';
+
+  const Validator = SimpleVueValidator.Validator;
 
   export default {
+    mixins: [SimpleVueValidator.mixin],
+    validators: {
+      'work.title'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+      'work.techs'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+      'work.link'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+      'work.photo'(value) {
+        return Validator.value(value).required('Необходимо заполнить все поля');
+      },
+    },
     data() {
        return {
          previewPic: "",
@@ -91,6 +115,12 @@
           this.tooglingMode();
           this.resetEditItem();
           console.log(response)
+        })
+      },
+      addWork(work) {
+        this.$validate().then(success => {
+          if (!success) return;
+          this.addNewWork(work);
         })
       }
     }
@@ -155,6 +185,12 @@
       align-items: center;
       margin: 55px 0;
 
+      &.error {
+        .form__imgUpload-btn {
+          color: $red;
+        }
+      }
+
       @include tablets {
         margin: 0 0 30px 0;
       }
@@ -172,6 +208,10 @@
 
     &:focus {
       border: 2px solid $main;
+    }
+
+    &.error {
+      border: 2px solid $red;
     }
   }
 

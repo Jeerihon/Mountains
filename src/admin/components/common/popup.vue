@@ -1,5 +1,5 @@
 <template lang="pug">
-  .popup(:class="showPopup ? 'show' : ''")
+  .popup(:class="showPopupS || showPopupP || showPopupW ? 'show' : ''")
     span.popup__text {{message}}
     button(type="button" @click="hide").popup__button Закрыть
 
@@ -9,16 +9,47 @@
   import {mapState, mapActions} from "vuex";
 
   export default {
+    data() {
+      return {
+        message: ''
+      }
+    },
     computed: {
       ...mapState('skills', {
-        showPopup: state => state.showPopup,
-        message: state => state.popupMessage
+        showPopupS: state => state.showPopup,
+        messageS: state => state.popupMessage
+      }),
+      ...mapState('posts', {
+        showPopupP: state => state.showPopup,
+        messageP: state => state.popupMessage
+      }),
+      ...mapState('works', {
+        showPopupW: state => state.showPopup,
+        messageW: state => state.popupMessage
       })
+    },
+    watch: {
+      messageS(value) {
+        this.message = value;
+      },
+      messageP(value) {
+        this.message = value;
+      },
+      messageW(value) {
+        this.message = value;
+      },
     },
     methods: {
       ...mapActions({
-        hide: 'skills/hide'
-      })
+        hideSkill: 'skills/hide',
+        hidePost: 'posts/hide',
+        hideWork: 'works/hide'
+      }),
+      hide() {
+        this.hideSkill();
+        this.hidePost();
+        this.hideWork();
+      }
     }
   }
 </script>
