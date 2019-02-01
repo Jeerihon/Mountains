@@ -6,17 +6,17 @@
         h3.form__title {{editMode? 'Изменить работу' : 'Добавить работу'}}
         label.form__item
           input(type='text' name='name' placeholder='Название проекта' v-model="work.title"
-          :class="{error: validation.hasError('work.title')}"
+          :class="{error: validation.hasError('work.title') && validMode}"
           ).form__input
         label.form__item
           input(type='text' name='techs' placeholder='Технологии' v-model="work.techs"
-          :class="{error: validation.hasError('work.techs')}"
+          :class="{error: validation.hasError('work.techs') && validMode}"
           ).form__input
         label.form__item
           input(type='text' name='link' placeholder='Ссылка' v-model="work.link"
-          :class="{error: validation.hasError('work.link')}"
+          :class="{error: validation.hasError('work.link') && validMode}"
           ).form__input
-    label(for="image" :class="{error: validation.hasError('work.photo')}").form__item.form__item--imgUpload
+    label(for="image" :class="{error: validation.hasError('work.photo') && validMode && !editMode}").form__item.form__item--imgUpload
       input(type='file' name='image' id="image" @change="renderPicAndAddToData").form__imgUpload-stoc
       img(
           v-show="!editMode"
@@ -65,7 +65,8 @@
            techs: "",
            link: "",
            photo: ""
-         }
+         },
+         validMode: false
        }
     },
     computed: {
@@ -108,6 +109,7 @@
       },
       editCurWork(work) {
         this.editWork(work).then(response => {
+          this.validMode = false;
           this.work.title ="";
           this.work.techs ="";
           this.work.link = "";
@@ -119,6 +121,7 @@
       },
       addWork(work) {
         this.$validate().then(success => {
+          this.validMode = !this.validMode;
           if (!success) return;
           this.addNewWork(work);
         })
