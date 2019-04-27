@@ -23,8 +23,7 @@
     props: {
       post: {
         type: Object,
-        default: () => {
-        }
+        default: () => ({})
       }
     },
     data() {

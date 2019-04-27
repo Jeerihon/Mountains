@@ -26,7 +26,7 @@
     props: {
       type: {
         type: Object,
-        default: () => {}
+        default: () => ({})
       },
       skills: {
         type: Array,

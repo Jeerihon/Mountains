@@ -7,14 +7,14 @@
         :placeholder='newSkill.title'
         v-model='newSkill.title'
       ).skill__input.skill__input--name
-    td.skill__percentage {{editingMode? '' : skill.percents}}
+    td.skill__percentage {{editingMode? '' : skill.percent}}
       input(
         v-show='editingMode'
         type='text'
         pattern="\d [0-9]"
-        :placeholder='newSkill.percents'
-        v-model='newSkill.percents'
-        :class="{error: validation.hasError('newSkill.percents')}"
+        :placeholder='newSkill.percent'
+        v-model='newSkill.percent'
+        :class="{error: validation.hasError('newSkill.percent')}"
       ).skill__input.skill__input--percentage
     td.skill__percent %
     td.skill__button--container
@@ -55,15 +55,14 @@
       'newSkill.title'(value) {
         return Validator.value(value).required('Необходимо заполнить все поля');
       },
-      'newSkill.percents'(value) {
+      'newSkill.percent'(value) {
         return Validator.value(value).lessThanOrEqualTo(100).required('Необходимо заполнить все поля');
       }
     },
     props: {
       skill: {
         type: Object,
-        default: () => {
-        }
+        default: () => ({})
       },
       editMode: {
         type: Boolean,
@@ -80,7 +79,7 @@
         newSkill: {
           id: 0,
           title: "",
-          percents: 0,
+          percent: 0,
           category: this.typeId
         }
       }
@@ -104,7 +103,7 @@
         this.editingMode = true;
         this.newSkill.id = existedSkill.id;
         this.newSkill.title = existedSkill.title;
-        this.newSkill.percents = existedSkill.percents;
+        this.newSkill.percent = existedSkill.percent;
         this.newSkill.category = existedSkill.category;
       },
       editingSkill(newSkill) {

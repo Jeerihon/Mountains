@@ -7,10 +7,10 @@ Vue.directive('scroll', {
       if (binding.value(el)) {
         window.removeEventListener('scroll', f)
       }
-    }
+    };
     window.addEventListener('scroll', f)
   }
-})
+});
 
 const skill = {
   props: {
@@ -33,7 +33,6 @@ const skill = {
       }
 
       if (startAnimate > 2000 || startAnimate < 100) {
-
         circle.style.strokeDashoffset = dashOffset
       }
     }
